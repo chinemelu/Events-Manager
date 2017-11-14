@@ -6,8 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet' href='../Bootstrap/css/bootstrap.min.css'>
     <link rel="stylesheet" href='../Bootstrap/font-awesome-4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href='./style.css'>
   </head>
-  <body>
+    <body>
+    <header>
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded" id='navbar-override'>
+        <a class="no-highlight navbar-brand" href="#">
+<!--    <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">-->
+          Events-Manager
+        </a>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <div id='float'>
+            <span class="navbar-text">
+              <a class='no-highlight' href='../user-signin/index.html'>SIGN IN</a>
+            </span>
+            <span class="navbar-text">
+             <a class="no-highlight" href='#'>|</a>
+            </span>
+            <span class="navbar-text">
+              <a id="highlight" href='../user-signup/index.html'>SIGN UP</a>
+            </span>
+          </div>
+        </div>
+        </nav>
+      </header>
+      <section id='signin-form'>
+        <div class="container">
+          <div class="row">
+            <form action="../centres" method="post">
+              <div class="form-group">
+                <h3>Register</h3>
+                <p>Fill in the form to register into Events Manager</p>
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputemail">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Re-Enter Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password">
+              </div>
+              <button type="submit" class="btn">Register</button>
+            </form>
+          </div>
+        </div>
+      </section>
     <script src='../Bootstrap/js/jquery-3.2.1.min.js'></script>  
     <script src='../Bootstrap/js/tether.min.js'></script>
     <script src='../Bootstrap/js/bootstrap.min.js'></script>
