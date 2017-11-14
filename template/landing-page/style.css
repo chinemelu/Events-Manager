@@ -1,0 +1,124 @@
+body{
+    background-color: black;
+}
+
+#navbar-override {
+    background-color: black;
+}
+
+#navbar-override a {
+    color: white;
+}
+
+.navbar-collapse {
+    width: 100%;
+    float right;
+}
+
+#float {
+    text-align: right;
+    width: 100%;
+    float: right;
+}
+
+#float a {
+    list-style: none;
+    text-decoration: none;
+}
+
+/*Showcase*/
+
+#showcase{
+    min-height: 600px;
+    font-family: sans-serif;
+    background: url(events-centre-0.jpg) no-repeat 0 -20px; 
+    background-size: cover;
+    text-align: center;  
+}
+
+.showcase-container{
+    background-color: black; 
+    color: #ffffff;
+}
+
+.search{
+    background-color: red;
+    display: inline-block;
+    width: 100%
+}
+
+.search div {
+    width: 30%;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+}
+
+.search-text i{
+    font-size: 300%
+    width: 50%;
+    float: left;
+}
+
+.search-text h1{
+    width: 50%
+    float: right;
+}
+
+
+.box-container{
+    overflow: hidden;
+}
+
+#what-app-does{
+   margin-top: 20px;
+}
+
+#what-app-does .box{
+    float: left;
+    text-align: center;
+    width: 46%;
+    color: white;
+}
+
+.adjust-img0 img {
+    height: 500px;
+    overflow: hidden;
+    margin-left: 3%;
+    width: 100%
+}
+
+.adjust-img1 img{
+    width: 120%;
+    overflow: hidden;
+    height: 500px;
+     margin-left: 7%;
+}
+
+#what-app-does .box-1{
+    float: left;
+    text-align: center;
+    width: 46%;
+    color: white;
+}
+
+.adjust-img2 img{
+    width: 100%;
+    overflow: hidden;
+    margin-left: 3%;
+    height: 500px;
+}
+
+.adjust-img3 img{
+    width: 118.5%;
+    overflow: hidden;
+    margin-left: 7%;
+    overflow: hidden;
+    height: 500px;
+}
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "events-manager",
+  "version": "1.0.0",
+  "description": "An application that helps admin to manage its events centres, and users to manage its events",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinemelu/Events-Manager.git"
+  },
+  "author": "Chinemelu Nwosu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chinemelu/Events-Manager/issues"
+  },
+  "homepage": "https://github.com/chinemelu/Events-Manager#readme"
+}
