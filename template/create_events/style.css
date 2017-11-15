@@ -1,0 +1,147 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container{
+  width: 100%;
+  padding: 0
+}
+
+#override-navbar{
+    margin-bottom: 2%;
+    background-color: black;
+}
+
+#override-navbar a {
+  color: white;
+}
+
+.dropdown-menu a{
+    color: black !important;
+}
+
+.navbar{
+    background-color: #dcdcdc;
+}
+
+nav ul {
+    width: 76%;
+}
+
+
+nav li {
+    margin-left: 3%;
+    width: 15%
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.fa-camera{
+    font-size: 600%;
+}
+
+#heading{
+  width: 70%;
+  margin-left: 27%;
+  text-align: left;
+  font-size: 130%;
+}
+
+#heading p{
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 3%
+}
+
+.photo-section{
+    width: 20%;
+    text-align: center;
+    margin-left: 5%;
+}
+
+.form-section{
+    width: 70%;
+    float: right;
+    margin-right: 3%;
+    margin-top: -11%
+}
+
+.camera-icon {
+    width: 70%;
+    border: 1px solid black;
+    padding: 5% 10% 5% 10%;
+    vertical-align: middle;
+}
+
+.camera-icon:hover{
+   border-color: goldenrod;
+}
+
+#search{
+  background-color: goldenrod
+}
+
+#event-type{
+  width: 48%;
+  float: left;
+  margin-bottom: 3%;
+}
+
+#event-setup{
+  width: 48%;
+  float: right;
+  margin-bottom: 3%
+}
+
+#number-of-attendees{
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+  margin-bottom: 3%;
+}
+
+#start-date{
+  width: 22%;
+  float: left;
+  margin-right: 4%;
+  margin-bottom: 3%
+}
+
+#end-date{
+  width: 22%;
+  float: left;
+  margin-bottom: 3%;
+}
+
+#additional-details{
+  clear: both;
+  margin-bottom: 3%
+}
+
+#select-centre{
+  margin-bottom: 3%;
+}
+
+#delete{
+  margin-left: 2%;
+}
+
+#edit{
+  margin-left: 2%
+}
+
+.form-control:focus, input:focus, input[type]:focus, .form-control:hover {
+  border-color: goldenrod
+}
+
+#submit{
+  background-color: goldenrod;
+  color: #ffffff;
+}
