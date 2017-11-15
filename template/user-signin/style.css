@@ -1,0 +1,54 @@
+body{
+    background-color: goldenrod;
+}
+
+#highlight{
+    color: goldenrod
+}
+
+#navbar-override {
+    background-color: black;
+}
+
+#navbar-override .no-highlight {
+    color: white;
+}
+
+.navbar-collapse {
+    width: 100%;
+    float right;
+}
+
+#float {
+    text-align: right;
+    width: 100%;
+    float: right;
+}
+
+#float a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.row{
+    margin-top: 14%;
+    margin-left: 32.5%;
+}
+
+.btn {
+    background-color: goldenrod;
+    color: #ffffff;
+    cursor: pointer;  
+}
+
+#signin-form form{
+    border: 1px solid goldenrod;
+    padding: 5%;
+    background-color: #ffffff
+}
+
+#forgotten-password{
+    color: black;
+    text-decoration: none;
+    margin-left: 10%;
+}
