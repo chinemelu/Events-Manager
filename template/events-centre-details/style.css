@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+#search {
+  background-color: goldenrod; }
+
+.col-md-12 {
+  padding: 0; }
+
+.container {
+  width: 80%;
+  margin-left: 10%; }
+
+#override-navbar {
+  margin-bottom: 2%;
+  background-color: black; }
+  #override-navbar a {
+    color: #ffffff; }
+
+.dropdown-menu a {
+  color: black !important; }
+
+.navbar {
+  background-color: #dcdcdc; }
+
+nav ul {
+  width: 76%; }
+
+nav li {
+  margin-left: 3%;
+  width: 15%; }
+
+button {
+  cursor: pointer; }
+
+.btn {
+  cursor: pointer; }
+
+#picture-carousel {
+  display: inline-block;
+  width: 70.3%;
+  text-align: center;
+  margin-top: 1%; }
+  #picture-carousel img {
+    width: 20%;
+    float: left; }
+
+.modal {
+  text-align: center; }
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%; } }
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  margin-left: -6%; }
+
+.modal-body img {
+  width: 100%; }
+
+#description {
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  #description .heading {
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ccc;
+    font-size: 150%; }
+
+#upcoming-events {
+  width: 80%;
+  clear: both;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  #upcoming-events .heading {
+    border-bottom: 1px solid #ccc;
+    margin: 0%;
+    font-size: 150%; }
+
+.event-summary {
+  border-bottom: 1px solid #ccc; }
+
+.main-heading {
+  font-size: 120%; }
+
+#signin-form {
+  width: 30%;
+  float: right; }
+
+.separator {
+  width: 70%;
+  float: left; }
+
+#signin-form form {
+  border: 3px solid #f5f5f5;
+  padding: 5%;
+  color: black;
+  background-color: #ffffff;
+  margin-top: 34%; }
+
+#inspection-button {
+  color: #ffffff;
+  background-color: goldenrod; }
+
+.separator p {
+  font-size: 120%; }
+
+.suitable-for {
+  float: left;
+  width: 40%; }
+  .suitable-for h5 {
+    font-size: 150%;
+    border-bottom: 1px solid #ccc; }
+
+.facilities {
+  float: right;
+  width: 40%; }
+  .facilities h5 {
+    font-size: 150%;
+    border-bottom: 1px solid #ccc; }
+
+#divider {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0%; }
+
+/*# sourceMappingURL=style.css.map */
