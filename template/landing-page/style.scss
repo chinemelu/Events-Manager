@@ -1,0 +1,140 @@
+$gold-colour: goldenrod;
+$black-colour: black;
+$white-colour: white;
+
+body{
+    background: {
+      color: $gold-colour
+    }
+    color: $white-colour;
+}
+
+#navbar-override {
+   background: {
+      color: $black-colour;
+   }
+  a {
+     color: $white-colour;
+  }
+}
+
+.navbar-collapse {
+    width: 100%;
+    float: right;
+}
+
+#float {
+    text: {
+      align: right;
+  }
+    width: 100%;
+    float: right;
+  a {
+      list: {
+        style: none;
+    }
+      text: {
+        decoration: none;
+      }
+    }
+}
+
+/*Showcase*/
+
+#showcase{
+   min-height: 400px;
+   font: {
+     family: sans-serif;
+   }
+   background: url(ANZ%20Viaduct%20Events%20Centre.jpg) no-repeat 0 -150px; 
+   background: {
+      size: cover;
+   } 
+   text:{
+      align: center;  
+   }
+}
+
+.wrapper{
+  width: 70%;
+  margin: auto;
+}
+
+#showcase{
+  margin: 0;
+  padding: 0;
+}
+
+#easy{
+  width: 70%;
+}
+
+#time-management {
+  width: 70%;
+  margin: {
+    left: 33.5%;
+  }
+  overflow: hidden;
+}
+
+#privacy{
+  width: 70%;
+  height: 250px
+}
+
+
+.box, .box-1, .box-2{
+  display: inline-block;
+  width: 49%;
+}
+
+p{
+  width: 80%;
+  font: {
+    family: Helvetica;
+    size: 150%;
+  }
+  margin: {
+    top: 0%;
+  }
+  text:{
+    align: center;
+  }
+}
+
+.box-section{
+  border: 1px solid #ffffff;
+  margin: {
+    bottom: 4%;
+    top: -5%;
+  }
+}
+
+.box-section p{
+  text: {
+    align: center;
+  }
+}
+
+.box-1-section{
+  border: 1px solid #ffffff;
+  margin: {
+    bottom:  4%;
+  }
+}
+
+.box-1-section p {
+  text: {
+    align: center;
+  }
+  margin: {
+    left: 25%;
+  }
+}
+
+.box-2-section{
+  border: 1px solid #ffffff;
+  margin: {
+    bottom: 4%;
+  }
+}

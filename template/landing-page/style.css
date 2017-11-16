@@ -1,124 +1,81 @@
-body{
-    background-color: black;
-}
+body {
+  background-color: goldenrod;
+  color: white; }
 
 #navbar-override {
-    background-color: black;
-}
-
-#navbar-override a {
-    color: white;
-}
+  background-color: black; }
+  #navbar-override a {
+    color: white; }
 
 .navbar-collapse {
-    width: 100%;
-    float right;
-}
+  width: 100%;
+  float: right; }
 
 #float {
-    text-align: right;
-    width: 100%;
-    float: right;
-}
-
-#float a {
+  text-align: right;
+  width: 100%;
+  float: right; }
+  #float a {
     list-style: none;
-    text-decoration: none;
-}
+    text-decoration: none; }
 
 /*Showcase*/
+#showcase {
+  min-height: 400px;
+  font-family: sans-serif;
+  background: url(ANZ%20Viaduct%20Events%20Centre.jpg) no-repeat 0 -150px;
+  background-size: cover;
+  text-align: center; }
 
-#showcase{
-    min-height: 600px;
-    font-family: sans-serif;
-    background: url(events-centre-0.jpg) no-repeat 0 -20px; 
-    background-size: cover;
-    text-align: center;  
-}
+.wrapper {
+  width: 70%;
+  margin: auto; }
 
-.showcase-container{
-    background-color: black; 
-    color: #ffffff;
-}
+#showcase {
+  margin: 0;
+  padding: 0; }
 
-.search{
-    background-color: red;
-    display: inline-block;
-    width: 100%
-}
+#easy {
+  width: 70%; }
 
-.search div {
-    width: 30%;
-    float: left;
-    vertical-align: middle;
-    text-align: center;
-    color: #ffffff;
-    font-weight: 900;
-    margin: 0;
-    padding: 0;
-}
+#time-management {
+  width: 70%;
+  margin-left: 33.5%;
+  overflow: hidden; }
 
-.search-text i{
-    font-size: 300%
-    width: 50%;
-    float: left;
-}
+#privacy {
+  width: 70%;
+  height: 250px; }
 
-.search-text h1{
-    width: 50%
-    float: right;
-}
+.box, .box-1, .box-2 {
+  display: inline-block;
+  width: 49%; }
 
+p {
+  width: 80%;
+  font-family: Helvetica;
+  font-size: 150%;
+  margin-top: 0%;
+  text-align: center; }
 
-.box-container{
-    overflow: hidden;
-}
+.box-section {
+  border: 1px solid #ffffff;
+  margin-bottom: 4%;
+  margin-top: -5%; }
 
-#what-app-does{
-   margin-top: 20px;
-}
+.box-section p {
+  text-align: center; }
 
-#what-app-does .box{
-    float: left;
-    text-align: center;
-    width: 46%;
-    color: white;
-}
+.box-1-section {
+  border: 1px solid #ffffff;
+  margin-bottom: 4%; }
 
-.adjust-img0 img {
-    height: 500px;
-    overflow: hidden;
-    margin-left: 3%;
-    width: 100%
-}
+.box-1-section p {
+  text-align: center;
+  margin-left: 25%; }
 
-.adjust-img1 img{
-    width: 120%;
-    overflow: hidden;
-    height: 500px;
-     margin-left: 7%;
-}
+.box-2-section {
+  border: 1px solid #ffffff;
+  margin-bottom: 4%; }
 
-#what-app-does .box-1{
-    float: left;
-    text-align: center;
-    width: 46%;
-    color: white;
-}
-
-.adjust-img2 img{
-    width: 100%;
-    overflow: hidden;
-    margin-left: 3%;
-    height: 500px;
-}
-
-.adjust-img3 img{
-    width: 118.5%;
-    overflow: hidden;
-    margin-left: 7%;
-    overflow: hidden;
-    height: 500px;
-}
-
-
+/*# sourceMappingURL=style.css.map */
