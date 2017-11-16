@@ -134,7 +134,12 @@ button {
 }
 
 #edit{
-  margin-left: 2%
+  margin-left: 2%;
+}
+
+#submit{
+  background-color: goldenrod;
+  color: #ffffff
 }
 
 .form-control:focus, input:focus, input[type]:focus, .form-control:hover {
