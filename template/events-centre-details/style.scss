@@ -89,15 +89,6 @@ button {
   text-align: center;
 }
 
-@media screen and (min-width: 768px) { 
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%;
-  }
-}
-
 .modal-dialog {
   display: inline-block;
   text: {
@@ -182,7 +173,7 @@ button {
     color: $white-colour;
   }
   margin: {
-    top: 34%;
+    top: 25%;
   }
 }
 
@@ -232,3 +223,330 @@ button {
     bottom: 0%;
   }
 }
+
+
+@media screen and (min-width: 2560px) { 
+  #signin-form{
+    margin-top: -4%;
+  }
+}
+
+@media screen and (max-width: 1024px) { 
+  #description{
+  width: 80%;
+  margin: {
+    top: 5%;
+    bottom: 5%;
+  }
+  .heading{
+    margin:{
+      bottom: 2%;
+    }
+    border: {
+      bottom: 1px solid #ccc;
+    }
+    font: {
+      size: 150%;
+    }
+  }
+}
+  
+  #signin-form{
+    margin-top: -4%;
+  }
+  
+    nav li {
+      margin: {
+        left: 2%;
+      }
+      width: 19%
+  }
+  
+  nav ul {
+    width: 60%;
+  }
+  h4, p{
+    font: {
+      size: 100%;
+    }
+  }
+  
+  #description{
+    p, h5{
+      font: {
+        size: 100%;
+      }
+    }
+    h5{
+       border:{
+      bottom: 1px solid #ccc;
+    }
+    }
+  }
+  
+  .suitable-for,.facilities{
+    p, h5{
+      font:{
+        size: 100%;
+      }
+    }
+    
+  }
+  
+  .separator{
+    h1, p{
+      font: {
+        size: 100%;
+      }
+    }
+  }
+  
+  .upcoming-heading{
+      font: {
+        size: 100%;
+      }
+  
+    border:{
+      bottom: 1px solid #ccc;
+    }
+  }
+  
+  .description-heading{
+    font: {
+      size: 130%;
+    } 
+  }
+  .event-summary{
+    a {
+      font: {
+        size: 90%;
+      }
+    }
+  }
+  
+  #signin-form{
+    margin: {
+      top: 0%;
+    }
+    input{
+      width: 80%;
+    }
+  }
+  
+  .central-image{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+  
+   #signin-form{
+    margin-top: -4%;
+  }
+  
+    nav li {
+      margin: {
+        left: 2%;
+      }
+      width: 19%
+  }
+  
+  nav ul {
+    width: 60%;
+  }
+  h4, p{
+    font: {
+      size: 90%;
+    }
+  }
+  
+  #description{
+    p, h5{
+      font: {
+        size: 90%;
+      }
+    }
+    h5{
+       border:{
+      bottom: 1px solid #ccc;
+    }
+    }
+    margin:{
+      bottom: 8%;
+    }
+  }
+  
+  .suitable-for,.facilities{
+    p, h5{
+      font:{
+        size: 90%;
+      }
+    }
+    
+  }
+  
+  .separator{
+    h1, p{
+      font: {
+        size: 90%;
+      }
+    }
+  }
+  
+  .upcoming-heading{
+      font: {
+        size: 90%;
+      }
+  
+    border:{
+      bottom: 1px solid #ccc;
+    }
+  }
+  
+  .description-heading{
+    font: {
+      size: 120%;
+    } 
+  }
+  .event-summary{
+    a {
+      font: {
+        size: 90%;
+      }
+    }
+  }
+  
+  #signin-form{
+    margin: {
+      top: 3%;
+    }
+    input{
+      width: 80%;
+    }
+  }
+  
+  .central-image{
+    width: 90%;
+  }
+}
+
+
+@media screen and (max-width: 623px) { 
+   #signin-form{
+    margin-top: -4%;
+  }
+  
+    nav li {
+      margin: {
+        left: 2%;
+      }
+      width: 19%
+  }
+  
+  nav ul {
+    width: 100%;
+  }
+  h4, p{
+    font: {
+      size: 80%;
+    }
+  }
+  
+  #description{
+    p, h5{
+      font: {
+        size: 80%;
+      }
+    }
+    h5{
+       border:{
+      bottom: 1px solid #ccc;
+    }
+    }
+    margin:{
+      bottom: 8%;
+    }
+  }
+  
+  .suitable-for,.facilities{
+    p, h5{
+      font:{
+        size: 80%;
+      }
+    }
+    
+  }
+  
+  .separator{
+    h1, p{
+      font: {
+        size: 80%;
+      }
+    }
+  }
+  
+  .upcoming-heading{
+      font: {
+        size: 80%;
+      }
+  
+    border:{
+      bottom: 1px solid #ccc;
+    }
+  }
+  
+  .description-heading{
+    font: {
+      size: 110%;
+    } 
+  }
+  .event-summary{
+    a {
+      font: {
+        size: 80%;
+      }
+    }
+  }
+  
+  #signin-form{
+    margin: {
+      top: 3%;
+      left: -6%;
+    }
+    input{
+      width: 80%;
+    }
+    form{
+      font: {
+        size: 100%;
+      }
+    }
+  }
+  
+  .central-image{
+    width: 70%;
+  }
+  
+  label{
+    font:{
+      size: 100%;
+    }
+  }
+  
+  .container{
+  width: 90%;
+  margin:{
+    left: 10%
+  }
+}
+  .form-container{
+    width: 50%;
+  }
+}
+

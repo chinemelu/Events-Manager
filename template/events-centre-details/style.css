@@ -49,12 +49,6 @@ button {
 .modal {
   text-align: center; }
 
-@media screen and (min-width: 768px) {
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%; } }
 .modal-dialog {
   display: inline-block;
   text-align: left;
@@ -102,7 +96,7 @@ button {
   padding: 5%;
   color: black;
   background-color: #ffffff;
-  margin-top: 34%; }
+  margin-top: 25%; }
 
 #inspection-button {
   color: #ffffff;
@@ -129,5 +123,167 @@ button {
   display: inline-block;
   width: 100%;
   margin-bottom: 0%; }
+
+@media screen and (min-width: 2560px) {
+  #signin-form {
+    margin-top: -4%; } }
+@media screen and (max-width: 1024px) {
+  #description {
+    width: 80%;
+    margin-top: 5%;
+    margin-bottom: 5%; }
+    #description .heading {
+      margin-bottom: 2%;
+      border-bottom: 1px solid #ccc;
+      font-size: 150%; }
+
+  #signin-form {
+    margin-top: -4%; }
+
+  nav li {
+    margin-left: 2%;
+    width: 19%; }
+
+  nav ul {
+    width: 60%; }
+
+  h4, p {
+    font-size: 100%; }
+
+  #description p, #description h5 {
+    font-size: 100%; }
+  #description h5 {
+    border-bottom: 1px solid #ccc; }
+
+  .suitable-for p, .suitable-for h5, .facilities p, .facilities h5 {
+    font-size: 100%; }
+
+  .separator h1, .separator p {
+    font-size: 100%; }
+
+  .upcoming-heading {
+    font-size: 100%;
+    border-bottom: 1px solid #ccc; }
+
+  .description-heading {
+    font-size: 130%; }
+
+  .event-summary a {
+    font-size: 90%; }
+
+  #signin-form {
+    margin-top: 0%; }
+    #signin-form input {
+      width: 80%; }
+
+  .central-image {
+    width: 90%; } }
+@media screen and (max-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%; }
+
+  #signin-form {
+    margin-top: -4%; }
+
+  nav li {
+    margin-left: 2%;
+    width: 19%; }
+
+  nav ul {
+    width: 60%; }
+
+  h4, p {
+    font-size: 90%; }
+
+  #description {
+    margin-bottom: 8%; }
+    #description p, #description h5 {
+      font-size: 90%; }
+    #description h5 {
+      border-bottom: 1px solid #ccc; }
+
+  .suitable-for p, .suitable-for h5, .facilities p, .facilities h5 {
+    font-size: 90%; }
+
+  .separator h1, .separator p {
+    font-size: 90%; }
+
+  .upcoming-heading {
+    font-size: 90%;
+    border-bottom: 1px solid #ccc; }
+
+  .description-heading {
+    font-size: 120%; }
+
+  .event-summary a {
+    font-size: 90%; }
+
+  #signin-form {
+    margin-top: 3%; }
+    #signin-form input {
+      width: 80%; }
+
+  .central-image {
+    width: 90%; } }
+@media screen and (max-width: 623px) {
+  #signin-form {
+    margin-top: -4%; }
+
+  nav li {
+    margin-left: 2%;
+    width: 19%; }
+
+  nav ul {
+    width: 100%; }
+
+  h4, p {
+    font-size: 80%; }
+
+  #description {
+    margin-bottom: 8%; }
+    #description p, #description h5 {
+      font-size: 80%; }
+    #description h5 {
+      border-bottom: 1px solid #ccc; }
+
+  .suitable-for p, .suitable-for h5, .facilities p, .facilities h5 {
+    font-size: 80%; }
+
+  .separator h1, .separator p {
+    font-size: 80%; }
+
+  .upcoming-heading {
+    font-size: 80%;
+    border-bottom: 1px solid #ccc; }
+
+  .description-heading {
+    font-size: 110%; }
+
+  .event-summary a {
+    font-size: 80%; }
+
+  #signin-form {
+    margin-top: 3%;
+    margin-left: -6%; }
+    #signin-form input {
+      width: 80%; }
+    #signin-form form {
+      font-size: 100%; }
+
+  .central-image {
+    width: 70%; }
+
+  label {
+    font-size: 100%; }
+
+  .container {
+    width: 90%;
+    margin-left: 10%; }
+
+  .form-container {
+    width: 50%; } }
 
 /*# sourceMappingURL=style.css.map */
