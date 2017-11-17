@@ -61,7 +61,7 @@ body{
 }
 
 #showcase{
-  margin: 0;
+  margin-bottom: 8.5%;
   padding: 0;
 }
 
@@ -79,26 +79,23 @@ body{
 
 #privacy{
   width: 70%;
-  height: 250px
 }
-
 
 .box, .box-1, .box-2{
   display: inline-block;
   width: 49%;
-}
-
-p{
-  width: 80%;
-  font: {
-    family: Helvetica;
-    size: 150%;
-  }
-  margin: {
-    top: 0%;
-  }
-  text:{
-    align: center;
+  p{
+    width: 80%;
+    font: {
+      family: Helvetica;
+      size: 150%;
+    }
+    margin: {
+      top: 0%;
+    }
+    text:{
+      align: center;
+    }
   }
 }
 
@@ -106,7 +103,7 @@ p{
   border: 1px solid #ffffff;
   margin: {
     bottom: 4%;
-    top: -5%;
+    top: -13%;
   }
 }
 
@@ -121,20 +118,204 @@ p{
   margin: {
     bottom:  4%;
   }
-}
-
-.box-1-section p {
-  text: {
-    align: center;
-  }
-  margin: {
-    left: 25%;
+   p {
+    text: {
+      align: center;
+    }
+    margin: {
+      left: 25%;
+    }
   }
 }
 
 .box-2-section{
   border: 1px solid #ffffff;
+ 
   margin: {
     bottom: 4%;
   }
+  p {
+    text: {
+      align: center;
+    }
+  }
 }
+
+@media only screen and (min-width: 2560px) {
+  #showcase{
+    margin: {
+      bottom: 16.5%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  #showcase{
+    margin: {
+      bottom: 5.5%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .box, .box-1, .box-2{
+    p {
+      width: 90%;
+      text-align: center;
+      font:{
+        size: 130%;
+      }
+    }
+  }
+  
+  .box-section{
+    margin:{
+      top: -17%;
+    }
+  }
+  
+  #showcase{
+    margin:{
+      bottom: 0%;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .box, .box-1, .box-2{
+    p {
+      width: 90%;
+      text-align: center;
+      font:{
+        size: 115%;
+      }
+    }
+  }
+  
+  .box-section{
+    margin:{
+      top: -17%;
+    }
+  }
+  
+  #showcase{
+     min-height: 400px;
+     font: {
+       family: sans-serif;
+     }
+     background: url(ANZ%20Viaduct%20Events%20Centre.jpg) no-repeat 0 -95px; 
+     background: {
+        size: cover;
+     } 
+     text:{
+        align: center;  
+     }
+    margin:{
+      bottom: 6%;
+    }
+  }
+  
+  .wrapper{
+  width: 80%;
+  margin: auto;
+}
+  
+  #float {
+  a {
+      margin: {
+        right: 40%;
+      }  
+    }
+  }
+}
+
+
+@media only screen and (max-width: 623px) {
+  .box, .box-1, .box-2{
+    p {
+      width: 100%;
+      text-align: center;
+      font:{
+        size: 75%;
+      }
+    }
+  }
+  
+  .box-section{
+    margin:{
+      top: -17%;
+    }
+  }
+  
+  #showcase{
+     min-height: 250px;
+     font: {
+       family: sans-serif;
+     }
+     background: url(ANZ%20Viaduct%20Events%20Centre.jpg) no-repeat -80px -55px; 
+     background: {
+        size: cover;
+     } 
+     text:{
+        align: center;  
+     }
+    margin:{
+      bottom: 6%;
+    }
+  }
+  
+  .wrapper{
+  width: 100%;
+  margin: auto;
+  }
+  
+  
+  @media only screen and (max-width: 320px) {
+  .box, .box-1, .box-2{
+    p {
+      width: 100%;
+      text-align: center;
+      font:{
+        size: 60%;
+      }
+    }
+  }
+  
+  .box-section{
+    margin:{
+      top: -17%;
+    }
+  }
+  
+  #showcase{
+     min-height: 250px;
+     font: {
+       family: sans-serif;
+     }
+     background: url(ANZ%20Viaduct%20Events%20Centre.jpg) no-repeat -80px -55px; 
+     background: {
+        size: cover;
+     } 
+     text:{
+        align: center;  
+     }
+    margin:{
+      bottom: 6%;
+    }
+  }
+  
+  .wrapper{
+  width: 100%;
+  margin: auto;
+  }
+ }
+}
+
+  
+
+
+
+
+
+  
