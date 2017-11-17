@@ -14,6 +14,7 @@ An application that helps admin to manage its events centres, and users to manag
 
 ### Front End Dependencies
 * [Bootstrap](https://v4-alpha.getbootstrap.com/) - most popular HTML, CSS, and JS framework in the world for building responsive, mobile-first projects on the web.
+* [jquery](https://jquery.com/) -jQuery is a fast, small, and feature-rich JavaScript library.
 
 ## Author
 Chinemelu Nwosu
