@@ -46,3 +46,66 @@ body{
     padding: 5%;
     background-color: #ffffff
 }
+
+
+@media only screen and (max-width: 1440px) {
+  #signin-form {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #signin-form {
+    margin-right: 8%
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  #signin-form {
+    margin-right: 25%;
+    margin-top: 7.5%;
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  
+  .row{
+    margin: 0; 
+  }
+  
+   #signin-form {
+    font-size: 100%;
+    margin: auto;
+  }
+  
+  #signin-form h3{
+    font-size: 140%;
+  }
+  
+  #signin-form form {
+    font-size: 100%;
+    padding: 10%;
+    margin-top: 10%;
+    margin-left: 3%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+   #signin-form {
+    margin-right: 1%;
+  }
+  .
+  ::-webkit-input-placeholder { font-size: 11px; }
+}
+  
+
+
+@media only screen and (max-width: 320px) {
+   #signin-form {
+    margin-top: 8%;
+    font-size: 80%;
+  }
+/*  ::-webkit-input-placeholder { font-size: 11px; }*/
+}
+  
