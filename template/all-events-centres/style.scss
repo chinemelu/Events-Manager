@@ -1,0 +1,126 @@
+$zero-margin: 0;
+$zero-padding: 0;
+$full-width: 100%;
+$white-colour: #ffffff;
+$black-colour: black;
+$cursor-type: pointer;
+$gold-colour: goldenrod;
+
+body{
+    margin: $zero-margin;
+    padding: $zero-padding;
+}
+
+#search{
+  background: {
+    color: $gold-colour;
+  }
+}
+
+.container{
+  width: $full-width;
+  padding: $zero-padding;
+}
+
+#override-navbar{
+    margin: {
+      bottom: 2%;
+    }
+    background: {
+      color: $black-colour;
+    }
+  a {
+    color: $white-colour;
+  }
+}
+
+.dropdown-menu a{
+    color: $black-colour !important;
+}
+
+.navbar{
+    background: {
+      color: #dcdcdc;
+    }
+}
+
+nav ul {
+    width: 76%;
+}
+
+
+nav li {
+    margin: {
+      left: 3%;
+    }
+    width: 15%
+}
+
+button {
+    cursor: $cursor-type;
+}
+
+img{
+  width: 100%;
+  vertical-align: middle;
+}
+
+.ANZ-viaduct{
+  height: 16em;
+}
+
+.centres{
+  margin:{
+    left: 7%;
+  }
+  padding: {
+    top: 2%;
+    bottom: 2%;
+  }
+  text-align: center;
+  border: {
+    bottom: 1px solid #ccc;
+  }
+}
+
+.viaduct{
+  border: {
+    top: 1px solid #ccc
+  }
+}
+
+.page-heading{
+  margin:{
+    left: 7%;
+  }
+}
+
+.main-heading{
+  font:{
+    size: 130%;
+  }
+}
+
+.row{
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  body{
+    background-color: pink;
+  }
+  .page-heading h3{
+    margin: auto;
+    font-size: 10%;
+  }
+  
+  img{
+    width: 40%;
+  }
+
+  navbar-toggleable-md{
+    background: {
+      color: $gold-colour;
+    }
+  }
+}
