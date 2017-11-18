@@ -231,6 +231,15 @@ button {
   }
 }
 
+@media screen and (max-width: 1440px) { 
+  #signin-form{
+    margin: {
+      top: -1.65%;
+    }
+    padding: 4%;
+  }
+}
+
 @media screen and (max-width: 1024px) { 
   #description{
   width: 80%;
@@ -252,7 +261,17 @@ button {
 }
   
   #signin-form{
-    margin-top: -4%;
+    margin: {
+      top: 0%;
+    }
+    padding: 0;
+    ::-webkit-input-placeholder { font-size: 13px; }
+  }
+  
+  label{
+    font:{
+      size: 85%;
+    }
   }
   
     nav li {
@@ -346,8 +365,18 @@ button {
     height: 100%;
   }
   
-   #signin-form{
-    margin-top: -4%;
+  #signin-form{
+    margin: {
+      top: 1.5%;
+    }
+    padding: 0;
+    ::-webkit-input-placeholder { font-size: 13px; }
+  }
+  
+  label{
+    font:{
+      size: 85%;
+    }
   }
   
     nav li {
@@ -422,15 +451,6 @@ button {
     }
   }
   
-  #signin-form{
-    margin: {
-      top: 3%;
-    }
-    input{
-      width: 80%;
-    }
-  }
-  
   .central-image{
     width: 90%;
   }
@@ -439,9 +459,24 @@ button {
 
 @media screen and (max-width: 623px) { 
    #signin-form{
-    margin-top: -4%;
-  }
+    margin: {
+      top: -15%;
+    }
+     .btn{
+       font: {
+         size: 70%;
+       }
+     }
+    padding: 0;
+    ::-webkit-input-placeholder { font-size: 13px; }
   
+  label{
+    font:{
+      size: 80%;
+    }
+  }
+}
+    
     nav li {
       margin: {
         left: 2%;
@@ -514,20 +549,7 @@ button {
     }
   }
   
-  #signin-form{
-    margin: {
-      top: 3%;
-      left: -6%;
-    }
-    input{
-      width: 80%;
-    }
-    form{
-      font: {
-        size: 100%;
-      }
-    }
-  }
+
   
   .central-image{
     width: 70%;
@@ -535,18 +557,37 @@ button {
   
   label{
     font:{
-      size: 100%;
+      size: 80%;
     }
   }
   
   .container{
-  width: 90%;
-  margin:{
-    left: 10%
-  }
-}
-  .form-container{
-    width: 50%;
-  }
+    width: 100%;
 }
 
+}
+
+@media screen and (max-width: 568px) { 
+   #signin-form{
+    margin: {
+      top: 13.8%;
+    }
+     .btn{
+       font: {
+         size: 60%;
+       }
+     }
+    padding: 0;
+    ::-webkit-input-placeholder { font-size: 13px; }
+  
+    label{
+      font:{
+        size: 70%;
+      }
+    }
+  }
+  .container{
+    width: 100%;
+    padding: 0
+   }
+} 
