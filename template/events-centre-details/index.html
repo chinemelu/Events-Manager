@@ -24,7 +24,7 @@
                    My Events
                   </a>
                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                   <a class="dropdown-item" href="#">Add an event</a>
+                   <a class="dropdown-item" href="../create_events/index.html">Add an event</a>
                    <a class="dropdown-item" href="#">My events</a>                    
                  </div>
                 </li>
@@ -37,10 +37,10 @@
                  </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Upcoming Events</a>
+                  <a class="nav-link" href="../all-events/index.html">Upcoming Events</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Contact Us</a>
+                  <a class="nav-link" href="../landing-page/index.html">Sign Out</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
@@ -58,9 +58,9 @@
           <p>161 Halsey Street, Auckland CBD, Auckland</p>
           <img src="events-image-1.jpg" class="central-image">
           <div id="picture-carousel">
-            <a href="#" class="pop"><img src="events-image-2.jpg" id="img-2"></a>
-            <a href="#" class="pop"><img src="events-image-3.jpg" id="img-3"></a>
-            <a href="#" class="pop"><img src="events-image-4.jpg" id="img-4"></a>
+            <a href="#" class="pop"><img src="events-image-2.jpg "class="img-thumbnail" id="img-2"></a>
+            <a href="#" class="pop"><img src="events-image-3.jpg" class="img-thumbnail" id="img-3"></a>
+            <a href="#" class="pop"><img src="events-image-4.jpg" class="img-thumbnail" id="img-4"></a>
           </div>     
   
 <!--  Start of modal-->
@@ -173,26 +173,30 @@ The facility has been designed and built to a five-star environmental standard c
         <section id='signin-form'>
         <div class="form-container">
           <div class="row">
-            <form action="../centres" method="post">
+            <form action="#" method="post">
               <div class="form-group">
                 <h4>Want to view?</h4>
                 <p>Fill in the form to request a free inspection</p>
-                <label for="exampleInputUsername">Name</label>
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
                 <input type="text" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Enter username">
               </div>
               <div class="form-group">
-                <label for="exampleInputemail">Email Address</label>
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Email Address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Phone Number</label>
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Phone Number</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Date of Inspection</label>
+               <label for="dateofinspection3" class="col-sm-2 col-form-label">Date of Inspection</label>
                 <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password">
               </div>
-              <button type="submit" id="inspection-button" class="btn">Request free inspection</button>
+              <div class="form-group">
+                <div class="col-sm-2 col-sm-5">
+                  <button type="submit" id="inspection-button" class="btn">Request free inspection</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>

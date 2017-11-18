@@ -127,6 +127,10 @@ button {
 @media screen and (min-width: 2560px) {
   #signin-form {
     margin-top: -4%; } }
+@media screen and (max-width: 1440px) {
+  #signin-form {
+    margin-top: -1.65%;
+    padding: 4%; } }
 @media screen and (max-width: 1024px) {
   #description {
     width: 80%;
@@ -138,7 +142,13 @@ button {
       font-size: 150%; }
 
   #signin-form {
-    margin-top: -4%; }
+    margin-top: 0%;
+    padding: 0; }
+    #signin-form ::-webkit-input-placeholder {
+      font-size: 13px; }
+
+  label {
+    font-size: 85%; }
 
   nav li {
     margin-left: 2%;
@@ -186,7 +196,13 @@ button {
     height: 100%; }
 
   #signin-form {
-    margin-top: -4%; }
+    margin-top: 1.5%;
+    padding: 0; }
+    #signin-form ::-webkit-input-placeholder {
+      font-size: 13px; }
+
+  label {
+    font-size: 85%; }
 
   nav li {
     margin-left: 2%;
@@ -221,16 +237,18 @@ button {
   .event-summary a {
     font-size: 90%; }
 
-  #signin-form {
-    margin-top: 3%; }
-    #signin-form input {
-      width: 80%; }
-
   .central-image {
     width: 90%; } }
 @media screen and (max-width: 623px) {
   #signin-form {
-    margin-top: -4%; }
+    margin-top: -15%;
+    padding: 0; }
+    #signin-form .btn {
+      font-size: 70%; }
+    #signin-form ::-webkit-input-placeholder {
+      font-size: 13px; }
+    #signin-form label {
+      font-size: 80%; }
 
   nav li {
     margin-left: 2%;
@@ -265,25 +283,27 @@ button {
   .event-summary a {
     font-size: 80%; }
 
-  #signin-form {
-    margin-top: 3%;
-    margin-left: -6%; }
-    #signin-form input {
-      width: 80%; }
-    #signin-form form {
-      font-size: 100%; }
-
   .central-image {
     width: 70%; }
 
   label {
-    font-size: 100%; }
+    font-size: 80%; }
 
   .container {
-    width: 90%;
-    margin-left: 10%; }
+    width: 100%; } }
+@media screen and (max-width: 568px) {
+  #signin-form {
+    margin-top: 13.8%;
+    padding: 0; }
+    #signin-form .btn {
+      font-size: 60%; }
+    #signin-form ::-webkit-input-placeholder {
+      font-size: 13px; }
+    #signin-form label {
+      font-size: 70%; }
 
-  .form-container {
-    width: 50%; } }
+  .container {
+    width: 100%;
+    padding: 0; } }
 
 /*# sourceMappingURL=style.css.map */
