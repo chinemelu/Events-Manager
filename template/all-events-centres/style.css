@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+#search {
+  background-color: goldenrod; }
+
+.container {
+  width: 100%;
+  padding: 0; }
+
+#override-navbar {
+  margin-bottom: 2%;
+  background-color: black; }
+  #override-navbar a {
+    color: #ffffff; }
+
+.dropdown-menu a {
+  color: black !important; }
+
+.navbar {
+  background-color: #dcdcdc; }
+
+nav ul {
+  width: 76%; }
+
+nav li {
+  margin-left: 3%;
+  width: 15%; }
+
+button {
+  cursor: pointer; }
+
+img {
+  width: 100%;
+  vertical-align: middle; }
+
+.ANZ-viaduct {
+  height: 16em; }
+
+.centres {
+  margin-left: 7%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  border-bottom: 1px solid #ccc; }
+
+.viaduct {
+  border-top: 1px solid #ccc; }
+
+.page-heading {
+  margin-left: 7%; }
+
+.main-heading {
+  font-size: 130%; }
+
+.row {
+  overflow: hidden; }
+
+@media only screen and (max-width: 768px) {
+  .page-heading {
+    text-align: center; } }
+
+/*# sourceMappingURL=style.css.map */
