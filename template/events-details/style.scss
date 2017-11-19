@@ -1,0 +1,197 @@
+$zero-margin: 0;
+$zero-padding: 0;
+$full-width: 100%;
+$white-colour: #ffffff;
+$black-colour: black;
+$cursor-type: pointer;
+$gold-colour: goldenrod;
+
+body{
+    margin: $zero-margin;
+    padding: $zero-padding;
+}
+
+#search{
+  background: {
+    color: $gold-colour;
+  }
+}
+
+.col-md-12{
+  padding: $zero-padding;
+}
+
+.container{
+  width: 80%;
+  margin:{
+    left: 10%
+  }
+}
+
+#override-navbar{
+    margin: {
+      bottom: 2%;
+    }
+    background: {
+      color: $black-colour;
+    }
+  a {
+    color: $white-colour;
+  }
+}
+
+.dropdown-menu a{
+    color: $black-colour !important;
+}
+
+.navbar{
+    background: {
+      color: #dcdcdc;
+    }
+}
+
+nav ul {
+    width: 76%;
+}
+
+
+nav li {
+    margin: {
+      left: 3%;
+    }
+    width: 15%
+}
+
+button {
+    cursor: $cursor-type;
+}
+
+.btn {
+    cursor: $cursor-type;
+}
+
+#picture-carousel{
+  img {
+    width: 20%;
+    float: left;
+  }
+  display: inline-block;
+  width: 70.3%;
+  text: {
+    align: center;
+  }
+  margin: {
+    top: 1%;
+  }
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text: {
+    align: left;
+  }
+  vertical-align: middle;
+  margin: {
+    left: -6%;
+  }
+}
+
+.modal-body{
+  img {
+    width: 100%
+  }
+}
+
+#description{
+  width: 80%;
+  margin: {
+    top: 5%;
+    bottom: 5%;
+  }
+  .heading{
+    margin:{
+      bottom: 2%;
+    }
+    border: {
+      bottom: 1px solid #ccc;
+    }
+    font: {
+      size: 150%;
+    }
+  }
+}
+
+.central-image{
+  width: 40%;
+}
+
+#picture-carousel{
+  img{
+    width: 10%;
+    float: left; 
+  }
+}
+
+.main-heading{
+  font: {
+    size: 120%;
+    color: goldenrod;
+  }
+}
+
+#description {
+  h5{
+      font:{
+        size: 140%;
+      }
+      border: {
+        bottom: 1px solid #ccc;
+      }
+  }
+}
+
+#additional-comments{
+  margin:{
+      bottom: 8%;
+    }
+  h5{
+    font:{
+      size: 140%;
+    }
+    border: {
+      bottom: 1px solid #ccc;
+    }
+  }
+}
+
+.fa{
+  font:{
+    size: 150%;
+  }
+}
+
+.details{
+  width: 45%;
+  margin:{
+    top: 2%;
+  }
+  background: {
+    color: #ccc;
+  }
+  padding: 1%;
+  text: {
+    align: center;
+  }
+}
+
+.details:hover{
+  background:{
+    color: $gold-colour;
+  }
+  color: white;
+}
+

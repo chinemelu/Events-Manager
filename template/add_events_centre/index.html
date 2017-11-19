@@ -58,35 +58,37 @@
         <p>Centre Details</p>
       </section>
       
-      <section class="photo-section">
+       <div class="row adjust">
+      <div class="camera-section col-xs-12 col-lg-2">
         <div class="camera-icon">
           <i class="fa fa-camera" aria-hidden="true"></i>
           <p>Add a photo</p>
         </div>
-      </section>
+      </div>
       
-      <section class="form-section">
+      <section class="col-xs-12 col-lg-9">
         <form method="POST" action='#'>
           
           <div class="form-group" id="centre-name">
-            <label for="formGroupExampleInput">Name of Centre *</label>
+            <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Name of Centre *</label>
             <input required="true" type="text" class="form-control" id="formGroupExampleInput">
           </div>
           
           <div class="form-group" id="centre-location">
-            <label for="formGroupExampleInput">Location *</label>
+            <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Location *</label>
             <input required="true" type="text" class="form-control" id="formGroupExampleInput">
           </div>
           
           <div class="form-group" id="centre-description">
-            <label for="exampleTextarea">Description *</label>
+            <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Description *</label>
             <textarea class="form-control" rows="3"></textarea>
           </div>
           
             <div class="clear-float">
-           <div class="left-aside"> 
-             <p>Suitable for</p>
-                  <div class="form-check left-aside">
+            <div class="row">
+           <div class="left-aside col-xs-12 col-lg-6"> 
+             <p class="p-heading">Suitable for</p>
+                  <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Theatre
           </label>
@@ -119,62 +121,63 @@
                   </div>
 
         <!--        Facilities begin here-->
-              <div class="aside">
-                <p>Facilities</p>
-                  <div class="form-check aside">
+              <div class="col-xs-12 col-lg-6">
+                <p class="p-heading">Facilities</p>
+                  <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Generator
           </label>
         </div>
-        <div class="form-check aside">
+        <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> Toilet
           </label>
         </div>
-        <div class="form-check aside">
+        <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> Air Conditioning
           </label>
         </div>
 
-        <div class="form-check aside">
+        <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Indoor changing rooms
           </label>
         </div>
-      <div class="form-check aside">
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> Security
         </label>
       </div>
-      <div class="form-check aside">
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> Parking spaces
         </label>
       </div>
   
-          <div class="form-check aside">
+          <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Projector
         </label>
                   </div>
 
-      <div class="form-check aside">
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> Sound system
         </label>
       </div>
-      <div class="form-check aside">
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> Catering services
         </label>
       </div>
       
       
-          <div class="form-check aside">
+          <div class="form-check">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Musical instruments 
             </label>
+          </div>
           </div>
           </div>
           </div>
@@ -186,7 +189,7 @@
           <input class="btn" type="submit" id="edit" value="Edit">
         </form>
       </section>
-              
+      </div>       
     </div>
       <script src="../Bootstrap/js/jquery-3.2.1.min.js"></script>
       <script src="../Bootstrap/js/tether.min.js"></script>

@@ -54,21 +54,34 @@
         </div>
       </div>
       
+<!--      Navigation section ends-->
       <section id="heading">
         <p>Event Details</p>
       </section>
       
-      <section class="photo-section">
+      <div class="row adjust">
+      <div class="camera-section col-xs-12 col-lg-2.4">
         <div class="camera-icon">
           <i class="fa fa-camera" aria-hidden="true"></i>
           <p>Add a photo</p>
         </div>
-      </section>
+      </div>
       
-      <section class="form-section">
+      <section class="col-xs-12 col-lg-9.6">
         <form method="POST" action='#'>
+          
+          <div class="form-group" id="number-of-attendees">
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Event name *</label>
+            <input required="true" type="text" class="form-control" id="formGroupExampleInput">
+          </div>
+        
+         <div class="form-group" id="description">
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Description *</label>
+            <textarea class="form-control" id="additional details" rows="3"></textarea>
+          </div>
+        
           <div id= "event-type" class="form-group">
-            <label for="exampleSelect1">Event type *</label>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Event type *</label>
             <select required="true" class="form-control">
               <option></option>
               <option>Christmas party</option>
@@ -82,7 +95,7 @@
           </div>
           
           <div class="form-group" id="event-setup">
-            <label for="exampleSelect2">Event set-up</label>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Event set-up</label>
             <select class="form-control">
               <option>Please select</option>
               <option>Banquet</option>
@@ -95,24 +108,24 @@
           </div>
           
           <div class="form-group" id="number-of-attendees">
-            <label for="formGroupExampleInput">Number of attendees *</label>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Number of attendees *</label>
             <input required="true" type="text" class="form-control" id="formGroupExampleInput">
           </div>
           <div class="form-group" id="start-date">
-            <label for="exampleTextarea">Start date *</label>
-            <input required="true" type="date" class="form-control" id="exampleTextArea">
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Start date *</label>
+            <input required="true" type="datetime-local" class="form-control" id="exampleTextArea">
           </div>
           <div class="form-group" id="end-date">
-            <label for="exampleTextarea">End date *</label>
-            <input required="true" type="date" class="form-control" id=exampleTextArea>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">End date *</label>
+            <input required="true" type="datetime-local" class="form-control" id=exampleTextArea>
           </div>
           <div class="form-group" id="additional-details">
-            <label for="exampleTextarea">Additional details and comments</label>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Additional details and comments</label>
             <textarea class="form-control" id="additional details" rows="3"></textarea>
           </div>
           
            <div class="form-group" id="select-centre">
-            <label for="exampleSelect1">Select a centre *</label>
+             <label for="inputSelect" class="col-sm-2 col-md-6 col-form-label">Select a centre *</label>
             <select required="true" class="form-control" id="exampleSelect1">
               <option></option>
               <option>ANZ Viaduct Events Centre</option>
@@ -137,7 +150,8 @@
           <input class="btn" type="submit" id="submit" value="Submit">
           <input class="btn btn-danger" type="submit" id="delete" value="Delete">
         </form>
-      </section>    
+      </section> 
+      </div>
     </div>
       <script src="../Bootstrap/js/jquery-3.2.1.min.js"></script>
       <script src="../Bootstrap/js/tether.min.js"></script>
