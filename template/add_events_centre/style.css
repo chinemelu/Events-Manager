@@ -34,68 +34,41 @@ button {
 .btn {
   cursor: pointer; }
 
-.fa-camera {
-  font-size: 600%; }
+.fa {
+  font-size: 7em; }
 
 #heading {
   width: 70%;
-  margin-left: 27%;
+  margin-left: 24%;
   text-align: left;
   font-size: 130%; }
   #heading p {
     border-bottom: 1px solid #ccc;
     margin-bottom: 3%; }
 
-.photo-section {
-  width: 20%;
-  text-align: center;
+.adjust {
   margin-left: 5%; }
 
-.form-section {
-  width: 70%;
-  float: right;
-  margin-right: 3%;
-  margin-top: -11%; }
+.camera-section {
+  margin-right: 2%; }
+
+.p-heading {
+  font-size: 130%;
+  border-bottom: 1px solid #ccc; }
 
 .camera-icon {
-  width: 70%;
+  width: 100%;
+  margin-top: 6%;
   border: 1px solid black;
-  padding: 5% 10% 5% 10%;
+  padding: 5%;
+  text-align: center;
   vertical-align: middle; }
   .camera-icon:hover {
     border-color: goldenrod; }
 
-#centre-capacity-heading {
-  width: 70%;
-  margin-left: 27%;
-  text-align: left;
-  font-size: 130%; }
-  #centre-capacity-heading p {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 3%; }
-
-.aside {
-  width: 45%;
-  float: right;
-  margin-right: 5%; }
-  .aside p {
-    border-bottom: 1px solid #ccc;
-    font-size: 120%;
-    margin-top: 3%;
-    margin-bottom: 2%; }
-
-.left-aside {
-  float: left;
-  width: 45%; }
-  .left-aside p {
-    border-bottom: 1px solid #ccc;
-    border-width: 70%;
-    font-size: 120%;
-    margin-top: 3%;
-    margin-bottom: 2%; }
-
 .clear-float {
   display: inline-block;
+  width: 100%;
   margin-top: 2%; }
 
 #submit {

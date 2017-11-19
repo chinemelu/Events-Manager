@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+#search {
+  background-color: goldenrod; }
+
+.col-md-12 {
+  padding: 0; }
+
+.container {
+  width: 80%;
+  margin-left: 10%; }
+
+#override-navbar {
+  margin-bottom: 2%;
+  background-color: black; }
+  #override-navbar a {
+    color: #ffffff; }
+
+.dropdown-menu a {
+  color: black !important; }
+
+.navbar {
+  background-color: #dcdcdc; }
+
+nav ul {
+  width: 76%; }
+
+nav li {
+  margin-left: 3%;
+  width: 15%; }
+
+button {
+  cursor: pointer; }
+
+.btn {
+  cursor: pointer; }
+
+#picture-carousel {
+  display: inline-block;
+  width: 70.3%;
+  text-align: center;
+  margin-top: 1%; }
+  #picture-carousel img {
+    width: 20%;
+    float: left; }
+
+.modal {
+  text-align: center; }
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  margin-left: -6%; }
+
+.modal-body img {
+  width: 100%; }
+
+#description {
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  #description .heading {
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ccc;
+    font-size: 150%; }
+
+.central-image {
+  width: 40%; }
+
+#picture-carousel img {
+  width: 10%;
+  float: left; }
+
+.main-heading {
+  font-size: 120%;
+  font-color: goldenrod; }
+
+#description h5 {
+  font-size: 140%;
+  border-bottom: 1px solid #ccc; }
+
+#additional-comments {
+  margin-bottom: 8%; }
+  #additional-comments h5 {
+    font-size: 140%;
+    border-bottom: 1px solid #ccc; }
+
+.fa {
+  font-size: 150%; }
+
+.details {
+  width: 45%;
+  margin-top: 2%;
+  background-color: #ccc;
+  padding: 1%;
+  text-align: center; }
+
+.details:hover {
+  background-color: goldenrod;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */

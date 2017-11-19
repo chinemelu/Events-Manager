@@ -1,7 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .container{
@@ -45,12 +44,12 @@ button {
 }
 
 .fa-camera{
-    font-size: 600%;
+    font-size: 7em;
 }
 
 #heading{
-  width: 70%;
-  margin-left: 27%;
+  width: 67%;
+  margin-left: 22%;
   text-align: left;
   font-size: 130%;
 }
@@ -60,24 +59,11 @@ button {
   margin-bottom: 3%
 }
 
-.photo-section{
-    width: 20%;
-    text-align: center;
-    margin-left: 5%;
-}
-
-.form-section{
-    width: 70%;
-    float: right;
-    margin-right: 3%;
-    margin-top: -11%;
-    margin-bottom: 10%;
-}
-
 .camera-icon {
-    width: 70%;
+    width: 110%;
     border: 1px solid black;
-    padding: 5% 10% 5% 10%;
+    padding: 6% 12% 6% 12%;
+    text-align: center;
     vertical-align: middle;
 }
 
@@ -102,21 +88,21 @@ button {
 }
 
 #number-of-attendees{
-  width: 48%;
+  width: 45%;
   float: left;
   margin-right: 4%;
   margin-bottom: 3%;
 }
 
 #start-date{
-  width: 22%;
+  width: 23.5%;
   float: left;
   margin-right: 4%;
   margin-bottom: 3%
 }
 
 #end-date{
-  width: 22%;
+  width: 23.5%;
   float: left;
   margin-bottom: 3%;
 }
@@ -126,12 +112,18 @@ button {
   margin-bottom: 3%
 }
 
+#description{
+  clear: both;
+  margin-bottom: 3%;
+}
+
 #select-centre{
   margin-bottom: 3%;
 }
 
 #delete{
   margin-left: 2%;
+  margin-bottom: 8%;
 }
 
 #edit{
@@ -140,14 +132,18 @@ button {
 
 #submit{
   background-color: goldenrod;
-  color: #ffffff
+  color: #ffffff;
+  margin-bottom: 8%;
 }
 
 .form-control:focus, input:focus, input[type]:focus, .form-control:hover {
   border-color: goldenrod
 }
 
-#submit{
-  background-color: goldenrod;
-  color: #ffffff;
+.camera-section{
+  margin-right: 5%;
+}
+
+.adjust{
+  margin-left: 8%;
 }
