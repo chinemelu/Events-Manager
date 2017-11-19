@@ -41,7 +41,7 @@ button {
 }
 
 .btn {
-    cursor: pointer;
+    cursor: pointer;  
 }
 
 .fa-camera{
@@ -70,7 +70,8 @@ button {
     width: 70%;
     float: right;
     margin-right: 3%;
-    margin-top: -11%
+    margin-top: -11%;
+    margin-bottom: 10%;
 }
 
 .camera-icon {
