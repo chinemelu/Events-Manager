@@ -1,1 +1,3 @@
 Bootstrap/
+node_modules
+.env
