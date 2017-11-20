@@ -1,5 +1,6 @@
+'use strict';
 
-const dotenv = require('dotenv').config();
+var dotenv = require('dotenv').config();
 
 module.exports = {
   development: {
@@ -21,4 +22,3 @@ module.exports = {
     dialect: 'mysql'
   }
 };
-
