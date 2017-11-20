@@ -4,9 +4,9 @@
   "description": "An application that helps admin to manage its events centres, and users to manage its events",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require babel-register server/test/test.js --timeout 10000 --exit",
     "babel-node": "babel-node --presets env",
-    "start": "nodemon --exec npm run babel-node app.js"
+    "start": "nodemon --exec npm run babel-node app.js" 
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,9 @@
     "babel-register": "^6.26.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
   }
 }
