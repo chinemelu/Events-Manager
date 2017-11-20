@@ -7,7 +7,7 @@ services:
 env:
 - NODE_ENV=test
 before_script:
-- psql -c 'create database events-managers-test;' -U postgres
+- psql -c 'create database events-manager-test;' -U postgres
 - psql -c "CREATE USER root WITH PASSWORD 'password';" -U postgres
 - npm run build
 - sequelize db:migrate
