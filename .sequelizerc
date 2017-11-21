@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const path = require('path');
 
 if (process.env != 'production'){
@@ -14,3 +15,5 @@ module.exports = {
   "seeders-path": path.resolve('./server/dist/seeders'),
   "migrations-path": path.resolve('./server/dist/migrations')
 };
+=======
+>>>>>>> Stashed changes

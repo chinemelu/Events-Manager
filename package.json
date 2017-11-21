@@ -12,7 +12,7 @@
     "startDev": "node server/dist/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
-  },
+},
   "repository": {
     "type": "git",
     "url": "https://github.com/chinemelu/Events-Manager.git"
@@ -50,4 +50,4 @@
     "nyc": "^11.3.0",
     "sequelize-cli": "^3.1.0",
   }
-
+}
