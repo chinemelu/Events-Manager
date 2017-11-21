@@ -1,7 +1,11 @@
 import chai from 'chai';
 import chaihttp from 'chai-http';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import server from '../http/server';
+=======
+import server from '../../app';
+>>>>>>> 86cc580465fb280e43feeccdb5abb3922bfcfec5
 =======
 import server from '../../app';
 >>>>>>> 86cc580465fb280e43feeccdb5abb3922bfcfec5
