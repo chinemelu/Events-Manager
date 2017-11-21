@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 const path = require('path');
 
 if (process.env != 'production'){
@@ -10,10 +9,10 @@ if (process.env != 'production'){
  }; 
 }
 module.exports = {
-  "config": path.resolve('./server/dist/config', 'config.js'),
-  "models-path": path.resolve('./server/dist/models'),
-  "seeders-path": path.resolve('./server/dist/seeders'),
-  "migrations-path": path.resolve('./server/dist/migrations')
+  "config": path.resolve('./server/config', 'config.js'),
+  "models-path": path.resolve('./server/models'),
+  "seeders-path": path.resolve('./server/seeders'),
+  "migrations-path": path.resolve('./server/migrations')
 };
-=======
->>>>>>> Stashed changes
+
+

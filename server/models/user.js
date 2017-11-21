@@ -42,10 +42,9 @@ module.exports = (sequelize, DataTypes) => {
   User.getUsername = (username, callback) => {
     User.findOne({
       where: {
-        [db.Sequelize.Op.or]: [{
-          username
-        }]
+        username
       }
+
     })
       .then((result) => {
         callback(result);
@@ -54,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
         throw err;
       });
   };
-   
+
   User.prototype.verifyPassword = (password, hash, callback) => {
     bcrypt.compare(password, hash)
       .then((isMatch) => {

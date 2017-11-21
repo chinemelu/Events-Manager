@@ -1,5 +1,4 @@
 language: node_js
-<<<<<<< Updated upstream
 node_js:
 - "stable"
 install: npm install
@@ -7,43 +6,12 @@ services:
 - postgresql
 env:
 - NODE_ENV=test
+- secure: XwuNJ93tLENTtuib0+ueVGhyw1gLsB2mXd/YJQbRXdMGt2ebJNCSYvJzt7LF9TtNREr8alyeUDI8Xr/oJxlOBdMS0UWUNJguo45Iy4gpdvA3VLtScJrNOivnZuFGh5n4S9e7Rkmnw7QbjZmZXWEP94q4xe2AvcvEkEAUEk0oOrl2NflCHhiC9HGleULiklhLj4OxTzn6fWJ2BTa72F2VopbNd4pLYY1cSyc4Y9XzojP07IpDhLVKEBdu9No8M9KxD4sn6JfjHM9UZaD02veQVKKLpGU3QPd3OZQlCGMmd2IvimIXbPKKvSjXzezn0WblF5RnS0zgH5KPGpJY2f+VP5dB1PuVpvdDEM2jh0njf27BNpF52VbvBTc769LfCwFI5TOz6o09EbpSXb2DoCAw+XIhUHBMdqWBPAymlaznU0+eVtQ1SKHnEeqxVcjbSUKztYhcuMgXgWlVUgQ4K0fDalXZ8XnkSsvcBq/CrWUGnbhyTfTTO1qBcJtvIhiYv/357aKULwgFSpS6IJXxrTuNJibwjyZeNI3+Ovy2pt/LP1nHmpvnK5vxMzlBzoZfjG6nYS/E2NM0cFTJJTpxrZa48geFvfov37HI0PJUybctLhHsLtmB0VynMhBwd6HKtPS9gHu2QIB/N+ECoA/BMUWpWPW4BN1rA8Px9eCzMCrxKp8=
 before_script:
-- psql -c 'create database events-manager-test;' -U postgres
-- psql -c "CREATE USER root WITH PASSWORD 'password';" -U postgres
+- psql -c 'create database events_manager_test;' -U postgres
+
 - npm run build
 - sequelize db:migrate
-- sequelize db:seed:all
+
 script: npm test
 after_success: npm run coverage
-=======
-
-node_js: "stable"
-
-install:
-- npm install
-
-script:
-- npm test
-
-env:
-- NODE_ENV=test
-
-cache:
-directories:
-- "node_modules"
-
-services:
-- postgresql
-
-
-before_script:
-- createuser process.env.MY_NAME -s -U postgres
-- createdb process.env.DB_TEST_NAME--process.env.DB_USER=process.env.MY_NAME
-- sequelize db:migrate
-
-params:
-- .env
-
-after_success: npm run coverage  //scripts in package.json
-
->>>>>>> Stashed changes
