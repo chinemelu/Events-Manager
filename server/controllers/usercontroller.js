@@ -81,7 +81,7 @@ class userController {
                 isAdmin: user.isAdmin
               };
 
-              const token = jwt.sign(payload, process.env.SECRET_KEY, {
+              const token = jwt.sign(payload, test, {
                 expiresIn: '200h'
               });
 
