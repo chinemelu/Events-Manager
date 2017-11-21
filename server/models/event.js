@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -45,9 +45,12 @@ module.exports = (sequelize, DataTypes) => {
 
   Event.associate = (models) => {
     Event.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
+      onDelete: 'CASCADE'
+    });
+    Event.belongsTo(models.Center, {
+      foreignKey: 'centerId'
     });
   };
-
   return Event;
 };
