@@ -46,7 +46,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
     });
   };
-  };
 
   User.getUsername = (username, callback) => {
     User.findOne({

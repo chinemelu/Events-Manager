@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-	Center.associate = (models) => {
-	Center.belongsTo(models.User, {
-			foreignKey: 'userId',
-	});
-	Center.hasMany(models.Event, {
-			foreignKey: 'centerId'
-	});
+  Center.associate = (models) => {
+    Center.belongsTo(models.User, {
+      foreignKey: 'userId',
+    });
+    Center.hasMany(models.Event, {
+      foreignKey: 'centerId'
+    });
   };
   return Center;
 };
