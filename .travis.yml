@@ -12,6 +12,7 @@ before_script:
 - npm run build
 - sequelize db:migrate
 - sequelize db:seed:all
+
 script: npm test
 after_success: npm run coverage
 
