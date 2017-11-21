@@ -27,6 +27,7 @@ An application that helps admin to manage its events centres, and users to manag
 * [Body-Parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
 * [express-validator](https://www.npmjs.com/package/express-validator) - An express.js middleware for node-validator.
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - A password hashing function
+* [jsonwebToken](https://jwt.io/) - JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.
 
 ## Author
 Chinemelu Nwosu
