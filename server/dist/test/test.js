@@ -23,14 +23,13 @@ _chai2.default.should();
 const { expect } = _chai2.default;
 
 describe('Users', () => {
-  describe('POST: /api/v1/users/', () => {
-    afterEach(done => {
-      _index2.default.User.destroy({
-        where: {}
-      });
-      done();
+  afterEach(done => {
+    _index2.default.User.destroy({
+      where: {}
     });
-
+    done();
+  });
+  describe('POST: /api/v1/users/', () => {
     it('it should not create a user without a username field', done => {
       const user = {
         username: null,
@@ -360,12 +359,6 @@ describe('Users', () => {
   });
 
   describe('POST: /api/v1/users/ - duplicate input', () => {
-    beforeEach(done => {
-      _index2.default.User.destroy({
-        truncate: true
-      });
-      done();
-    });
     it('it should not create a user if the username already exists', done => {
       const user = {
         username: 'test',
@@ -416,13 +409,6 @@ describe('Users', () => {
   });
 
   describe('POST: /api/v1/users/login', () => {
-    beforeEach(done => {
-      _index2.default.User.destroy({
-        where: {}
-      });
-      done();
-    });
-
     it('it should not login a user without a username', done => {
       const user = {
         username: null,

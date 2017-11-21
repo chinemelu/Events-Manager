@@ -90,7 +90,7 @@ class userController {
                 isAdmin: user.isAdmin
               };
 
-              const token = _jsonwebtoken2.default.sign(payload, process.env.SECRET_KEY, {
+              const token = _jsonwebtoken2.default.sign(payload, test, {
                 expiresIn: '200h'
               });
 
