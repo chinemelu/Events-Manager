@@ -1,11 +1,10 @@
 import bcrypt from 'bcrypt';
-import db from './index';
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -36,7 +35,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = (models) => {
-
+    User.hasMany(models.Event, {
+      foreignKey: 'userId',
+    });
   };
 
   User.getUsername = (username, callback) => {
