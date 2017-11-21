@@ -1,6 +1,18 @@
 import chai from 'chai';
 import chaihttp from 'chai-http';
+<<<<<<< Updated upstream
+import server from '../http/server';
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+import server from '../http/server';
+=======
 import server from '../../app';
+>>>>>>> 86cc580465fb280e43feeccdb5abb3922bfcfec5
+=======
+import server from '../../app';
+>>>>>>> 86cc580465fb280e43feeccdb5abb3922bfcfec5
+>>>>>>> Stashed changes
 import db from '../models/index';
 
 
@@ -173,7 +185,7 @@ describe('Users', () => {
           res.body.should.have.property('errors');
           res.body.errors.should.be.a('array');
           res.body.errors[0].should.eql('Username must be between 4-15 characters \n' +
-          'long, it must include one lowercase alphabet, and it must consist of \n' +
+          'long, it must include at least one lowercase alphabet, and it must consist of \n' +
           'only underscores,lowercase alphabets, numbers,\n' +
           'and no spaces in between characters.');
           done();

@@ -1,4 +1,10 @@
 repo_token: process.env.REPO_TOKEN
 
+<<<<<<< Updated upstream
 params:
 - .env
+=======
+
+params:
+- .env
+>>>>>>> Stashed changes
