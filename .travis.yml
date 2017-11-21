@@ -1,17 +1,14 @@
 language: node_js
 node_js:
-- "stable"
+- stable
 install: npm install
 services:
 - postgresql
 env:
-- NODE_ENV=test
+  secure: VjPAl+WwyVK4FStCmP5FjSZKrRuZgIae3Q4J0q/xqJD/df7YaHkdNIyz+dj98l4Ew6DAk4hhGz2Rwql4Lh9fK6PnjUS2qTqDg2l7Z+mB2iJDd0216BPv9ZXa3AJs5CXUGhWsrv8IoCTYuSBZ3YvvSRQtOH+1FfILnwiBVBWQJ24lLUrW9OnQYh9bHm/jTG+lhuf8VikmAcfuCBHl+RqZHAYI632H5vsCZboUpiDKzP6NijLsP/+5FV5hmPvNfqsAt/DWNSIjZlLvnXwUfG7UZI/YesIHS1TQ/65mQh01tCeSGYDm46Fnv0MSz3IuLoUo6B8v9j4fv4o7I9W+7S7UCm+ReupHTzvmA69nJKO+CnyexkpNBK7E0Bf+KEDFSPdjQjHSU82XE8DxyVuTwXW5i3xXuO9PeRIDxDaxnVFOJxfe92Zr4eI80AWUa53sZiNw1T0bRXmUVfusKpZ/sU+o/hVo9Ija06mmCKRQjgJdFrbgy0wnAszUexwSImlirMPSsYJGDYYPeswr17fmjcvBCmqzIQD+n7DBDwhtn1ZZyGfoV9Zwkhmzv9OpEB7k+eC5ah4Bz2gTrxXem8rLBr1hagi/y6ul32G2xWf7z9IdH/iuV76sy2Ho8TsnOhHy3gBf5sm7h1rm3obf9QaDVF6dwpsobWgPmNVjI+5dg5y+qOk=
 before_script:
 - psql -c 'create database events_manager_test;' -U postgres
-
 - npm run build
 - sequelize db:migrate
-
 script: npm test
 after_success: npm run coverage
-
