@@ -4,7 +4,7 @@
   "description": "An application that helps admin to manage its events centres, and users to manage its events",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --require babel-register server/test/test.js --timeout 30000 --exit",
+    "test": "mocha --require babel-register server/test/test.js --exit",
     "babel-node": "babel-node --presets env",
     "start": "nodemon --exec npm run babel-node server/http/server",
     "build": "babel server -d dist",
