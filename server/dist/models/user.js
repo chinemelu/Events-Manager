@@ -1,5 +1,3 @@
-'use strict';
-
 var _bcrypt = require('bcrypt');
 
 var _bcrypt2 = _interopRequireDefault(_bcrypt);
@@ -30,19 +28,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     hooks: {
-      beforeCreate: user => {
+      beforeCreate: (user) => {
         if (!user.changed('password')) {
           return;
         }
-        return _bcrypt2.default.hash(user.password, 10).then(hash => {
+        return _bcrypt2.default.hash(user.password, 10).then((hash) => {
           user.password = hash;
-        }).catch(err => {
+        }).catch((err) => {
           throw err;
         });
       }
     }
   });
-  User.associate = models => {};
+
+  User.associate = (models) => {
+    User.hasMany(models.Event, {
+      foreignKey: 'userId',
+    });
+  };
+  };
 
   User.getUsername = (username, callback) => {
     User.findOne({
@@ -50,17 +54,17 @@ module.exports = (sequelize, DataTypes) => {
         username
       }
 
-    }).then(result => {
+    }).then((result) => {
       callback(result);
-    }).catch(err => {
+    }).catch((err) => {
       throw err;
     });
   };
 
   User.prototype.verifyPassword = (password, hash, callback) => {
-    _bcrypt2.default.compare(password, hash).then(isMatch => {
+    _bcrypt2.default.compare(password, hash).then((isMatch) => {
       callback(isMatch);
-    }).catch(err => {
+    }).catch((err) => {
       throw err;
     });
   };
