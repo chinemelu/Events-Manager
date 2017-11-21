@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
@@ -35,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = (models) => {
     User.hasMany(models.Event, {
+      foreignKey: 'userId',
+    });
+    User.hasMany(models.Center, {
       foreignKey: 'userId',
     });
   };
