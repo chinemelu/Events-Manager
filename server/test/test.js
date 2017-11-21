@@ -499,13 +499,6 @@ describe('Users', () => {
   });
 
   describe('POST: /api/v1/users/login', () => {
-    beforeEach((done) => {
-      db.User.destroy({
-        where: {}
-      });
-      done();
-    });
-
     it('it should not login a user without a username', (done) => {
       const user = {
         username: null,
@@ -627,210 +620,433 @@ describe('Users', () => {
             });
         });
     });
+  });
 
-    describe('POST: api/v1/events/', () => {
-      it('it should not create an event without a title field', (done) => {
-        const event = {
-          title: null,
-          description: 'Event description',
-          numberofattendees: 150,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          imageurl: '',
-          userId: 2,
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            expect(res).to.have.status(400);
-            expect(res.body).to.be.a('object');
-            expect(res.body).to.have.property('errors');
-            expect(res.body.errors[0]).eql('Title field must not be empty');
-            done();
-          });
-      });
+  describe('POST: api/v1/events/', () => {
+    it('it should not create an event without a token provided', (done) => {
+      const event = {
+        title: null,
+        description: 'Event description',
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .send(event)
+        .end((err, res) => {
+          expect(res).to.have.status(403);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('message');
+          expect(res.body).to.have.property('success');
+          expect(res.body.success).to.eql('false');
+          expect(res.body.message).eql('No token provided');
+          done();
+        });
+    });
+    
+    it('it should not create an event without a title field', (done) => {
+      const event = {
+        title: null,
+        description: 'Event description',
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Title field must not be empty');
+          done();
+        });
+    });
 
-      it('it should not create an event without a description field', (done) => {
-        const event = {
-          title: 'duru center',
-          description: null,
-          numberofattendees: 150,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          imageurl: '',
-          userId: 2,
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('errors');
-            res.body.errors[0].should.eql('Description field must not be empty');
-            done();
-          });
-      });
+    it('it should not create an event without a description field', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: null,
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('Description field must not be empty');
+          done();
+        });
+    });
 
-      it('it should not create an event without a number of attendees field', (done) => {
-        const event = {
-          title: 'duru center',
-          description: 'Event description',
-          numberofattendees: null,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          imageurl: '',
-          userId: 2,
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('errors');
-            res.body.errors[0].should.eql('Number of attendees field must not be empty');
-            done();
-          });
-      });
+    it('it should not create an event without a number of attendees field', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: null,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('Number of attendees field must not be empty');
+          done();
+        });
+    });
 
-      it('it should not create an event if an events centre is not selected', (done) => {
-        const event = {
-          title: 'duru center',
-          description: 'Event description',
-          numberofattendees: 25,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: null,
-          isPrivate: false,
-          imageurl: '',
-          userId: 2,
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('errors');
-            res.body.errors[0].should.eql('Number of attendees field must not be empty');
-            done();
-          });
-      });
+    it('it should not create an event if an events centre is not selected', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: 25,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: null,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('Number of attendees field must not be empty');
+          done();
+        });
+    });
 
-      it('it should not create an event without a start date and time field', (done) => {
-        const event = {
-          title: 'duru center',
-          description: 'Event description',
-          numberofattendees: 100,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          imageurl: '',
-          userId: 2,
-          startdatetime: null,
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('errors');
-            res.body.errors[0].should.eql('The start date and time must not be empty');
-            done();
-          });
-      });
+    it('it should not create an event without a start date and time field', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: 100,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: null,
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('The start date and time must not be empty');
+          done();
+        });
+    });
 
-      it('it should not create an event without an end date and time', (done) => {
-        const event = {
-          title: 'duru center',
-          description: 'Event description',
-          numberofattendees: 100,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          userId: 2,
-          imageurl: '',
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: null
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('errors');
-            res.body.errors[0].should.eql('The end date and time must not be empty');
-            done();
-          });
-      });
+    it('it should not create an event without an end date and time', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: 100,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        userId: 2,
+        imageurl: '',
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: null
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('The end date and time must not be empty');
+          done();
+        });
+    });
 
-      it('it should create an event if the necessary details are filled', (done) => {
-        const event = {
-          title: 'duru center',
-          description: 'Event description',
-          numberofattendees: 100,
-          eventtype: 'theatre',
-          eventsetup: 'setup',
-          additionalcomments: 'Additional comments',
-          centerId: 2,
-          isPrivate: false,
-          imageurl: '',
-          startdatetime: '27/10/2018 12:00',
-          enddatetime: '27/10/2018 13:00'
-        };
-        chai.request(server)
-          .post('/api/v1/events')
-          .set({ token: process.env.TEST_TOKEN })
-          .send(event)
-          .end((err, res) => {
-            res.should.have.status(201);
-            res.body.should.be.a('object');
-            res.body.should.have.property('message')
-              .eql('You have successfully added an event');
-            res.body.data.should.have.property('title');
-            res.body.data.should.have.property('description');
-            res.body.data.should.have.property('numberofattendees');
-            res.body.data.should.have.property('eventtype');
-            res.body.data.should.have.property('eventsetup');
-            res.body.data.should.have.property('additionalcomments');
-            res.body.data.should.have.property('');
-            res.body.data.should.have.property('id');
-            done();
-          });
-      });
+    it('it should create an event if the necessary details are filled', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: 100,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message')
+            .eql('You have successfully added an event');
+          res.body.data.should.have.property('title');
+          res.body.data.should.have.property('description');
+          res.body.data.should.have.property('numberofattendees');
+          res.body.data.should.have.property('eventtype');
+          res.body.data.should.have.property('eventsetup');
+          res.body.data.should.have.property('additionalcomments');
+          res.body.data.should.have.property('centreId');
+          res.body.data.should.have.property('isPrivate');
+          res.body.data.should.have.property('imageurl');
+          res.body.data.should.have.property('startdatetime');
+          res.body.data.should.have.property('enddatetime');
+          done();
+        });
+    });
+
+    it('it should not create an event without a title field', (done) => {
+      const event = {
+        title: null,
+        description: 'Event description',
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        userId: 2,
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Title field must not be empty');
+          done();
+        });
+    });
+  });
+
+  describe('POST: api/v1/centers', () => {
+    it('it should not create a center without a token provided', (done) => {
+      const center = {
+        name: null,
+        location: 'Center description',
+        description: 'description field',
+        suitablefor: 'theatre',
+        facilities: 'chairs, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(403);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('message');
+          expect(res.body).to.have.property('success');
+          expect(res.body.success).to.eql('false');
+          expect(res.body.message).eql('No token provided');
+          done();
+        });
+    });
+
+    it('it should not create a center without a name field', (done) => {
+      const center = {
+        name: null,
+        location: 'Center description',
+        description: 'description field',
+        suitablefor: 'theatre',
+        facilities: 'chairs, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Name field must not be empty');
+          done();
+        });
+    });
+
+    it('it should not create a center without a location field', (done) => {
+      const center = {
+        name: 'obiwandu center',
+        location: null,
+        description: 150,
+        suitablefor: 'theatre',
+        facilities: 'chairs, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Location field must not be empty');
+          done();
+        });
+    });
+
+    it('it should not create a center without a description field', (done) => {
+      const center = {
+        name: 'obiwandu center',
+        location: 'Ketu',
+        description: null,
+        suitablefor: 'theatre',
+        facilities: 'chairs, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Description field must not be empty');
+          done();
+        });
+    });
+
+    it('it should not create a center without a suotable for field', (done) => {
+      const center = {
+        name: 'obiwandu center',
+        location: 'Ketu',
+        description: 'Center description',
+        suitablefor: null,
+        facilities: 'chairs, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Suitable for field must not be empty');
+          done();
+        });
+    });
+
+    it('it should not create a center without a facilities field', (done) => {
+      const center = {
+        name: 'obiwandu center',
+        location: 'Ketu',
+        description: 'Center description',
+        suitablefor: 'banquet',
+        facilities: null,
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Facilities field must not be empty');
+          done();
+        });
+    });
+
+    it('it should create a center if the necessary details are filled', (done) => {
+      const center = {
+        name: 'Chuba Okadigbo Center',
+        location: 'Ikeja',
+        description: 'Great place for a wedding.',
+        suitablefor: 'Wedding',
+        facilities: 'chairs, tables, musical instruments',
+        userId: 2
+      };
+      chai.request(server)
+        .post('/api/v1/centers')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(center)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message')
+            .eql('You have successfully added a center');
+          res.body.data.should.have.property('name');
+          res.body.data.should.have.property('location');
+          res.body.data.should.have.property('description');
+          res.body.data.should.have.property('suitablefor');
+          res.body.data.should.have.property('facilities');
+          res.body.data.should.have.property('userId');
+          done();
+        });
     });
   });
 });

@@ -4,6 +4,8 @@ node_js:
 install: npm install
 services:
 - postgresql
+env:
+- NODE_ENV=test
 before_script:
 - psql -c 'create database events_manager_test;' -U postgres
 - npm run build
