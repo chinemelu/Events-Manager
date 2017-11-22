@@ -285,7 +285,7 @@ describe('Users', () => {
         password: '@testPassword2'
       };
       chai.request(server)
-        .post('/api/v1/users/signup')
+        .post('/api/v1/users')
         .send(user1)
         .end(() => {
           chai.request(server)

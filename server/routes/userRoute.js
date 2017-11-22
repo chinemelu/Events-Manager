@@ -1,6 +1,6 @@
 import express from 'express';
 import usercontroller from '../controllers/usercontroller';
-import userSignUpErrorChecker from '../errorchecker/usersignup';
+import userSignUpErrorChecker from '../validation/usersignup';
 
 const router = express.Router();
 

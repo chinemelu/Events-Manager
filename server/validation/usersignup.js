@@ -1,4 +1,4 @@
-const userSignUpErrorChecker = (req, res, next) => {
+const userSignUpValidator = (req, res, next) => {
   const {
     username,
     isAdmin,
@@ -25,5 +25,5 @@ const userSignUpErrorChecker = (req, res, next) => {
       }
     });
 };
-export default userSignUpErrorChecker;
+export default userSignUpValidator;
 

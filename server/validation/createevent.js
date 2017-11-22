@@ -1,4 +1,4 @@
-const createEventErrorChecker = (req, res, next) => {
+const createEventValidator = (req, res, next) => {
   const {
     title,
     description,
@@ -30,4 +30,4 @@ const createEventErrorChecker = (req, res, next) => {
       }
     });
 };
-export default createEventErrorChecker;
+export default createEventValidator;
