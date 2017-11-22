@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     additionalComments: {
       type: DataTypes.TEXT,
     },
-    centerId: { 
+    centerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
