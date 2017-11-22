@@ -1,16 +1,16 @@
 const createEventErrorChecker = (req, res, next) => {
   const {
-      title,
-      description,
-      numberofattendees,
-      eventtype,
-      eventsetup,
-      additionalcomments,
-      centerId,
-      isPrivate,
-      startdatetime,
-      enddatetime,
-      imageurl
+    title,
+    description,
+    numberofattendees,
+    eventtype,
+    eventsetup,
+    additionalcomments,
+    centerId,
+    isPrivate,
+    startdatetime,
+    enddatetime,
+    imageurl
   } = req.body;
   req.checkBody('title', 'Title field must not be empty').notEmpty();
   req.checkBody('description', 'Description field must not be empty`1').notEmpty();
