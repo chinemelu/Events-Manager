@@ -53,7 +53,7 @@ class userController {
         }
       });
   }
-   /**
+  /**
  * @description user sign in
  * @param {*} req http request
  * @param {*} res http response
