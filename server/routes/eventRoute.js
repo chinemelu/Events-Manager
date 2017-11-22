@@ -7,3 +7,6 @@ const router = express.Router();
 
 router.post('/', createEventValidator, authenticatetoken, eventController.addEvent);
 router.put('/:id', createEventValidator, authenticatetoken, eventController.modifyEvent);
+
+export default router;
+
