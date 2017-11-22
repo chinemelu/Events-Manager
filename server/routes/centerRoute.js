@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.post('/', createCenterValidator, authenticatetoken, centerController.addCenter);
 router.put('/:id', createCenterValidator, authenticatetoken, centerController.modifyCenterDetails);
+router.get('/', centerController.getAllCenters);
 
 export default router;
