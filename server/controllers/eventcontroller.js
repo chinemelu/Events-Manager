@@ -51,6 +51,8 @@ class eventcontroller {
         });
       });
   }
+
+  static deleteEvent(req, res) {
   /**
    * @description edit events
    * @param {*} req http request
@@ -77,6 +79,22 @@ class eventcontroller {
         if (event) {
           if (event.userId !== req.decoded.userId) {
             res.status(403).json({
+              message: 'You are not authorised to delete this event'
+            });
+          } else {
+            db.event.destroy({
+              where: {
+                id: event.id
+              }
+            })
+              .then(() => {
+                res.status(200).json({
+                  message: 'You have deleted the event Successfully'
+                });
+              })
+              .catch((err) => {
+                res.status(500).json({
+                  error: err.message
               message: 'You are not authorised to edit this event'
             });
           } else {
