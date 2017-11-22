@@ -9,12 +9,12 @@ chai.should();
 const { expect } = chai;
 
 describe('Users', () => {
-  beforeEach((done) => {
+  afterEach((done) => {
     db.User.destroy({
       where: {}
     });
     done();
-  });
+});
 
   describe('POST: /api/v1/users', () => {
     it('it should not create a user without a username field', (done) => {
@@ -530,6 +530,7 @@ describe('Users', () => {
     });
 
     it('it should create an event if the necessary details are filled', (done) => {
+      
       const event = {
         title: 'Turnt birthday',
         description: 'Event description',
@@ -537,8 +538,6 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
-        isPrivate: false,
         imageurl: 'www.google.com',
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
@@ -571,12 +570,11 @@ describe('Users', () => {
   describe('POST: api/v1/centers', () => {
     it('it should not create a center without a token provided', (done) => {
       const center = {
-        name: null,
+        name: 'kenechukwu center',
         location: 'Center description',
         description: 'description field',
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -599,7 +597,6 @@ describe('Users', () => {
         description: 'description field',
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -621,7 +618,6 @@ describe('Users', () => {
         description: 150,
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -643,7 +639,6 @@ describe('Users', () => {
         description: null,
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -665,7 +660,6 @@ describe('Users', () => {
         description: 'Center description',
         suitablefor: null,
         facilities: 'chairs, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -687,7 +681,6 @@ describe('Users', () => {
         description: 'Center description',
         suitablefor: 'banquet',
         facilities: null,
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -709,7 +702,6 @@ describe('Users', () => {
         description: 'Great place for a wedding.',
         suitablefor: 'Wedding',
         facilities: 'chairs, tables, musical instruments',
-        userId: 2
       };
       chai.request(server)
         .post('/api/v1/centers')

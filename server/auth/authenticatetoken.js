@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 const authenticatetoken = (req, res, next) => {
-  const { token } = req.body.token || req.query.token || req.headers['x-access-token'];
+  const { token } = req.headers;
   // gets token from header
 
   if (token) {
@@ -21,8 +21,8 @@ const authenticatetoken = (req, res, next) => {
   } else {
   // if there is no token, an instant error message is sent
     return res.status(403).send({
-      success: false,
-      message: 'No token provided.'
+      success: 'false',
+      message: 'No token provided'
     });
   }
 };
