@@ -51,8 +51,6 @@ class eventcontroller {
         });
       });
   }
-
-  static deleteEvent(req, res) {
   /**
    * @description edit events
    * @param {*} req http request
@@ -79,22 +77,6 @@ class eventcontroller {
         if (event) {
           if (event.userId !== req.decoded.userId) {
             res.status(403).json({
-              message: 'You are not authorised to delete this event'
-            });
-          } else {
-            db.event.destroy({
-              where: {
-                id: event.id
-              }
-            })
-              .then(() => {
-                res.status(200).json({
-                  message: 'You have deleted the event Successfully'
-                });
-              })
-              .catch((err) => {
-                res.status(500).json({
-                  error: err.message
               message: 'You are not authorised to edit this event'
             });
           } else {
@@ -128,6 +110,45 @@ class eventcontroller {
         });
       });
   }
+
+    /**
+     * @description delete event
+     * @param {*} req Http request
+     * @param {*} res http response
+     * @returns {JSON} returns a JSON object
+     */
+  static deleteEvent(req, res) {
+    const { id } = req.params;
+    db.Event.findById(id)
+      .then((event) => {
+        if (event) {
+          if (event.userId !== req.decoded.userId) {
+            res.status(403).json({
+              message: 'You are not authorised to delete this event'
+            });
+          } else {
+            db.event.destroy({
+              where: {
+                id: event.id
+              }
+            })
+              .then(() => {
+                res.status(200).json({
+                  message: 'You have deleted the event Successfully'
+                });
+              })
+              .catch((err) => {
+                res.status(500).json({
+                  error: err.message
+                });
+              });
+          }
+        } else {
+          res.status(204).end();
+        }
+      });
+  }
 }
 
 export default eventcontroller;
+
