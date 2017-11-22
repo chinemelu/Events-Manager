@@ -1,0 +1,5 @@
+repo_token: process.env.REPO_TOKEN
+
+params:
+- .env
+

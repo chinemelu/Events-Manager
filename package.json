@@ -6,11 +6,16 @@
   "scripts": {
     "test": "mocha --require babel-register server/test/test.js --timeout 10000 --exit",
     "babel-node": "babel-node --presets env",
-    "start": "nodemon --exec npm run babel-node app.js" 
+    "start": "nodemon --exec npm run babel-node server/http/server",
+    "build": "babel server -d dist",
+    "heroku-postbuild": "npm run build",
+    "startDev": "node server/dist/index.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chinemelu/Events-Manager.git"
+    "url": "https://github.com/chinemelu/Events-Manager.git"
   },
   "author": "Chinemelu Nwosu",
   "license": "MIT",
@@ -19,9 +24,12 @@
   },
   "homepage": "https://github.com/chinemelu/Events-Manager#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "jsonwebtoken": "^8.1.0",
     "morgan": "^1.9.0",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
@@ -31,11 +39,16 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "nodemon": "^1.12.1",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
-    "mocha": "^4.0.1"
+    "coveralls": "^3.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.3.0",
+    "sequelize-cli": "^3.1.0"
   }
 }
