@@ -6,5 +6,6 @@ import authenticatetoken from '../auth/authenticatetoken';
 const router = express.Router();
 
 router.post('/', createCenterValidator, authenticatetoken, centerController.addCenter);
+router.put('/:id', createCenterValidator, authenticatetoken, centerController.modifyCenterDetails);
 
 export default router;
