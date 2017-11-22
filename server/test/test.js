@@ -16,7 +16,7 @@ describe('Users', () => {
     done();
   });
 
-  describe('POST: /api/v1/users/', () => {
+  describe('POST: /api/v1/users', () => {
     it('it should not create a user without a username field', (done) => {
       const user = {
         username: null,
@@ -26,7 +26,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -41,7 +41,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
     it('it should not create a user if the username is fewer than 4 characters', (done) => {
       const user = {
         username: 'tes',
@@ -51,7 +51,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -75,7 +75,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -100,7 +100,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -125,7 +125,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -149,7 +149,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -173,7 +173,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -185,7 +185,7 @@ describe('Users', () => {
           done();
         });
     });
-  
+
     it('it should not create a user if the email is of an invalid format', (done) => {
       const user = {
         username: 'test',
@@ -195,7 +195,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
 
         .send(user)
         .end((err, res) => {
@@ -203,7 +203,7 @@ describe('Users', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
           res.body.errors.should.be.a('array');
-          res.body.errors[0].should.eql('The email you entered is invalid, please try again.')
+          res.body.errors[0].should.eql('The email you entered is invalid, please try again.');
           done();
         });
     });
@@ -218,7 +218,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -239,7 +239,7 @@ describe('Users', () => {
         reEnterPassword: null,
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -263,7 +263,7 @@ describe('Users', () => {
         reEnterPassword: '@Test1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -287,7 +287,7 @@ describe('Users', () => {
         reEnterPassword: '@Test1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -311,7 +311,7 @@ describe('Users', () => {
         reEnterPassword: '@UPPERCASEPASSWORD1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -334,7 +334,7 @@ describe('Users', () => {
         reEnterPassword: '@lowercasepassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -357,7 +357,7 @@ describe('Users', () => {
         reEnterPassword: '@UPPERCASElowercasepassword'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -370,7 +370,7 @@ describe('Users', () => {
           done();
         });
     });
-  
+
     it('it should not create a user if the password has no special character', (done) => {
       const user = {
         username: 'test',
@@ -380,7 +380,7 @@ describe('Users', () => {
         reEnterPassword: 'UPPERCASElowercasepassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -403,7 +403,7 @@ describe('Users', () => {
         reEnterPassword: '@differentPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -424,7 +424,7 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
         .end((err, res) => {
           res.should.have.status(201);
@@ -436,7 +436,7 @@ describe('Users', () => {
     });
   });
 
-  describe('POST: /api/v1/users/ - duplicate input', () => {
+  describe('POST: /api/v1/users - duplicate input', () => {
     it('it should not create a user if the username already exists', (done) => {
       const user = {
         username: 'test',
@@ -451,11 +451,11 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
-        .end((err, res) => {
+        .end(() => {
           chai.request(server)
-            .post('/api/v1/users/')
+            .post('/api/v1/users')
             .send(user2)
             .end((err, res) => {
               res.should.have.status(409);
@@ -481,11 +481,11 @@ describe('Users', () => {
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user)
-        .end((err, res) => {
+        .end(() => {
           chai.request(server)
-            .post('/api/v1/users/')
+            .post('/api/v1/users')
             .send(user2)
             .end((err, res) => {
               res.should.have.status(409);
@@ -554,9 +554,9 @@ describe('Users', () => {
         password: '@testPassword'
       };
       chai.request(server)
-        .post('/api/v1/users/')
+        .post('/api/v1/users')
         .send(user1)
-        .end((err, res) => {
+        .end(() => {
           chai.request(server)
             .post('/api/v1/users/login')
             .send(user2)
@@ -626,6 +626,211 @@ describe('Users', () => {
               done();
             });
         });
+    });
+
+    describe('POST: api/v1/events/', () => {
+      it('it should not create an event without a title field', (done) => {
+        const event = {
+          title: null,
+          description: 'Event description',
+          numberofattendees: 150,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          imageurl: '',
+          userId: 2,
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            expect(res).to.have.status(400);
+            expect(res.body).to.be.a('object');
+            expect(res.body).to.have.property('errors');
+            expect(res.body.errors[0]).eql('Title field must not be empty');
+            done();
+          });
+      });
+
+      it('it should not create an event without a description field', (done) => {
+        const event = {
+          title: 'duru center',
+          description: null,
+          numberofattendees: 150,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          imageurl: '',
+          userId: 2,
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('errors');
+            res.body.errors[0].should.eql('Description field must not be empty');
+            done();
+          });
+      });
+
+      it('it should not create an event without a number of attendees field', (done) => {
+        const event = {
+          title: 'duru center',
+          description: 'Event description',
+          numberofattendees: null,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          imageurl: '',
+          userId: 2,
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('errors');
+            res.body.errors[0].should.eql('Number of attendees field must not be empty');
+            done();
+          });
+      });
+
+      it('it should not create an event if an events centre is not selected', (done) => {
+        const event = {
+          title: 'duru center',
+          description: 'Event description',
+          numberofattendees: 25,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: null,
+          isPrivate: false,
+          imageurl: '',
+          userId: 2,
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('errors');
+            res.body.errors[0].should.eql('Number of attendees field must not be empty');
+            done();
+          });
+      });
+
+      it('it should not create an event without a start date and time field', (done) => {
+        const event = {
+          title: 'duru center',
+          description: 'Event description',
+          numberofattendees: 100,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          imageurl: '',
+          userId: 2,
+          startdatetime: null,
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('errors');
+            res.body.errors[0].should.eql('The start date and time must not be empty');
+            done();
+          });
+      });
+
+      it('it should not create an event without an end date and time', (done) => {
+        const event = {
+          title: 'duru center',
+          description: 'Event description',
+          numberofattendees: 100,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          userId: 2,
+          imageurl: '',
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: null
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('errors');
+            res.body.errors[0].should.eql('The end date and time must not be empty');
+            done();
+          });
+      });
+
+      it('it should create an event if the necessary details are filled', (done) => {
+        const event = {
+          title: 'duru center',
+          description: 'Event description',
+          numberofattendees: 100,
+          eventtype: 'theatre',
+          eventsetup: 'setup',
+          additionalcomments: 'Additional comments',
+          centerId: 2,
+          isPrivate: false,
+          imageurl: '',
+          startdatetime: '27/10/2018 12:00',
+          enddatetime: '27/10/2018 13:00'
+        };
+        chai.request(server)
+          .post('/api/v1/events')
+          .set({ token: process.env.TEST_TOKEN })
+          .send(event)
+          .end((err, res) => {
+            res.should.have.status(201);
+            res.body.should.be.a('object');
+            res.body.should.have.property('message')
+              .eql('You have successfully added an event');
+            res.body.data.should.have.property('title');
+            res.body.data.should.have.property('description');
+            res.body.data.should.have.property('numberofattendees');
+            res.body.data.should.have.property('eventtype');
+            res.body.data.should.have.property('eventsetup');
+            res.body.data.should.have.property('additionalcomments');
+            res.body.data.should.have.property('');
+            res.body.data.should.have.property('id');
+            done();
+          });
+      });
     });
   });
 });
