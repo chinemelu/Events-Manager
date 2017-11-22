@@ -6,7 +6,6 @@ const userSignUpValidator = (req, res, next) => {
     password
   } = req.body;
   req.checkBody('username', 'Username field must not be empty.').notEmpty()
-    .matches(/^(?=.*[a-z])[a-z0-9_]{4,15}\s*$/);
   req.checkBody('email', 'Email field must not be empty').notEmpty();
   req.checkBody('email', 'The email you entered is invalid, please try again.')
     .isEmail();

@@ -4,4 +4,7 @@ import createEventValidator from '../validation/createevent';
 import authenticatetoken from '../auth/authenticatetoken';
 
 const router = express.Router();
+
 router.post('/', createEventValidator, authenticatetoken, eventController.addEvent);
+
+export default router;

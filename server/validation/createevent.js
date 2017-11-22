@@ -13,11 +13,11 @@ const createEventValidator = (req, res, next) => {
     imageurl
   } = req.body;
   req.checkBody('title', 'Title field must not be empty').notEmpty();
-  req.checkBody('description', 'Description field must not be empty`1').notEmpty();
+  req.checkBody('description', 'Description field must not be empty').notEmpty();
   req.checkBody('numberofattendees', 'Number of attendees field must not be empty').notEmpty();
   req.checkBody('centerId', 'centerId must not be empty').notEmpty();
-  req.checkBody('startdatetime', 'Title field must not be empty').notEmpty();
-  req.checkBody('enddatetime', 'Location field must not be empty`1').notEmpty();
+  req.checkBody('startdatetime', 'Start date and time must not be empty').notEmpty();
+  req.checkBody('enddatetime', 'End date and time must not be empty').notEmpty();
   req.getValidationResult()
     .then((result) => {
       if (!result.isEmpty()) {

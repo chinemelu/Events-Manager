@@ -1,10 +1,10 @@
 import express from 'express';
 import usercontroller from '../controllers/usercontroller';
-import userSignUpErrorChecker from '../validation/usersignup';
+import userSignUpValidator from '../validation/usersignup';
 
 const router = express.Router();
 
-router.post('/', userSignUpErrorChecker, usercontroller.signup);
+router.post('/', userSignUpValidator, usercontroller.signup);
 router.post('/login', usercontroller.login);
 
 export default router;
