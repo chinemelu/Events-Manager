@@ -334,7 +334,7 @@ describe('Users', () => {
   describe('POST: api/v1/events/', () => {
     it('it should not create an event without a token provided', (done) => {
       const event = {
-        title: null,
+        title: 'Ikoyi Center',
         description: 'Event description',
         numberofattendees: 150,
         eventtype: 'theatre',
@@ -342,7 +342,7 @@ describe('Users', () => {
         additionalcomments: 'Additional comments',
         centerId: 2,
         isPrivate: false,
-        imageurl: '',
+        imageurl: 'www.google.com',
         userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
@@ -468,7 +468,7 @@ describe('Users', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
-          res.body.errors[0].should.eql('Number of attendees field must not be empty');
+          res.body.errors[0].should.eql('centerId must not be empty');
           done();
         });
     });
@@ -496,7 +496,7 @@ describe('Users', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
-          res.body.errors[0].should.eql('The start date and time must not be empty');
+          res.body.errors[0].should.eql('Start date and time must not be empty');
           done();
         });
     });
@@ -524,7 +524,7 @@ describe('Users', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
-          res.body.errors[0].should.eql('The end date and time must not be empty');
+          res.body.errors[0].should.eql('End date and time must not be empty');
           done();
         });
     });
@@ -539,7 +539,7 @@ describe('Users', () => {
         additionalcomments: 'Additional comments',
         centerId: 2,
         isPrivate: false,
-        imageurl: '',
+        imageurl: 'www.google.com',
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
@@ -563,34 +563,6 @@ describe('Users', () => {
           res.body.data.should.have.property('imageurl');
           res.body.data.should.have.property('startdatetime');
           res.body.data.should.have.property('enddatetime');
-          done();
-        });
-    });
-
-    it('it should not create an event without a title field', (done) => {
-      const event = {
-        title: null,
-        description: 'Event description',
-        numberofattendees: 150,
-        eventtype: 'theatre',
-        eventsetup: 'setup',
-        additionalcomments: 'Additional comments',
-        centerId: 2,
-        isPrivate: false,
-        imageurl: '',
-        userId: 2,
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
-      };
-      chai.request(server)
-        .post('/api/v1/events')
-        .set({ token: process.env.TEST_TOKEN })
-        .send(event)
-        .end((err, res) => {
-          expect(res).to.have.status(400);
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('errors');
-          expect(res.body.errors[0]).eql('Title field must not be empty');
           done();
         });
     });
