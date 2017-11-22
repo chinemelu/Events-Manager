@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     additionalComments: {
       type: DataTypes.TEXT,
     },
-    centerId: { 
+    centerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
