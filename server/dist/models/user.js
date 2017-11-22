@@ -45,9 +45,6 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Event, {
       foreignKey: 'userId',
     });
-    User.hasMany(models.Center, {
-      foreignKey: 'userId',
-    });
   };
 
   User.getUsername = (username, callback) => {

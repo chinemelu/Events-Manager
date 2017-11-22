@@ -70,4 +70,3 @@ module.exports = {
     return queryInterface.dropTable('Events');
   }
 };
-

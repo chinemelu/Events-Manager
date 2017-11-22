@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Center = sequelize.define('Center', {
+  var Center = sequelize.define('Center', {
     name: {
       type: DataTypes.STRING,
       allowNull: false

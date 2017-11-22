@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
     title: {
@@ -21,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     additionalComments: {
       type: DataTypes.TEXT,
     },
-    centerId: {
+    centerId: { 
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -43,13 +44,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Event.associate = (models) => {
-    Event.belongsTo(models.User, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-    Event.belongsTo(models.Center, {
-      foreignKey: 'centerId'
-    });
+    
   };
+
   return Event;
 };

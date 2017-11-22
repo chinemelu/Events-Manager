@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -47,6 +47,7 @@ module.exports = {
       endDateTime: {
         type: Sequelize.INTEGER,
         allowNull: false
+
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -70,4 +71,3 @@ module.exports = {
     return queryInterface.dropTable('Events');
   }
 };
-
