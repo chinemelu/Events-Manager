@@ -12,11 +12,12 @@ module.exports = {
     port: process.env.DB_PORT
   },
   test: {
-    username: 'postgres',
-    password: null,
-    database: 'events_manager_test',
-    host: '127.0.0.1',
-    dialect: 'postgres'
+    username: process.env.DB_USER,
+    password: process.env.DB_USER,
+    database: process.env.DB_TEST_NAME,
+    host: process.env.DB_HOST,
+    dialect: 'postgres',
+    port: process.env.DB_PORT
   },
   production: {
     dialect: 'mysql'

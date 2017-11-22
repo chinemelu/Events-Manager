@@ -51,6 +51,65 @@ class eventcontroller {
         });
       });
   }
+  /**
+   * @description edit events
+   * @param {*} req http request
+   * @param {*} res http response
+   * @returns {JSON} returns a JSON object
+   */
+  static modifyEvent(req, res) {
+    const {
+      title,
+      description,
+      numberofattendees,
+      eventtype,
+      eventsetup,
+      additionalcomments,
+      centerId,
+      isPrivate,
+      imageurl,
+      startdatetime,
+      enddatetime
+    } = req.body;
+    const { id } = req.params;
+    db.Event.findById(id)
+      .then((event) => {
+        if (event) {
+          if (event.userId !== req.decoded.userId) {
+            res.status(403).json({
+              message: 'You are not authorised to edit this event'
+            });
+          } else {
+            event.update({
+              title,
+              description,
+              numberofattendees,
+              eventtype,
+              eventsetup,
+              additionalcomments,
+              centerId,
+              isPrivate,
+              imageurl,
+              startdatetime,
+              enddatetime
+            })
+              .then(() => {
+                res.status(200).json({
+                  message: 'You have successfully modified the event',
+                  data: event
+                });
+              });
+          }
+        } else {
+          res.status(204).end();
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal Server Error'
+        });
+      });
+  }
 }
 
 export default eventcontroller;
