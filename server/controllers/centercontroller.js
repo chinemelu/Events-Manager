@@ -93,6 +93,27 @@ class centercontroller {
         }
       });
   }
+
+  /**
+ * @description get all centers
+ * @param {*} req Http request
+ * @param {*} res http response
+ * @returns {JSON} returns a JSON object
+ */
+  static getAllCenters(req, res) {
+    db.Center.findAll({})
+      .then((centers) => {
+        res.status(200).json({
+          success: 'ok',
+          data: centers
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
+      });
+  }
 }
 
 export default centercontroller;

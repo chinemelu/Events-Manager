@@ -111,12 +111,12 @@ class eventcontroller {
       });
   }
 
-    /**
-     * @description delete event
-     * @param {*} req Http request
-     * @param {*} res http response
-     * @returns {JSON} returns a JSON object
-     */
+  /**
+   * @description delete event
+   * @param {*} req Http request
+   * @param {*} res http response
+   * @returns {JSON} returns a JSON object
+   */
   static deleteEvent(req, res) {
     const { id } = req.params;
     db.Event.findById(id)
