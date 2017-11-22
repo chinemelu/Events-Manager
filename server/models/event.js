@@ -9,17 +9,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    numberOfAttendees: {
+    numberofattendees: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    eventType: {
+    eventtype: {
       type: DataTypes.STRING,
     },
-    eventSetup: {
+    eventsetup: {
       type: DataTypes.STRING,
     },
-    additionalComments: {
+    additionalcomments: {
       type: DataTypes.TEXT,
     },
     centerId: {
@@ -30,11 +30,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    startDateTime: {
+    startdatetime: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    endDateTime: {
+    enddatetime: {
       type: DataTypes.INTEGER,
       allowNull: false
     },

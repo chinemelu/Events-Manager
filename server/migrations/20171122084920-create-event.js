@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      numberOfAttendees: {
+      numberofattendees: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
@@ -25,8 +25,11 @@ module.exports = {
       eventSetup: {
         type: Sequelize.STRING
       },
-      additionalComments: {
+      additionalcomments: {
         type: Sequelize.TEXT
+      },
+      imageurl: {
+        type: Sequelize.STRING
       },
       centerId: {
         type: Sequelize.INTEGER,
@@ -40,11 +43,11 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      startDateTime: {
+      startdatetime: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      endDateTime: {
+      enddatetime: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
