@@ -14,7 +14,7 @@ describe('Users', () => {
       where: {}
     });
     done();
-});
+  });
 
   describe('POST: /api/v1/users', () => {
     it('it should not create a user without a username field', (done) => {
@@ -321,7 +321,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
     it('it should not create an event without a title field', (done) => {
       const event = {
         title: null,
@@ -338,7 +338,7 @@ describe('Users', () => {
       };
       chai.request(server)
         .post('/api/v1/events')
-        .set( 'token', 'process.env.TEST_TOKEN')
+        .set('token', 'process.env.TEST_TOKEN')
         .send(event)
         .end((err, res) => {
           expect(res).to.have.status(400);
@@ -403,7 +403,7 @@ describe('Users', () => {
         });
     });
 
-     it('it should not create an event without an integer as input for number of attendees field', (done) => {
+    it('it should not create an event without an integer as input for number of attendees field', (done) => {
       const event = {
         title: 'Turnt birthday',
         description: 'Event description',
@@ -456,7 +456,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
     it('it should not create an event without a start date and time field', (done) => {
       const event = {
         title: 'Turnt birthday',
@@ -622,8 +622,8 @@ describe('Users', () => {
           done();
         });
     });
-    
-    
+
+
     it('it should not create a center without an availability field', (done) => {
       const center = {
         name: 'obiwandu center',
@@ -645,19 +645,19 @@ describe('Users', () => {
           done();
         });
     });
-  })
+  });
 
   describe('DELETE: /api/v1/events/:id', () => {
     it('it should provide a status 204 message if the requested DELETE id \n' +
     'does not exist in the database', (done) => {
       chai.request(server)
-        .delete(`/api/v1/events/1`)
+        .delete('/api/v1/events/1')
         .set({ token: process.env.TEST_TOKEN })
         .end((err, res) => {
           res.should.have.status(204);
           res.body.should.be.a('object');
           done();
-          });
-      });
+        });
+    });
   });
-})
+});
