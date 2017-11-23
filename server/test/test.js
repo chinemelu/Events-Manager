@@ -343,7 +343,6 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: 'www.google.com',
-        userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
@@ -372,13 +371,12 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
-        .set({ token: process.env.TEST_TOKEN })
+        .set( 'token', 'process.env.TEST_TOKEN')
         .send(event)
         .end((err, res) => {
           expect(res).to.have.status(400);
@@ -400,7 +398,6 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
@@ -428,7 +425,6 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
@@ -456,7 +452,6 @@ describe('Users', () => {
         centerId: null,
         isPrivate: false,
         imageurl: '',
-        userId: 2,
         startdatetime: '27/10/2018 12:00',
         enddatetime: '27/10/2018 13:00'
       };
@@ -481,10 +476,8 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
         isPrivate: false,
         imageurl: '',
-        userId: 2,
         startdatetime: null,
         enddatetime: '27/10/2018 13:00'
       };
@@ -511,7 +504,6 @@ describe('Users', () => {
         additionalcomments: 'Additional comments',
         centerId: 2,
         isPrivate: false,
-        userId: 2,
         imageurl: '',
         startdatetime: '27/10/2018 12:00',
         enddatetime: null
@@ -575,6 +567,7 @@ describe('Users', () => {
         description: 'description field',
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
+        availability: 'available'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -597,6 +590,7 @@ describe('Users', () => {
         description: 'description field',
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
+        availability: 'available'
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -618,6 +612,7 @@ describe('Users', () => {
         description: 150,
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
+        availability: 'not available'
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -639,6 +634,7 @@ describe('Users', () => {
         description: null,
         suitablefor: 'theatre',
         facilities: 'chairs, musical instruments',
+        availability: 'not available'
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -660,6 +656,7 @@ describe('Users', () => {
         description: 'Center description',
         suitablefor: null,
         facilities: 'chairs, musical instruments',
+        availability: 'not available'
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -681,6 +678,7 @@ describe('Users', () => {
         description: 'Center description',
         suitablefor: 'banquet',
         facilities: null,
+        availability: 'not available'
       };
       chai.request(server)
         .post('/api/v1/centers')
@@ -694,32 +692,76 @@ describe('Users', () => {
           done();
         });
     });
-
-    it('it should create a center if the necessary details are filled', (done) => {
+    
+    
+    it('it should not create a center without an availability field', (done) => {
       const center = {
-        name: 'Chuba Okadigbo Center',
-        location: 'Ikeja',
-        description: 'Great place for a wedding.',
-        suitablefor: 'Wedding',
-        facilities: 'chairs, tables, musical instruments',
+        name: 'obiwandu center',
+        location: 'Ketu',
+        description: 'Center description',
+        suitablefor: 'banquet',
+        facilities: 'chair, table',
+        availability: null
       };
       chai.request(server)
         .post('/api/v1/centers')
         .set({ token: process.env.TEST_TOKEN })
         .send(center)
         .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message')
-            .eql('You have successfully added a center');
-          res.body.data.should.have.property('name');
-          res.body.data.should.have.property('location');
-          res.body.data.should.have.property('description');
-          res.body.data.should.have.property('suitablefor');
-          res.body.data.should.have.property('facilities');
-          res.body.data.should.have.property('userId');
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Availability field must not be empty');
           done();
         });
     });
-  });
-});
+
+    it('it should create a center if the necessary details are filled', (done) => {
+      const user1 = {
+        username: 'testusername',
+        email: 'testemail1@test.com',
+        isAdmin: false,
+        password: '@testPassword1',
+        reEnterPassword: '@testPassword1'
+      };
+      const user2 = {
+        username: 'testusername',
+        password: '@testPassword1'
+      };
+      const center = {
+        name: 'Chuba Okadigbo Center',
+        location: 'Ikeja',
+        description: 'Great place for a wedding.',
+        suitablefor: 'Wedding',
+        facilities: 'chairs, tables, musical instruments'
+      };
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(user1)
+        .end(() => {
+          chai.request(server)
+            .post('/api/v1/users/login')
+            .send(user2)
+            .end(() => {
+              chai.request(server)
+                .post('/api/v1/centers')
+                .set('token', `${req.decoded.token}`)
+                .send(center)
+                .end((err, res) => {
+                  res.should.have.status(201);
+                  res.body.should.be.a('object');
+                  res.body.should.have.property('message')
+                    .eql('You have successfully added a center');
+                  res.body.data.should.have.property('name');
+                  res.body.data.should.have.property('location');
+                  res.body.data.should.have.property('description');
+                  res.body.data.should.have.property('suitablefor');
+                  res.body.data.should.have.property('facilities');
+                  res.body.data.should.have.property('userId');
+                  done();
+                });
+          });
+        });
+      })
+    })
+  })

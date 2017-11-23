@@ -19,10 +19,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      eventType: {
+      eventtype: {
         type: Sequelize.STRING
       },
-      eventSetup: {
+      eventsetup: {
         type: Sequelize.STRING
       },
       additionalcomments: {
@@ -44,11 +44,11 @@ module.exports = {
         defaultValue: false
       },
       startdatetime: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false
       },
       enddatetime: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false
       },
       userId: {

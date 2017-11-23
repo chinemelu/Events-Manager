@@ -30,6 +30,10 @@ module.exports = {
       imageurl: {
         type: Sequelize.STRING
       },
+      availability: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
