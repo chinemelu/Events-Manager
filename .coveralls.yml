@@ -1,5 +1,5 @@
-repo_token: process.env.REPO_TOKEN
+repo_token: x5SwU8ZuJX3wmd3ExyMapMdcMVAO3k7zl
 
-params:
-- .env
+
+
 
