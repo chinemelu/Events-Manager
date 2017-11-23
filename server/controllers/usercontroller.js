@@ -1,4 +1,6 @@
 import jwt from 'jsonwebtoken';
+import toLowerCase from '../inputHandler/toLowerCase';
+import trimWhiteSpace from '../inputHandler/trimWhiteSpace';
 import db from '../models/index';
 
 /**
@@ -17,6 +19,8 @@ class userController {
       email,
       password
     } = req.body;
+    toLowerCase(trimWhiteSpace(username));
+    toLowerCase(trimWhiteSpace(email));
 
     db.User.findOne({
       where: {
@@ -68,29 +72,31 @@ class userController {
     if (!username || !password) {
       res.status(400).json({ message: 'username and password required' });
     } else {
-      db.User.getUsername(username, (user) => {
+      db.User.getUsername(toLowerCase(trimWhiteSpace(username)), (user) => {
         if (!user) {
           res.status(401).json({ message: 'username or password is incorrect' });
         } else {
-          db.User.prototype.verifyPassword(password, user.password, (isMatch) => {
-            if (isMatch) {
-              const payload = {
-                userId: user.id,
-                isAdmin: user.isAdmin
-              };
+          db.User.prototype.verifyPassword(
+            toLowerCase(trimWhiteSpace(password)),
+            user.password, (isMatch) => {
+              if (isMatch) {
+                const payload = {
+                  userId: user.id,
+                  isAdmin: user.isAdmin
+                };
 
-              const token = jwt.sign(payload, process.env.SECRET_KEY, {
-                expiresIn: '200h'
-              });
+                const token = jwt.sign(payload, process.env.SECRET_KEY, {
+                  expiresIn: '200h'
+                });
 
-              res.status(200).json({
-                message: 'Token generated. Sign in successful',
-                token
-              });
-            } else {
-              res.status(401).json({ message: 'username or password is incorrect' });
-            }
-          });
+                res.status(200).json({
+                  message: 'Token generated. Sign in successful',
+                  token
+                });
+              } else {
+                res.status(401).json({ message: 'username or password is incorrect' });
+              }
+            });
         }
       });
     }

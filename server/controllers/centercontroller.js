@@ -15,7 +15,7 @@ class centercontroller {
     const { userId } = req.decoded;
     if (isAdmin !== true || isAdmin === false) {
       res.status(403).json({
-        message: 'You are not authorised to perform your action'
+        message: 'You are not authorised to perform this action'
       });
     } else {
       const {
@@ -23,7 +23,8 @@ class centercontroller {
         location,
         description,
         suitablefor,
-        facilities
+        facilities,
+        availability
       } = req.body;
       db.Center.create({
         name,
@@ -31,7 +32,8 @@ class centercontroller {
         description,
         suitablefor,
         facilities,
-        userId
+        userId,
+        availability
       })
         .then((center) => {
           res.status(201).json({
@@ -58,28 +60,38 @@ class centercontroller {
       location,
       description,
       suitablefor,
-      facilities
+      facilities,
+      availability
     } = req.body;
     const { id } = req.params;
     const { isAdmin } = req.decoded;
     db.Center.findById(id)
-      .then((center) => {
-        if (center) {
+      .then((result) => {
+        if (result) {
           if (isAdmin !== true || isAdmin === false) {
             res.status(403).json({
               message: 'You are not authorised to modify this center'
             });
           } else {
-            db.Center.update({
-              name,
-              location,
-              description,
-              suitablefor,
-              facilities
-            })
-              .then(() => {
+            db.Center.update(
+              {
+                name,
+                location,
+                description,
+                suitablefor,
+                facilities,
+                availability
+              },
+              {
+                where: { id },
+                returning: true,
+                plain: true
+              }
+            )
+              .then((update) => {
                 res.status(200).json({
-                  message: 'You have modified the center successfully'
+                  data: update[1].dataValues,
+                  message: 'You have modified the center successfully',
                 });
               })
               .catch((err) => {
@@ -107,6 +119,42 @@ class centercontroller {
           success: 'ok',
           data: centers
         });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
+      });
+  }
+
+  /**
+ * @description get one center
+ * @param {*} req Http request
+ * @param {*} res http response
+ * @returns {JSON} returns a JSON object
+ */
+  static getOneCenter(req, res) {
+    const { id } = req.params;
+    db.Center.findOne({
+      where: {
+        id
+      },
+      include: [{
+        model: db.Event
+      }]
+    })
+      .then((center) => {
+        if (center) {
+          res.status(200).json({
+            success: 'ok',
+            data: center
+          });
+        } else {
+          res.status(200).json({
+            success: 'false',
+            message: 'center cannot be found'
+          });
+        }
       })
       .catch((err) => {
         res.status(500).json({

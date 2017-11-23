@@ -4,7 +4,7 @@
   "description": "An application that helps admin to manage its events centres, and users to manage its events",
   "main": "app.js",
   "scripts": {
-    "test": "set NODE_ENV=test&&sequelize db:migrate:undo:all&&sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-register server/test/test.js --timeout 10000 --exit",
+    "test": "set NODE_ENV=test&&sequelize db:migrate:undo:all&&sequelize db:migrate && cross-env NODE_ENV=test  nyc mocha --require babel-register server/test/test.js --timeout 10000 --exit",
     "babel-node": "babel-node --presets env",
     "start": "nodemon --exec npm run babel-node server/http/server",
     "build": "babel server -d dist",

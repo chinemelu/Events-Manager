@@ -7,11 +7,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     numberofattendees: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isInt: true
+      }
     },
     eventtype: {
       type: DataTypes.STRING,
@@ -25,21 +28,35 @@ module.exports = (sequelize, DataTypes) => {
     centerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        isInt: true
+      }
     },
     isPrivate: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     startdatetime: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
+        isAfter: DataTypes.NOW
+      }
     },
     enddatetime: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
+        isAfter: DataTypes.NOW
+      }
     },
     userId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: true
+      }
     }
   });
 

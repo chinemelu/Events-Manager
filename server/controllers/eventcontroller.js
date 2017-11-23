@@ -25,30 +25,53 @@ class eventcontroller {
       enddatetime,
       imageurl,
     } = req.body;
-    db.Event.create({
-      title,
-      description,
-      numberofattendees,
-      eventtype,
-      eventsetup,
-      additionalcomments,
-      centerId,
-      isPrivate,
-      startdatetime,
-      enddatetime,
-      imageurl,
-      userId
-    })
-      .then((event) => {
-        res.status(201).json({
-          message: 'You have successfully added an event',
-          data: event
-        });
-      })
-      .catch((error) => {
-        res.status(500).json({
-          message: error.message || 'Internal Server Error'
-        });
+
+    db.User.findById(userId)
+      . then((user) => {
+        if (!(user)) {
+          res.status(404).json({
+            message: 'The User does not exist. Invalid token'
+          });
+        } else {
+          db.Center.findOne({
+            where: {
+              id: centerId
+            }
+          })
+            .then((center) => {
+              if (center) {
+                db.Event.create({
+                  title,
+                  description,
+                  numberofattendees,
+                  eventtype,
+                  eventsetup,
+                  additionalcomments,
+                  centerId,
+                  isPrivate,
+                  startdatetime,
+                  enddatetime,
+                  imageurl,
+                  userId
+                })
+                  .then((event) => {
+                    res.status(201).json({
+                      message: 'You have successfully added an event',
+                      data: event
+                    });
+                  })
+                  .catch((error) => {
+                    res.status(500).json({
+                      message: error.message || 'Internal Server Error'
+                    });
+                  });
+              } else {
+                res.status(404).json({
+                  message: 'Center does not exist'
+                });
+              }
+            });
+        }
       });
   }
   /**
@@ -127,7 +150,7 @@ class eventcontroller {
               message: 'You are not authorised to delete this event'
             });
           } else {
-            db.event.destroy({
+            db.Event.destroy({
               where: {
                 id: event.id
               }

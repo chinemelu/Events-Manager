@@ -2,27 +2,34 @@ module.exports = (sequelize, DataTypes) => {
   const Center = sequelize.define('Center', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     suitablefor: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     facilities: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageurl: {
+      type: DataTypes.STRING
+    },
+    availability: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     }
   });
 
