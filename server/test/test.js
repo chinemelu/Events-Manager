@@ -21,7 +21,6 @@ describe('Users', () => {
       const user = {
         username: null,
         email: 'testemail@test.com',
-        isAdmin: false,
         password: '@testPassword1',
         reEnterPassword: '@testPassword1'
       };
@@ -42,7 +41,6 @@ describe('Users', () => {
       const user = {
         username: 'test',
         email: null,
-        isAdmin: false,
         password: '@testPassword1',
         reEnterPassword: '@testPassword1'
       };
@@ -64,13 +62,11 @@ describe('Users', () => {
       const user = {
         username: 'test',
         email: 'testemail@test',
-        isAdmin: false,
         password: '@testPassword1',
         reEnterPassword: '@testPassword1'
       };
       chai.request(server)
         .post('/api/v1/users')
-
         .send(user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -86,7 +82,6 @@ describe('Users', () => {
       const user = {
         username: 'test',
         email: 'testemail@test.com',
-        isAdmin: false,
         password: null,
         reEnterPassword: null,
       };
@@ -107,7 +102,6 @@ describe('Users', () => {
       const user = {
         username: 'test',
         email: 'testemail@test.com',
-        isAdmin: false,
         password: '@Password1',
         reEnterPassword: '@differentPassword1'
       };
@@ -128,7 +122,6 @@ describe('Users', () => {
       const user = {
         username: 'test',
         email: 'testemail@test.com',
-        isAdmin: false,
         password: '@testPassword1',
         reEnterPassword: '@testPassword1'
       };
@@ -247,7 +240,6 @@ describe('Users', () => {
       const user1 = {
         username: 'testusername',
         email: 'testemail@test.com',
-        isAdmin: false,
         password: '@testPassword',
         reEnterPassword: '@testPassword'
       };
@@ -276,7 +268,6 @@ describe('Users', () => {
       const user1 = {
         username: 'testusername',
         email: 'testemail@test.com',
-        isAdmin: false,
         password: '@testPassword1',
         reEnterPassword: '@testPassword1'
       };
@@ -296,35 +287,6 @@ describe('Users', () => {
               res.body.should.be.a('object');
               res.body.should.have.property('message');
               res.body.message.should.eql('username or password is incorrect');
-              done();
-            });
-        });
-    });
-
-    it('it should login a user if the details are correct', (done) => {
-      const user1 = {
-        username: 'testusername',
-        email: 'testemail1@test.com',
-        isAdmin: false,
-        password: '@testPassword1',
-        reEnterPassword: '@testPassword1'
-      };
-      const user2 = {
-        username: 'testusername',
-        password: '@testPassword1'
-      };
-      chai.request(server)
-        .post('/api/v1/users')
-        .send(user1)
-        .end(() => {
-          chai.request(server)
-            .post('/api/v1/users/login')
-            .send(user2)
-            .end((err, res) => {
-              res.should.have.status(200);
-              res.body.should.be.a('object');
-              res.body.should.include.keys('message', 'token');
-              res.body.message.should.eql('Token generated. Sign in successful');
               done();
             });
         });
@@ -441,6 +403,33 @@ describe('Users', () => {
         });
     });
 
+     it('it should not create an event without an integer as input for number of attendees field', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: 'Event description',
+        numberofattendees: 'one hundred',
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: 2,
+        isPrivate: false,
+        imageurl: '',
+        startdatetime: '27/10/2018 12:00',
+        enddatetime: '27/10/2018 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('Number of attendees input must be an integer');
+          done();
+        });
+    });
+
     it('it should not create an event if an events centre is not selected', (done) => {
       const event = {
         title: 'Turnt birthday',
@@ -467,7 +456,7 @@ describe('Users', () => {
           done();
         });
     });
-
+    
     it('it should not create an event without a start date and time field', (done) => {
       const event = {
         title: 'Turnt birthday',
@@ -476,6 +465,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
+        centerId: 2,
         isPrivate: false,
         imageurl: '',
         startdatetime: null,
@@ -520,69 +510,9 @@ describe('Users', () => {
           done();
         });
     });
-
-    it('it should create an event if the necessary details are filled', (done) => {
-      
-      const event = {
-        title: 'Turnt birthday',
-        description: 'Event description',
-        numberofattendees: 100,
-        eventtype: 'theatre',
-        eventsetup: 'setup',
-        additionalcomments: 'Additional comments',
-        imageurl: 'www.google.com',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
-      };
-      chai.request(server)
-        .post('/api/v1/events')
-        .set({ token: process.env.TEST_TOKEN })
-        .send(event)
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message')
-            .eql('You have successfully added an event');
-          res.body.data.should.have.property('title');
-          res.body.data.should.have.property('description');
-          res.body.data.should.have.property('numberofattendees');
-          res.body.data.should.have.property('eventtype');
-          res.body.data.should.have.property('eventsetup');
-          res.body.data.should.have.property('additionalcomments');
-          res.body.data.should.have.property('centreId');
-          res.body.data.should.have.property('isPrivate');
-          res.body.data.should.have.property('imageurl');
-          res.body.data.should.have.property('startdatetime');
-          res.body.data.should.have.property('enddatetime');
-          done();
-        });
-    });
   });
 
   describe('POST: api/v1/centers', () => {
-    it('it should not create a center without a token provided', (done) => {
-      const center = {
-        name: 'kenechukwu center',
-        location: 'Center description',
-        description: 'description field',
-        suitablefor: 'theatre',
-        facilities: 'chairs, musical instruments',
-        availability: 'available'
-      };
-      chai.request(server)
-        .post('/api/v1/events')
-        .send(center)
-        .end((err, res) => {
-          expect(res).to.have.status(403);
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('message');
-          expect(res.body).to.have.property('success');
-          expect(res.body.success).to.eql('false');
-          expect(res.body.message).eql('No token provided');
-          done();
-        });
-    });
-
     it('it should not create a center without a name field', (done) => {
       const center = {
         name: null,
@@ -649,7 +579,7 @@ describe('Users', () => {
         });
     });
 
-    it('it should not create a center without a suotable for field', (done) => {
+    it('it should not create a center without a suitable for field', (done) => {
       const center = {
         name: 'obiwandu center',
         location: 'Ketu',
@@ -715,53 +645,19 @@ describe('Users', () => {
           done();
         });
     });
-
-    it('it should create a center if the necessary details are filled', (done) => {
-      const user1 = {
-        username: 'testusername',
-        email: 'testemail1@test.com',
-        isAdmin: false,
-        password: '@testPassword1',
-        reEnterPassword: '@testPassword1'
-      };
-      const user2 = {
-        username: 'testusername',
-        password: '@testPassword1'
-      };
-      const center = {
-        name: 'Chuba Okadigbo Center',
-        location: 'Ikeja',
-        description: 'Great place for a wedding.',
-        suitablefor: 'Wedding',
-        facilities: 'chairs, tables, musical instruments'
-      };
-      chai.request(server)
-        .post('/api/v1/users')
-        .send(user1)
-        .end(() => {
-          chai.request(server)
-            .post('/api/v1/users/login')
-            .send(user2)
-            .end(() => {
-              chai.request(server)
-                .post('/api/v1/centers')
-                .set('token', `${req.decoded.token}`)
-                .send(center)
-                .end((err, res) => {
-                  res.should.have.status(201);
-                  res.body.should.be.a('object');
-                  res.body.should.have.property('message')
-                    .eql('You have successfully added a center');
-                  res.body.data.should.have.property('name');
-                  res.body.data.should.have.property('location');
-                  res.body.data.should.have.property('description');
-                  res.body.data.should.have.property('suitablefor');
-                  res.body.data.should.have.property('facilities');
-                  res.body.data.should.have.property('userId');
-                  done();
-                });
-          });
-        });
-      })
-    })
   })
+
+  describe('DELETE: /api/v1/events/:id', () => {
+    it('it should provide a status 204 message if the requested DELETE id \n' +
+    'does not exist in the database', (done) => {
+      chai.request(server)
+        .delete(`/api/v1/events/1`)
+        .set({ token: process.env.TEST_TOKEN })
+        .end((err, res) => {
+          res.should.have.status(204);
+          res.body.should.be.a('object');
+          done();
+          });
+      });
+  });
+})
