@@ -6,9 +6,11 @@
   "scripts": {
     "test": "set NODE_ENV=test&&sequelize db:migrate:undo:all&&sequelize db:migrate && cross-env NODE_ENV=test  nyc mocha --require babel-register server/test/test.js --timeout 10000 --exit",
     "babel-node": "babel-node --presets env",
-    "start": "nodemon --exec npm run babel-node server/http/server",
-    "build": "babel server -d dist",
-    "heroku-postbuild": "npm run build",
+    "start-nodemon": "nodemon --exec npm run babel-node server/http/server",
+    "start": "node ./build/http/server.js",
+    "migrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate",
+   "heroku-postbuild": "npm run migrate && npm run build-server",
+     "build-server": "node ./node_modules/babel-cli/bin/babel.js -d ./build ./server",
     "startDev": "node server/dist/index.js",
     "coverage": "npm test && nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
@@ -24,6 +26,8 @@
   },
   "homepage": "https://github.com/chinemelu/Events-Manager#readme",
   "dependencies": {
+     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
@@ -34,10 +38,9 @@
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.22.8"
+
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",

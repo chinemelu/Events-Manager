@@ -1,4 +1,4 @@
-import app from '../../app';
+import app from '../app';
 import userRoutes from '../routes/userRoute';
 import centerRoutes from '../routes/centerRoute';
 import eventRoutes from '../routes/eventRoute';
