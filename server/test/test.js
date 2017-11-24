@@ -212,8 +212,8 @@ describe('Users', () => {
         .end((err, res) => {
           expect(res).to.have.status(400);
           expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).eql('username and password required');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('username and password required');
           done();
         });
     });
@@ -229,8 +229,8 @@ describe('Users', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          res.body.should.have.property('message');
-          res.body.message.should.eql('username and password required');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('username and password required');
           done();
         });
     });
@@ -305,8 +305,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: 'www.google.com',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018-10-27',
+        enddatetime: '2018-10-27'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -333,8 +333,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018-10-27 12:00',
+        enddatetime: '2018-10-27 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -360,8 +360,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018-10-27 13:00',
+        enddatetime: '2018-10-27 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -387,8 +387,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018-10-27 13:00',
+        enddatetime: '2018-10-27 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -441,8 +441,8 @@ describe('Users', () => {
         centerId: null,
         isPrivate: false,
         imageurl: '',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018-10-27 13:00',
+        enddatetime: '2018-10-27 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -457,7 +457,7 @@ describe('Users', () => {
         });
     });
 
-    it('it should not create an event without a start date and time field', (done) => {
+    it('it should not create an event without a valid start date and time format', (done) => {
       const event = {
         title: 'Turnt birthday',
         description: 'Event description',
@@ -468,8 +468,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        startdatetime: null,
-        enddatetime: '27/10/2018 13:00'
+        startdatetime: '2018/10/27',
+        enddatetime: '2018-10-27 13:00'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -479,12 +479,12 @@ describe('Users', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
-          res.body.errors[0].should.eql('Start date and time must not be empty');
+          res.body.errors[0].should.eql('the date must be in the yyyy-mm-dd format');
           done();
         });
     });
 
-    it('it should not create an event without an end date and time', (done) => {
+    it('it should not create an event without a valid end date and time format', (done) => {
       const event = {
         title: 'Turnt birthday',
         description: 'Event description',
@@ -495,8 +495,8 @@ describe('Users', () => {
         centerId: 2,
         isPrivate: false,
         imageurl: '',
-        startdatetime: '27/10/2018 12:00',
-        enddatetime: null
+        startdatetime: '2018-10-27 13:00',
+        enddatetime: '2018/10/27'
       };
       chai.request(server)
         .post('/api/v1/events')
@@ -506,7 +506,7 @@ describe('Users', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
-          res.body.errors[0].should.eql('End date and time must not be empty');
+          res.body.errors[0].should.eql('the date must be in the yyyy-mm-dd format');
           done();
         });
     });
