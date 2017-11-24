@@ -10,6 +10,17 @@ An application that helps admin to manage its events centres, and users to manag
 * Using HTTPS; copy and paste the following below on your terminal
 >```https://github.com/chinemelu/Events-Manager.git```
 
+## Running the tests
+* The tests have been written using Mocha and Chai.
+* Write the following command on terminal.
+* ```npm test```
+* If the tests are successful, they will complete without failures or errors.
+  ```
+  .........
+  ----------------------------------------------------------------------
+    27 passing
+  ```
+  
 ## Built With
 
 ### Front End Dependencies
