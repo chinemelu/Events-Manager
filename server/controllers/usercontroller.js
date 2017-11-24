@@ -41,10 +41,18 @@ class userController {
             password
           })
             .then((newUser) => {
+              const payload = {
+                userId: newUser.id,
+                isAdmin: newUser.isAdmin
+              };
+              const token = jwt.sign(payload, process.env.SECRET_KEY, {
+                expiresIn: '200h'
+              });
               res.status(201).json({
                 message: `${newUser.username}, you have successfully created an account`,
                 username: newUser.username,
-                email: newUser.email
+                email: newUser.email,
+                token
               });
             })
             .catch((err) => {
