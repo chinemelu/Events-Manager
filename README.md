@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chinemelu/Events-Manager.svg?branch=develop)](https://travis-ci.org/chinemelu/Events-Manager) [![Coverage Status](https://coveralls.io/repos/github/chinemelu/Events-Manager/badge.svg?branch=develop)](https://coveralls.io/github/chinemelu/Events-Manager?branch=develop) 
+
 # Events-Manager
 An application that helps admin to manage its events centres, and users to manage its events
 
