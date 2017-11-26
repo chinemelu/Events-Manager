@@ -2,6 +2,11 @@ import bcrypt from 'bcrypt';
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,10 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true,
       }
     },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      unique: true
+    role: {
+      type: DataTypes.ENUM,
+      values:  ['superadmin', 'admin', 'user'],
+      defaultValue: 'user'
     },
     password: {
       type: DataTypes.STRING,
