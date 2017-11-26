@@ -302,7 +302,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: 'www.google.com',
         startdatetime: '2018-10-27',
@@ -330,7 +330,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 12:00',
@@ -357,7 +357,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -384,7 +384,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -411,7 +411,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '27/10/2018 12:00',
@@ -465,7 +465,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018/10/27',
@@ -492,7 +492,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -651,7 +651,7 @@ describe('Users', () => {
     it('it should provide a status 204 message if the requested DELETE id \n' +
     'does not exist in the database', (done) => {
       chai.request(server)
-        .delete('/api/v1/events/1')
+        .delete('/api/v1/events/06896bd4-8cbc-48c6-8c46-9364a6d939c4')
         .set({ token: process.env.TEST_TOKEN })
         .end((err, res) => {
           res.should.have.status(204);
