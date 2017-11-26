@@ -1,5 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Center = sequelize.define('Center', {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,11 +30,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     availability: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM,
+      values: ['available', 'not available'],
       allowNull: false,
     },
     userId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     }
   });
