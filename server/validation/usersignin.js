@@ -1,16 +1,9 @@
 
 const userSignInValidator = (req, res, next) => {
-  const {
-    username,
-    password
-  } = req.body;
   req.checkBody('username', 'username and password required').notEmpty();
   req.checkBody('password', 'username and password required').notEmpty();
-  req.sanitize('username').trim();
-  req.sanitize('username').toLowerCase();
-  req.sanitize('password').trim();
-  req.sanitize('password').toLowerCase();
-
+  req.sanitize('username').trimtoLowerCase();
+  req.sanitize('password').trimtoLowerCase();
   req.getValidationResult()
     .then((result) => {
       if (!result.isEmpty()) {
