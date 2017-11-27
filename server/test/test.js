@@ -36,7 +36,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
     it('it should not create a user if the username input is not alphanumeric', (done) => {
       const user = {
         username: '@username',
@@ -162,7 +162,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
 
     it('it should not create a user if the password is more than 100 characters', (done) => {
       const user = {
@@ -472,7 +472,7 @@ describe('Users', () => {
           done();
         });
     });
-    
+
     it('it should not create an event if the description input contains invalid values', (done) => {
       const event = {
         title: 'Turnt birthday',
