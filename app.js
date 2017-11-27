@@ -16,8 +16,8 @@ const isValidDate = (value) => {
   return date.toISOString().slice(0, 10) === value;
 };
 
-const toLowerCase = (oldvalue) => {
-  const newvalue = oldvalue.toLowerCase();
+const trimtoLowerCase = (oldvalue) => {
+  const newvalue = oldvalue.trim().toLowerCase();
   return newvalue;
 };
 
@@ -26,10 +26,10 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(expressValidator({
   customValidators: {
-    isValidDate
+    isValidDate,
   },
   customSanitizers: {
-    toLowerCase
+    trimtoLowerCase
   }
 }));
 

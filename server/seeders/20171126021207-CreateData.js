@@ -53,7 +53,7 @@ module.exports = {
       role: 'user',
       password: 'anotheruserpassword',
       createdAt: new Date(),
-      updatedAt: new Date(), 
+      updatedAt: new Date()
     },
     ], {});
   },
