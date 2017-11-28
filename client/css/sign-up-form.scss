@@ -1,5 +1,4 @@
 /*eslint eqeqeq:0*/
-
 body{
     background:  {
       color: goldenrod;
@@ -41,7 +40,7 @@ body{
 
 .row{
     margin: {
-      top: 14%;
+      top: 5%;
       left: 32.5%;
     }
 }
@@ -54,7 +53,7 @@ body{
     cursor: pointer;  
 }
 
-#signin-form form{
+#signup-form form{
     border: 1px solid goldenrod;
     padding: 5%;
     background: {
@@ -73,22 +72,21 @@ body{
 }
 
 @media only screen and (max-width: 1440px) {
-  #signin-form {
+  #signup-form {
     margin: auto;
   }
 }
 
 @media only screen and (max-width: 1024px) {
-  #signin-form {
+  #signup-form {
     margin: {
       right: 8%
     }
   }
 }
 
-
 @media only screen and (max-width: 768px) {
-  #signin-form {
+  #signup-form {
     margin: {
       right: 25%;
       top: 18%
@@ -97,25 +95,24 @@ body{
 }
 
 @media only screen and (max-width: 672px) {
-  
   .row{
     margin: 0; 
   }
-  
-   #signin-form {
+
+   #signup-form {
     font: {
       size: 100%;
     }
     margin: auto;
   }
-  
-  #signin-form h3{
+
+  #signup-form h3{
     font: {
       size: 150%;
     }
   }
-  
-  #signin-form form {
+
+  #signup-form form {
     font: {
       size: 100%;
     }
@@ -128,18 +125,17 @@ body{
 }
 
 @media only screen and (max-width: 375px) {
-   #signin-form {
+   #signup-form {
     margin: {
       right: 1%;
     }
   }
-  
+
   ::-webkit-input-placeholder { font-size: 11px; }
 }
-  
 
 @media only screen and (max-width: 320px) {
-   #signin-form {
+   #signup-form {
     margin: {
       top: 8%;
     }

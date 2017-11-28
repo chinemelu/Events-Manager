@@ -1,9 +1,7 @@
 /*eslint eqeqeq:0*/
 
 body{
-    background:  {
-      color: goldenrod;
-    }
+    background-color: goldenrod;
 }
 
 #highlight{
@@ -25,24 +23,25 @@ body{
     float: right
 }
 
-#float {
+#float { 
     text: {
       align: right;
     }
     width: 100%;
-    float: right;
-   a {
+    float: right
+}
+
+#float a {
     list-style: none;
     text: {
       decoration: none;
     }
-   }
 }
 
 .row{
     margin: {
-      top: 14%;
-      left: 32.5%;
+      top: 8%;
+      left: 32.5%
     }
 }
 
@@ -62,16 +61,6 @@ body{
     }
 }
 
-#forgotten-password{
-    color: black;
-    text: {
-      decoration: none;
-    }
-    margin: {
-      left: 10%;
-    }
-}
-
 @media only screen and (max-width: 1440px) {
   #signin-form {
     margin: auto;
@@ -86,43 +75,40 @@ body{
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   #signin-form {
     margin: {
       right: 25%;
-      top: 18%
+      top: 7.5%;
     }
   }
 }
 
 @media only screen and (max-width: 672px) {
   
-  .row{
-    margin: 0; 
-  }
-  
-   #signin-form {
-    font: {
-      size: 100%;
+    .row { 
+      margin: 0; 
     }
-    margin: auto;
-  }
-  
-  #signin-form h3{
-    font: {
-      size: 150%;
-    }
-  }
-  
-  #signin-form form {
-    font: {
-      size: 100%;
-    }
-    padding: 10%;
-    margin: {
-      top: 30%;
-      left: 3%
+    
+    #signin-form {
+      font: {
+        size: 100%;
+      }
+      margin: auto;
+      h3 {
+        font: {
+          size: 140%
+        }
+      }
+    form {
+      font: {
+        size: 100%;
+      }
+      padding: 10%;
+      margin: {
+        top: 10%;
+        left: 3%;
+      }
     }
   }
 }
@@ -134,9 +120,12 @@ body{
     }
   }
   
-  ::-webkit-input-placeholder { font-size: 11px; }
-}
-  
+  ::-webkit-input-placeholder { 
+    font: {
+      size: 11px; 
+    }
+  }
+ }
 
 @media only screen and (max-width: 320px) {
    #signin-form {
@@ -148,4 +137,3 @@ body{
     }
   }
 }
-  
