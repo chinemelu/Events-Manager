@@ -5,7 +5,7 @@ const parentDir = path.join(__dirname, '../');
 
 module.exports = {
   entry: [
-    path.join(parentDir, 'client/client.js')
+    path.join(parentDir, 'client/App.js')
   ],
   module: {
     loaders: [{
@@ -13,8 +13,16 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      test: /\.less$/,
-      loaders: ['style-loader', 'css-loder', 'less-loader']
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
+    },
+    {
+      test: /\.(jpe?g|png|gif|svg|ico)$/i,
+      use: [
+        {
+          loader: 'file-loader'
+        }
+      ]
     }
     ]
   },

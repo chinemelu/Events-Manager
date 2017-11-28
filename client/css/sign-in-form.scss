@@ -1,5 +1,7 @@
 body{
-    background-color: goldenrod;
+    background:  {
+      color: goldenrod;
+    }
 }
 
 #highlight{
@@ -7,7 +9,9 @@ body{
 }
 
 #navbar-override {
-    background-color: black;
+    background: {
+      color: black;
+    }
 }
 
 #navbar-override .no-highlight {
@@ -16,27 +20,34 @@ body{
 
 .navbar-collapse {
     width: 100%;
-    float right;
+    float: right
 }
 
 #float {
-    text-align: right;
+    text: {
+      align: right;
+    }
     width: 100%;
     float: right;
-}
-
-#float a {
+   a {
     list-style: none;
-    text-decoration: none;
+    text: {
+      decoration: none;
+    }
+   }
 }
 
 .row{
-    margin-top: 8%;
-    margin-left: 32.5%;
+    margin: {
+      top: 14%;
+      left: 32.5%;
+    }
 }
 
 .btn {
-    background-color: goldenrod;
+    background: {
+      color: goldenrod;
+    }
     color: #ffffff;
     cursor: pointer;  
 }
@@ -44,9 +55,21 @@ body{
 #signin-form form{
     border: 1px solid goldenrod;
     padding: 5%;
-    background-color: #ffffff
+    background: {
+      color: #ffffff
+    }
+    color: black;
 }
 
+#forgotten-password{
+    color: black;
+    text: {
+      decoration: none;
+    }
+    margin: {
+      left: 10%;
+    }
+}
 
 @media only screen and (max-width: 1440px) {
   #signin-form {
@@ -56,15 +79,19 @@ body{
 
 @media only screen and (max-width: 1024px) {
   #signin-form {
-    margin-right: 8%
+    margin: {
+      right: 8%
+    }
   }
 }
 
 
 @media only screen and (max-width: 768px) {
   #signin-form {
-    margin-right: 25%;
-    margin-top: 7.5%;
+    margin: {
+      right: 25%;
+      top: 18%
+    }
   }
 }
 
@@ -75,25 +102,35 @@ body{
   }
   
    #signin-form {
-    font-size: 100%;
+    font: {
+      size: 100%;
+    }
     margin: auto;
   }
   
   #signin-form h3{
-    font-size: 140%;
+    font: {
+      size: 150%;
+    }
   }
   
   #signin-form form {
-    font-size: 100%;
+    font: {
+      size: 100%;
+    }
     padding: 10%;
-    margin-top: 10%;
-    margin-left: 3%;
+    margin: {
+      top: 30%;
+      left: 3%
+    }
   }
 }
 
 @media only screen and (max-width: 375px) {
    #signin-form {
-    margin-right: 1%;
+    margin: {
+      right: 1%;
+    }
   }
   
   ::-webkit-input-placeholder { font-size: 11px; }
@@ -103,8 +140,12 @@ body{
 
 @media only screen and (max-width: 320px) {
    #signin-form {
-    margin-top: 8%;
-    font-size: 80%;
+    margin: {
+      top: 8%;
+    }
+    font: {
+      size: 80%;
+    }
   }
 }
   
