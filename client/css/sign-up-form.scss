@@ -1,0 +1,146 @@
+body{
+    background:  {
+      color: goldenrod;
+    }
+}
+
+#highlight{
+    color: goldenrod
+}
+
+#navbar-override {
+    background: {
+      color: black;
+    }
+}
+
+#navbar-override .no-highlight {
+    color: white;
+}
+
+.navbar-collapse {
+    width: 100%;
+    float: right
+}
+
+#float {
+    text: {
+      align: right;
+    }
+    width: 100%;
+    float: right;
+   a {
+    list-style: none;
+    text: {
+      decoration: none;
+    }
+   }
+}
+
+.row{
+    margin: {
+      top: 5%;
+      left: 32.5%;
+    }
+}
+
+.btn {
+    background: {
+      color: goldenrod;
+    }
+    color: #ffffff;
+    cursor: pointer;  
+}
+
+#signup-form form{
+    border: 1px solid goldenrod;
+    padding: 5%;
+    background: {
+      color: #ffffff
+    }
+}
+
+#forgotten-password{
+    color: black;
+    text: {
+      decoration: none;
+    }
+    margin: {
+      left: 10%;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+  #signup-form {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #signup-form {
+    margin: {
+      right: 8%
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #signup-form {
+    margin: {
+      right: 25%;
+      top: 18%
+    }
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  .row{
+    margin: 0; 
+  }
+
+   #signup-form {
+    font: {
+      size: 100%;
+    }
+    margin: auto;
+  }
+
+  #signup-form h3{
+    font: {
+      size: 150%;
+    }
+  }
+
+  #signup-form form {
+    font: {
+      size: 100%;
+    }
+    padding: 10%;
+    margin: {
+      top: 30%;
+      left: 3%
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+   #signup-form {
+    margin: {
+      right: 1%;
+    }
+  }
+
+  ::-webkit-input-placeholder { font-size: 11px; }
+}
+
+@media only screen and (max-width: 320px) {
+   #signup-form {
+    margin: {
+      top: 8%;
+    }
+    font: {
+      size: 80%;
+    }
+  }
+}
+  
