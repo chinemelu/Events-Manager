@@ -52,7 +52,7 @@ body{
     cursor: pointer;  
 }
 
-#signin-form form{
+#signin-form form {
     border: 1px solid goldenrod;
     padding: 5%;
     background: {
@@ -85,7 +85,6 @@ body{
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   #signin-form {
     margin: {
@@ -96,24 +95,23 @@ body{
 }
 
 @media only screen and (max-width: 672px) {
-  
   .row{
     margin: 0; 
   }
-  
+
    #signin-form {
     font: {
       size: 100%;
     }
     margin: auto;
   }
-  
+
   #signin-form h3{
     font: {
       size: 150%;
     }
   }
-  
+
   #signin-form form {
     font: {
       size: 100%;
@@ -132,11 +130,8 @@ body{
       right: 1%;
     }
   }
-  
   ::-webkit-input-placeholder { font-size: 11px; }
 }
-  
-
 
 @media only screen and (max-width: 320px) {
    #signin-form {
