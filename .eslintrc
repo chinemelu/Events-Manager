@@ -1,11 +1,23 @@
 {
     "root": true,
-    "extends": ["airbnb-base"],
+    "extends": ["airbnb-base", "eslint:recommended", "plugin:import/errors", "plugin:import/warnings"],
+    "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
     "env": {
       "node": true,
       "es6": true,
       "mocha": true
     },
+    "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
     "rules": {
       "indent": 0,
       "no-trailing-spaces": 0, 
@@ -30,6 +42,6 @@
               "MethodDefinition": true,
               "ClassDeclaration": true
           }
-      }] 
+      }]   
     }
 }
