@@ -1,149 +1,120 @@
-body{
-    margin: 0;
-    padding: 0;
-}
+body {
+  margin: 0;
+  padding: 0; }
 
-.container{
+.container {
   width: 100%;
-  padding: 0
-}
+  padding: 0; }
 
-#override-navbar{
-    margin-bottom: 2%;
-    background-color: black;
-}
+#override-navbar {
+  margin-bottom: 2%;
+  background-color: black; }
 
 #override-navbar a {
-  color: white;
-}
+  color: white; }
 
-.dropdown-menu a{
-    color: black !important;
-}
+.dropdown-menu a {
+  color: black !important; }
 
-.navbar{
-    background-color: #dcdcdc;
-}
+.navbar {
+  background-color: #dcdcdc; }
 
 nav ul {
-    width: 76%;
-}
-
+  width: 76%; }
 
 nav li {
-    margin-left: 3%;
-    width: 15%
-}
+  margin-left: 3%;
+  width: 15%; }
 
 button {
-    cursor: pointer;
-}
+  cursor: pointer; }
 
 .btn {
-    cursor: pointer;  
-}
+  cursor: pointer; }
 
-.fa-camera{
-    font-size: 7em;
-}
+.fa-camera {
+  font-size: 7em; }
 
-#heading{
+#heading {
   width: 67%;
   margin-left: 22%;
   text-align: left;
-  font-size: 130%;
-}
+  font-size: 130%; }
 
-#heading p{
+#heading p {
   border-bottom: 1px solid #ccc;
-  margin-bottom: 3%
-}
+  margin-bottom: 3%; }
 
 .camera-icon {
-    width: 110%;
-    border: 1px solid black;
-    padding: 6% 12% 6% 12%;
-    text-align: center;
-    vertical-align: middle;
-}
+  width: 110%;
+  border: 1px solid black;
+  padding: 6% 12% 6% 12%;
+  text-align: center;
+  vertical-align: middle; }
 
-.camera-icon:hover{
-   border-color: goldenrod;
-}
+.camera-icon:hover {
+  border-color: goldenrod; }
 
-#search{
-  background-color: goldenrod
-}
+#search {
+  background-color: goldenrod; }
 
-#event-type{
+#event-type {
   width: 48%;
   float: left;
-  margin-bottom: 3%;
-}
+  margin-bottom: 3%; }
 
-#event-setup{
+#event-setup {
   width: 48%;
   float: right;
-  margin-bottom: 3%
-}
+  margin-bottom: 3%; }
 
-#number-of-attendees{
+#number-of-attendees {
   width: 45%;
   float: left;
   margin-right: 4%;
-  margin-bottom: 3%;
-}
+  margin-bottom: 3%; }
 
-#start-date{
+#start-date {
   width: 23.5%;
   float: left;
   margin-right: 4%;
-  margin-bottom: 3%
-}
+  margin-bottom: 3%; }
 
-#end-date{
+#end-date {
   width: 23.5%;
   float: left;
-  margin-bottom: 3%;
-}
+  margin-bottom: 3%; }
 
-#additional-details{
+#additional-details {
   clear: both;
-  margin-bottom: 3%
-}
+  margin-bottom: 3%; }
 
-#description{
+#description {
   clear: both;
-  margin-bottom: 3%;
-}
+  margin-bottom: 3%; }
 
-#select-centre{
-  margin-bottom: 3%;
-}
+#select-centre {
+  margin-bottom: 3%; }
 
-#delete{
+#delete {
   margin-left: 2%;
-  margin-bottom: 8%;
-}
+  margin-bottom: 8%; }
 
-#edit{
-  margin-left: 2%;
-}
+#edit {
+  margin-left: 2%; }
 
-#submit{
+#submit {
   background-color: goldenrod;
   color: #ffffff;
-  margin-bottom: 8%;
-}
+  margin-bottom: 8%; }
 
 .form-control:focus, input:focus, input[type]:focus, .form-control:hover {
-  border-color: goldenrod
-}
+  border-color: goldenrod; }
 
-.camera-section{
-  margin-right: 5%;
-}
+.camera-section {
+  margin-right: 5%; }
 
-.adjust{
-  margin-left: 8%;
-}
+.adjust {
+  margin-left: 8%; }
+
+/*# sourceMappingURL=style.css.map */
