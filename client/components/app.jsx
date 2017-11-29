@@ -8,15 +8,16 @@ import Navbar from './navbar.jsx';
 import Signinbody from './signinbody.jsx';
 import Signupbody from './signupbody.jsx';
 import Signupnavbar from './signupnavbar.jsx';
-import Landingpagebody from './landingpagebody.jsx'
-import Innernavbar from './inner-navbar.jsx'
-import Seealleventscenters from './seealleventscenters.jsx'
-import Eventscenterdetails from './eventscenterdetails.jsx'
+import Landingpagebody from './landingpagebody.jsx';
+import Innernavbar from './inner-navbar.jsx';
+import Seealleventscenters from './seealleventscenters.jsx';
+import Eventscenterdetails from './eventscenterdetails.jsx';
+import Addevent from './addevent.jsx';
 
 const App = () => (
     <div>
       <Innernavbar />
-      <Eventscenterdetails />
+      <Addevent />
     </div>
 )
 
