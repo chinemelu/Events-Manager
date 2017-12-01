@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import path from 'path';
 import http from 'http';
 import expressValidator from 'express-validator';
@@ -8,6 +9,7 @@ import logger from 'morgan';
 const dotenv = require('dotenv').config();
 
 const app = express();
+app.use(cors({credentials: true, origin: true}));
 
 const isValidDate = (value) => {
   if (!value.match(/^\d{4}-\d{2}-\d{2}$/)) return false;
@@ -21,7 +23,7 @@ const trimtoLowerCase = (oldvalue) => {
   const newvalue = oldvalue.trim().toLowerCase();
   return newvalue;
 };
-app.use('/static', express.static(path.join(__dirname, 'public')));
+
 app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));

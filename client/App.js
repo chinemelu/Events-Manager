@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { provider } from 'react-redux';
-import App from './components/app.jsx';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('app'))
+import App from './components/app.jsx';
+import Routes from './routes.js';
+import UserList from './containers/user-list.jsx'
+import store from './store.js';
+
+ReactDOM.render((<Provider store={store}>
+    <Routes />
+ </Provider>
+), document.getElementById('app'))
+
+
 
