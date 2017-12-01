@@ -36,5 +36,4 @@ app.use(expressValidator({
   }
 }));
 
-
 export default app;

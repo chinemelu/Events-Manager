@@ -1,0 +1,51 @@
+$gold-colour: goldenrod;
+$black-colour: black;
+$white-colour: white;
+body{
+    background: {
+      color: $gold-colour
+    }
+    color: $white-colour;
+}
+#navbar-override {
+   background: {
+      color: $black-colour;
+   }
+  a {
+     color: $white-colour;
+  }
+}
+
+#highlight{
+    color: goldenrod
+}
+
+#navbar-override {
+    background: {
+      color: black;
+    }
+  .no-highlight {
+    color: white;
+  }
+}
+
+.navbar-collapse {
+    width: 100%;
+    float: right;
+}
+  
+#float {
+    text: {
+      align: right;
+  }
+    width: 100%;
+    float: right;
+  a {
+      list: {
+        style: none;
+    }
+      text: {
+        decoration: none;
+      }
+    }
+}
