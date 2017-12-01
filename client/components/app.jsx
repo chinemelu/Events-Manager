@@ -16,8 +16,8 @@ import Addevent from './addevent.jsx';
 
 const App = () => (
     <div>
-      <Innernavbar />
-      <Addevent />
+      <Navbar />
+      <Landingpagebody />
     </div>
 )
 

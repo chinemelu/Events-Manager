@@ -1,6 +1,8 @@
 import React from 'react';
+import '../css/sign-up-form.scss'
+import { Link } from 'react-router-dom'
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
     render() {
         return(
          <header>
@@ -11,14 +13,14 @@ export default class Navbar extends React.Component {
               <div className="collapse navbar-collapse" id="navbarText">
                <div id='float'>
                 <span className="navbar-text">
-                <a id='highlight' href='../user-signin/index.html'>SIGN IN</a>
+                <Link id='highlight' to='/login'>SIGN IN</Link>
                 </span>
                 <span className="navbar-text">
                 <a className="no-highlight" href='#'>|</a>
                 </span>
               <span className="navbar-text">
-              <a className="no-highlight" href='../user-signup/index.html'>SIGN UP</a>
-            </span>
+              <Link to='/users'>SIGN UP</Link>
+             </span>
           </div>
         </div>
         </nav>
@@ -27,3 +29,4 @@ export default class Navbar extends React.Component {
     }
 }
 
+export default Navbar

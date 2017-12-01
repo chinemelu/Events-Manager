@@ -1,16 +1,23 @@
 import React from 'react';
+import '../css/landingpagebody.scss';
+import Navbar from './navbar.jsx';
+import abc from '../../public/abc.jpeg';
+import clock from '../../public/clock.jpeg';
+import privacy from '../../public/privacy.jpg';
 
-class Landingpage extends React.Component {
+export default class Landingpage extends React.Component {
     render() {
-        return (
-         <div className='wrapper'>	
+        return ( 
+			      <div className='wrapper'>
+				   <Navbar />	
+					
 					<section id='showcase'>			
 						
 					</section>
 			
 					<div className='box-section'>
 							<section className='box' >
-								<img src={require('../../public/abc.jpeg')} id='easy' />
+								<img src={abc} id='easy' />
 							</section>
 						
 							<section className='box'>
@@ -24,14 +31,13 @@ class Landingpage extends React.Component {
 							</section> 
 
 							<section className='box-1'>
-								<img src={require('../../public/clock.jpeg')} id='time-management' />
+								<img src={clock} id='time-management' />
 							</section>
 						</div>
-								
 					
 					<div className="box-2-section">
 						<section className="box-2">
-							<img src={require('../../public/privacy.jpg')} id="privacy" />
+							<img src={privacy} id="privacy" />
 						</section>							
 						<section className="box-2" id="privacy-text">
 							<p className="text">If you are a private person, there's the option of making an event private.</p>
@@ -41,5 +47,3 @@ class Landingpage extends React.Component {
        )
     }
 }
-
-export default Landingpage;
