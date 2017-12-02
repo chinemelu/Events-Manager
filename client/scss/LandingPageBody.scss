@@ -1,39 +1,13 @@
 $gold-colour: goldenrod;
 $black-colour: black;
 $white-colour: white;
-body{
+.LandingPage{
     background: {
       color: $gold-colour
     }
     color: $white-colour;
 }
-#navbar-override {
-   background: {
-      color: $black-colour;
-   }
-  a {
-     color: $white-colour;
-  }
-}
-.navbar-collapse {
-    width: 100%;
-    float: right;
-}
-#float {
-    text: {
-      align: right;
-  }
-    width: 100%;
-    float: right;
-  a {
-      list: {
-        style: none;
-    }
-      text: {
-        decoration: none;
-      }
-    }
-}
+
 /*Showcase*/
 #showcase{
    min-height: 400px;

@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { USER_CREATED, USER_CREATED_ERROR } from '../actionTypes/index';
-
+import userSignupSuccess from './index';
 
 const userSignupRequest = (userData) => {
   return dispatch => {
@@ -9,13 +8,14 @@ const userSignupRequest = (userData) => {
       url: 'http://localhost:3000/api/v1/users',
       data: userData
     })
-      .then((response) => {
-        dispatch({ type: USER_CREATED });
+      .then(() => {
+        dispatch(userSignupRequest(bool))
+        props.history.push('/centers')
       })
-      .catch((error) => {
-        dispatch({ type: USER_CREATED_ERROR });
+      .catch(() => {
+        console.log(userData);
       });
-  };
+    };
   };
 
 export default userSignupRequest;

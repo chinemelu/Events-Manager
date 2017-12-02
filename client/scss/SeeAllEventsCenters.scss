@@ -6,58 +6,13 @@ $black-colour: black;
 $cursor-type: pointer;
 $gold-colour: goldenrod;
 
-body {
+.seeAllCenters {
     margin: $zero-margin;
     padding: $zero-padding;
     background: {
       color: $white-colour;
     }
     color: $black-colour;
-}
-
-#search{
-  background: {
-    color: $gold-colour;
-  }
-}
-
-.container{
-  width: $full-width;
-  padding: $zero-padding;
-}
-
-#override-navbar{
-    margin: {
-      bottom: 2%;
-    }
-    background: {
-      color: $black-colour;
-    }
-  a {
-    color: $white-colour;
-  }
-}
-
-.dropdown-menu a{
-    color: $black-colour;
-}
-
-.navbar{
-    background: {
-      color: #dcdcdc;
-    }
-}
-
-nav ul {
-    width: 76%;
-}
-
-
-nav li {
-    margin: {
-      left: 3%;
-    }
-    width: 15%
 }
 
 button {
@@ -103,10 +58,6 @@ img{
   font: {
     size: 130%;
   }
-}
-
-.row{
-  overflow: hidden;
 }
 
 @media only screen and (max-width: 768px) {

@@ -12,7 +12,7 @@ import privacy from '../../public/privacy.jpg';
 class LandingPage extends React.Component {
 	render() {
 		return ( 
-			<div>
+			<div class='LandingPage'>
 				<Navbar />
 					<div className='wrapper'>	
 						<section id='showcase'>			

@@ -94,6 +94,7 @@ class userController {
             res.status(200).json({
               message: 'Token generated. Sign in successful',
               role: user.role,
+              success: true,
               token
             });
           } else {

@@ -1,10 +1,11 @@
-import '../actionTypes/index';
+import { USER_CREATED } from '../actionTypes/index';
 
-const createUser = (user) => {
+const userSignUpSuccess = (bool) => {
   return {
-    type: USER_CREATED,
-    payload: user
+    type: 'USER_CREATED',
+    isSuccess: bool
   };
 };
 
-export default createUser;
+
+export default userSignUpSuccess;

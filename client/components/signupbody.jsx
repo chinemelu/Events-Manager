@@ -26,7 +26,9 @@ class SignUpBody extends React.Component {
 			username: '',
 			email: '',
 			password: '',
-			reEnterPassword: ''
+			reEnterPassword: '',
+			isLoading: false,
+			isSuccess: false
 		}
 		/**
 		 * change onChange and onSubmit context to component
@@ -47,7 +49,7 @@ class SignUpBody extends React.Component {
  * @param {SytheticEvent} e
  */
 	onSubmit(e) {
-	
+		this.setState ({ isLoading: true })
 		e.preventDefault();
 		this.props.userSignupRequest(this.state)
 	}
@@ -58,11 +60,11 @@ class SignUpBody extends React.Component {
  */
   render() {
     return(
-			<div>
+			<div className='signUpBody'>
 				<Navbar/>
-					<section id='signup-form'>
+					<section>
 						<div className="container">
-							<div className="row">
+							<div className="row signup">
 								<form onSubmit={this.onSubmit} >
 									<div className="form-group">
 										<h3>Register</h3>
@@ -82,7 +84,7 @@ class SignUpBody extends React.Component {
 										<label htmlFor="exampleInputPassword1">Re-Enter Password</label>
 										<input type="password" value={this.state.reEnterPassword} onChange={this.onChange} name="reEnterPassword" className="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password"/>
 									</div>
-									<button type="submit" className="btn">Register</button>
+									<button type="submit"  className="btn">Register</button>
 								</form>
 							</div>
 						</div>	
@@ -98,7 +100,8 @@ class SignUpBody extends React.Component {
  */
 
 SignUpBody.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired
+	userSignupRequest: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired
 }
 
 

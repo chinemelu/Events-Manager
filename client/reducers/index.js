@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import userReducer from './userReducer';
+
+import UserSignUpSuccess from './signUpSuccess';
 
 // Combines all reducers to a single reducer function
-const allReducer = combineReducers({
-  userReducer
+const rootReducers = combineReducers({
+  UserSignUpSuccess
 });
 
-export default allReducer;
+export default rootReducers;

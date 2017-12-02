@@ -1,47 +1,19 @@
-body{
+.signInBody{
     background:  {
       color: goldenrod;
     }
 }
 
-#highlight{
-    color: goldenrod
-}
-
-#navbar-override {
-    background: {
-      color: black;
-    }
-}
-
-#navbar-override .no-highlight {
-    color: white;
-}
-
-.navbar-collapse {
-    width: 100%;
-    float: right
-}
-
-#float {
-    text: {
-      align: right;
-    }
-    width: 100%;
-    float: right;
-   a {
-    list-style: none;
-    text: {
-      decoration: none;
-    }
-   }
-}
-
-.row{
+.signin{
     margin: {
       top: 14%;
       left: 32.5%;
     }
+}
+
+.container{
+  background-color: goldenrod;
+  width: 100%;
 }
 
 .btn {
@@ -52,7 +24,7 @@ body{
     cursor: pointer;  
 }
 
-#signin-form form {
+.signInBody form {
     border: 1px solid goldenrod;
     padding: 5%;
     background: {
