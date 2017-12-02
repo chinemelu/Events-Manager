@@ -749,18 +749,4 @@ describe('Users', () => {
         });
     });
   });
-
-  describe('DELETE: /api/v1/events/:id', () => {
-    it('it should provide a status 204 message if the requested DELETE id \n' +
-    'does not exist in the database', (done) => {
-      chai.request(server)
-        .delete('/api/v1/events/06896bd4-8cbc-48c6-8c46-9364a6d939c4')
-        .set({ token: process.env.TEST_TOKEN })
-        .end((err, res) => {
-          res.should.have.status(204);
-          res.body.should.be.a('object');
-          done();
-        });
-    });
-  });
 });
