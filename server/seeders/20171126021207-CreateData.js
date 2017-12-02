@@ -31,30 +31,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Users', [{
-      username: 'tony',
-      email: 'tonyboy@mail.com',
-      role: 'superadmin',
-      password: 'superadminpassword',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      username: 'john',
-      email: 'johndoe@mail.com',
-      role: 'user',
-      password: 'userpassword',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      username: 'jane',
-      email: 'janedoe@mail.com',
-      role: 'user',
-      password: 'anotheruserpassword',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    ], {});
+    return queryInterface.bulkDelete('Users', [], {});
   },
 };
