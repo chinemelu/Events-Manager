@@ -9,11 +9,10 @@ import Navbar from './Navbar.jsx';
 class SignInBody extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className='signInBody'>
 				<Navbar />
-					<section id='signin-form'>
 						<div className="container">
-							<div className="row">
+							<div className="row signin">
 								<form action="../events-centre-details/index.html" method="post">
 									<div className="form-group">
 										<h3>Login</h3>
@@ -30,7 +29,6 @@ class SignInBody extends React.Component {
 								</form>
 							</div>
 						</div>
-					</section>
 				</div>
 		)
 	}

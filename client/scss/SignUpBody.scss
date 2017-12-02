@@ -1,47 +1,19 @@
-body{
+.signUpBody{
     background:  {
       color: goldenrod;
     }
 }
 
-#highlight{
-    color: goldenrod
-}
-
-#navbar-override {
-    background: {
-      color: black;
-    }
-}
-
-#navbar-override .no-highlight {
-    color: white;
-}
-
-.navbar-collapse {
-    width: 100%;
-    float: right
-}
-
-#float {
-    text: {
-      align: right;
-    }
-    width: 100%;
-    float: right;
-   a {
-    list-style: none;
-    text: {
-      decoration: none;
-    }
-   }
-}
-
-.row{
+.signup{
     margin: {
-      top: 5%;
+      top: 2%;
       left: 32.5%;
     }
+}
+
+.container{
+  background-color: goldenrod;
+  width: 100%;
 }
 
 .btn {
@@ -52,7 +24,7 @@ body{
     cursor: pointer;  
 }
 
-#signup-form form{
+.signUpBody form{
     border: 1px solid goldenrod;
     padding: 5%;
     background: {
@@ -72,13 +44,13 @@ body{
 }
 
 @media only screen and (max-width: 1440px) {
-  #signup-form {
+  .signUpBody {
     margin: auto;
   }
 }
 
 @media only screen and (max-width: 1024px) {
-  #signup-form {
+  .signUpBody {
     margin: {
       right: 8%
     }
@@ -86,7 +58,7 @@ body{
 }
 
 @media only screen and (max-width: 768px) {
-  #signup-form {
+  .signUpBody {
     margin: {
       right: 25%;
       top: 18%
@@ -99,20 +71,20 @@ body{
     margin: 0; 
   }
 
-   #signup-form {
+   .signUpBody {
     font: {
       size: 100%;
     }
     margin: auto;
   }
 
-  #signup-form h3{
+  .signUpBody h3{
     font: {
       size: 150%;
     }
   }
 
-  #signup-form form {
+  .signUpBody form {
     font: {
       size: 100%;
     }
@@ -125,7 +97,7 @@ body{
 }
 
 @media only screen and (max-width: 375px) {
-   #signup-form {
+   .signUpBody {
     margin: {
       right: 1%;
     }
@@ -135,7 +107,7 @@ body{
 }
 
 @media only screen and (max-width: 320px) {
-   #signup-form {
+   .signUpBody {
     margin: {
       top: 8%;
     }
