@@ -1,0 +1,159 @@
+---
+swagger: "2.0"
+info:
+  description: "An API that enables a user to manage events and events centers"
+  version: "v1"
+  title: "Event Manager"
+host: "Localhost:3000"
+basePath: "api/v1"
+paths:
+  /users:
+    post:
+      description: "Creates a new user"
+      parameters: []
+      responses:
+        201:
+          description: "Sucessful creation of a new user"
+        400:
+          description: "bad input parameter"
+        409:
+          description: "conflict (username or password already exists)"
+  /users/login:
+    post:
+      description: "Logs in a user"
+      parameters: []
+      responses:
+        201:
+          description: "Successful login of a user"
+          schema:
+            $ref: "#/definitions/inline_response_201"
+        400:
+          description: "invalid input parameter"
+        401:
+          description: "incorrect username or password"
+  /centers:
+    get:
+      description: "Enables a user to get all centers"
+      parameters: []
+      responses:
+        200:
+          description: "returns all centers"
+        500:
+          description: "internal server error"
+    post:
+      description: "Enables an admin create a new center"
+      parameters: []
+      responses:
+        201:
+          description: "Successful addition of a new center"
+          schema:
+            $ref: "#/definitions/inline_response_201_1"
+        400:
+          description: "invalid input parameter"
+        401:
+          description: "Invalid token"
+        403:
+          description: "No token provided / Not authorised to perform action"
+        500:
+          description: "internal server error"
+  /center/{centerId}:
+    get:
+      description: "Enables a user to get one center, using its Id"
+      parameters: []
+      responses:
+        200:
+          description: "returns one center with matching centerId"
+        400:
+          description: "Invalid Id"
+        404:
+          description: "Center not found"
+        500:
+          description: "internal server error"
+    put:
+      description: "Enables an admin modify details of an existing center"
+      parameters: []
+      responses:
+        200:
+          description: "Successful modification of center details"
+        204:
+          description: "No center found"
+        400:
+          description: "invalid input parameter"
+        401:
+          description: "Invalid token"
+        403:
+          description: "No token provided / Not authorised to perform action"
+        500:
+          description: "internal server error"
+  /events:
+    post:
+      description: "Creates an event"
+      parameters: []
+      responses:
+        201:
+          description: "Successful creation of an event"
+          schema:
+            $ref: "#/definitions/inline_response_201_2"
+        responses: {}
+definitions:
+  inline_response_201:
+    properties:
+      id:
+        type: "string"
+        example: "d290f1ee-6c54-4b01-90e6-d701748f0851"
+      name:
+        type: "string"
+        example: "Arthur Dent"
+      password:
+        type: "string"
+        example: "Password"
+    example:
+      password: "Password"
+      name: "Arthur Dent"
+      id: "d290f1ee-6c54-4b01-90e6-d701748f0851"
+  inline_response_201_1:
+    properties:
+      name:
+        type: "string"
+        example: "Arthur Dent"
+      password:
+        type: "string"
+        example: "Password"
+    example:
+      password: "Password"
+      name: "Arthur Dent"
+  inline_response_201_2:
+    properties:
+      title:
+        type: "string"
+        example: "Arthur Dent"
+      description:
+        type: "string"
+        example: "Password"
+      numberofattendees:
+        type: "integer"
+        example: 100
+      eventtype:
+        type: "string"
+        example: "wedding"
+      eventsetup:
+        type: "string"
+        example: "banquet"
+      additionalcomments:
+        type: "string"
+        example: "great place"
+      centerId:
+        type: "integer"
+        example: 3
+      isPrivate:
+        type: "string"
+        example: "Password"
+    example:
+      centerId: 3
+      additionalcomments: "great place"
+      description: "Password"
+      eventtype: "wedding"
+      isPrivate: "Password"
+      title: "Arthur Dent"
+      eventsetup: "banquet"
+      numberofattendees: 100
