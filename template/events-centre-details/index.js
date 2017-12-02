@@ -1,6 +1,6 @@
 'use strict'
-$(function() {
-  $('.pop').on('click', function() {
+$(() => {
+  $('.pop').on('click', () => {
       $('.imagepreview').attr('src', $(this).find('img').attr('src'));
       $('#imagemodal').modal('show');   
   });		

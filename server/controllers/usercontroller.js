@@ -43,7 +43,7 @@ class userController {
             .then((newUser) => {
               const payload = {
                 userId: newUser.id,
-                isAdmin: newUser.isAdmin
+                role: newUser.role
               };
               const token = jwt.sign(payload, process.env.SECRET_KEY, {
                 expiresIn: '200h'
@@ -52,6 +52,7 @@ class userController {
                 message: `${newUser.username}, you have successfully created an account`,
                 username: newUser.username,
                 email: newUser.email,
+                role: newUser.role,
                 token
               });
             })
@@ -83,7 +84,7 @@ class userController {
           if (isMatch) {
             const payload = {
               userId: user.id,
-              isAdmin: user.isAdmin
+              role: user.role
             };
 
             const token = jwt.sign(payload, process.env.SECRET_KEY, {
@@ -92,6 +93,8 @@ class userController {
 
             res.status(200).json({
               message: 'Token generated. Sign in successful',
+              role: user.role,
+              success: true,
               token
             });
           } else {

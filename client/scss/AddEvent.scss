@@ -1,0 +1,209 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+  width: 100%;
+  padding: 0
+}
+
+#override-navbar{
+    margin: {
+      bottom: 2%;
+    }
+    background: {
+      color: black;
+    }
+}
+
+#override-navbar a {
+  color: white;
+}
+
+.dropdown-menu a{
+    color: black !important;
+}
+
+.navbar{
+    background: {
+      color: #dcdcdc;
+    }
+}
+
+nav ul {
+    width: 76%;
+}
+
+
+nav li {
+    margin: {
+      left: 3%;
+    }
+    width: 15%
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;  
+}
+
+.fa-camera{
+    font: {
+      size: 7em;
+    }  
+}
+
+#heading{
+  width: 67%;
+  margin: {
+    left: 22%;
+  }
+  text: {
+    align: left;
+  }
+  font: {
+    size: 130%;
+  }
+}
+
+#heading p{
+  border: {
+    bottom: 1px solid #ccc;
+  }
+  margin: {
+    bottom: 3%
+  }
+}
+
+.camera-icon {
+    width: 110%;
+    border: 1px solid black;
+    padding: 6% 12% 6% 12%;
+    text: {
+      align: center;
+    }
+    vertical-align: middle;
+}
+
+.camera-icon:hover{
+  border: {
+     color: goldenrod;
+   }
+}
+
+#search{
+  background: {
+    color: goldenrod
+  }
+}
+
+#event-type{
+  width: 48%;
+  float: left;
+  margin: {
+    bottom: 3%;
+  }
+}
+
+#event-setup{
+  width: 48%;
+  float: right;
+  margin: {
+    bottom: 3%
+  }
+}
+
+#number-of-attendees{
+  width: 45%;
+  float: left;
+  margin: {
+    right: 4%;
+  }
+  margin: {
+    bottom: 3%;
+  }
+}
+
+#start-date{
+  width: 23.5%;
+  float: left;
+  margin: {
+    right: 4%;
+  }
+  margin: {
+    bottom: 3%
+  }
+}
+
+#end-date{
+  width: 23.5%;
+  float: left;
+  margin: {
+    bottom: 3%;
+  }
+}
+
+#additional-details{
+  clear: both;
+  margin: {
+    bottom: 3%
+  }
+}
+
+#description{
+  clear: both;
+  margin: {
+    bottom: 3%;
+  }
+}
+
+#select-centre{
+  margin: {
+    bottom: 3%;
+  }
+}
+
+#delete{
+  margin: {
+    left: 2%;
+    bottom: 8%;
+  }
+}
+
+#edit{
+  margin: {
+    left: 2%;
+  }
+}
+
+#submit{
+  background: {
+    color: goldenrod;
+  }
+  color: #ffffff;
+  margin: {
+    bottom: 8%;
+  }
+}
+
+.form-control:focus, input:focus, input[type]:focus, .form-control:hover {
+  border: {
+    color: goldenrod
+  }
+}
+
+.camera-section{
+  margin: {
+    right: 5%;
+  }
+}
+
+.adjust{
+  margin: {
+    left: 8%;
+  }
+}

@@ -1,0 +1,139 @@
+/*eslint eqeqeq:0*/
+
+body{
+    background-color: goldenrod;
+}
+
+#highlight{
+    color: goldenrod
+}
+
+#navbar-override {
+    background: {
+      color: black;
+    }
+}
+
+#navbar-override .no-highlight {
+    color: white;
+}
+
+.navbar-collapse {
+    width: 100%;
+    float: right
+}
+
+#float { 
+    text: {
+      align: right;
+    }
+    width: 100%;
+    float: right
+}
+
+#float a {
+    list-style: none;
+    text: {
+      decoration: none;
+    }
+}
+
+.row{
+    margin: {
+      top: 8%;
+      left: 32.5%
+    }
+}
+
+.btn {
+    background: {
+      color: goldenrod;
+    }
+    color: #ffffff;
+    cursor: pointer;  
+}
+
+#signin-form form{
+    border: 1px solid goldenrod;
+    padding: 5%;
+    background: {
+      color: #ffffff
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+  #signin-form {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #signin-form {
+    margin: {
+      right: 8%
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #signin-form {
+    margin: {
+      right: 25%;
+      top: 7.5%;
+    }
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  
+    .row { 
+      margin: 0; 
+    }
+    
+    #signin-form {
+      font: {
+        size: 100%;
+      }
+      margin: auto;
+      h3 {
+        font: {
+          size: 140%
+        }
+      }
+    form {
+      font: {
+        size: 100%;
+      }
+      padding: 10%;
+      margin: {
+        top: 10%;
+        left: 3%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+   #signin-form {
+    margin: {
+      right: 1%;
+    }
+  }
+  
+  ::-webkit-input-placeholder { 
+    font: {
+      size: 11px; 
+    }
+  }
+ }
+
+@media only screen and (max-width: 320px) {
+   #signin-form {
+    margin: {
+      top: 8%;
+    }
+    font: {
+      size: 80%;
+    }
+  }
+}

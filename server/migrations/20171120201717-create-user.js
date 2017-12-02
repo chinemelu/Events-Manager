@@ -2,10 +2,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        allowNull: false
       },
       username: {
         type: Sequelize.STRING,
@@ -17,9 +16,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      isAdmin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+      role: {
+        type: Sequelize.ENUM,
+        values:  ['superadmin', 'admin', 'user'],
+        defaultValue: 'user'
       },
       password: {
         type: Sequelize.STRING,

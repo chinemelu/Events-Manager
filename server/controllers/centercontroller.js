@@ -11,42 +11,35 @@ class centercontroller {
    * @returns {JSON} returns a JSON object
    */
   static addCenter(req, res) {
-    const { isAdmin } = req.decoded;
     const { userId } = req.decoded;
-    if (isAdmin !== true || isAdmin === false) {
-      res.status(403).json({
-        message: 'You are not authorised to perform this action'
-      });
-    } else {
-      const {
-        name,
-        location,
-        description,
-        suitablefor,
-        facilities,
-        availability
-      } = req.body;
-      db.Center.create({
-        name,
-        location,
-        description,
-        suitablefor,
-        facilities,
-        userId,
-        availability
-      })
-        .then((center) => {
-          res.status(201).json({
-            message: 'You have successfully added a center',
-            data: center
-          });
-        })
-        .catch((error) => {
-          res.status(500).json({
-            message: error.message || 'Internal Server Error'
-          });
+    const {
+      name,
+      location,
+      description,
+      suitablefor,
+      facilities,
+      availability
+    } = req.body;
+    db.Center.create({
+      name,
+      location,
+      description,
+      suitablefor,
+      facilities,
+      userId,
+      availability
+    })
+      .then((center) => {
+        res.status(201).json({
+          message: 'You have successfully added a center',
+          data: center
         });
-    }
+      })
+      .catch((error) => {
+        res.status(500).json({
+          message: error.message || 'Internal Server Error'
+        });
+      });
   }
   /**
    * @description edit center details
@@ -68,38 +61,32 @@ class centercontroller {
     db.Center.findById(id)
       .then((result) => {
         if (result) {
-          if (isAdmin !== true || isAdmin === false) {
-            res.status(403).json({
-              message: 'You are not authorised to modify this center'
-            });
-          } else {
-            db.Center.update(
-              {
-                name,
-                location,
-                description,
-                suitablefor,
-                facilities,
-                availability
-              },
-              {
-                where: { id },
-                returning: true,
-                plain: true
-              }
-            )
-              .then((update) => {
-                res.status(200).json({
-                  data: update[1].dataValues,
-                  message: 'You have modified the center successfully',
-                });
-              })
-              .catch((err) => {
-                res.status(500).json({
-                  error: err.message
-                });
+          db.Center.update(
+            {
+              name,
+              location,
+              description,
+              suitablefor,
+              facilities,
+              availability
+            },
+            {
+              where: { id },
+              returning: true,
+              plain: true
+            }
+          )
+            .then((update) => {
+              res.status(200).json({
+                data: update[1].dataValues,
+                message: 'You have modified the center successfully',
               });
-          }
+            })
+            .catch((err) => {
+              res.status(500).json({
+                error: err.message
+              });
+            });
         } else {
           res.status(204).end();
         }
@@ -150,7 +137,7 @@ class centercontroller {
             data: center
           });
         } else {
-          res.status(200).json({
+          res.status(404).json({
             success: 'false',
             message: 'center cannot be found'
           });

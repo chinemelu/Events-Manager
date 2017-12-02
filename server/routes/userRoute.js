@@ -1,11 +1,12 @@
 import express from 'express';
+import getValidationResult from '../validation/getValidationResult';
 import usercontroller from '../controllers/usercontroller';
-import userSignUpValidator from '../validation/usersignup';
-import userSignInValidator from '../validation/usersignin';
+import userSignUpValidator from '../validation/userSignUp';
+import userSignInValidator from '../validation/userSignIn';
 
 const router = express.Router();
 
-router.post('/', userSignUpValidator, usercontroller.signup);
-router.post('/login', userSignInValidator, usercontroller.login);
+router.post('/', userSignUpValidator, getValidationResult, usercontroller.signup);
+router.post('/login', userSignInValidator, getValidationResult, usercontroller.login);
 
 export default router;

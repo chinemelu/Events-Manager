@@ -13,10 +13,14 @@
     "seed": "node ./node_modules/sequelize-cli/lib/sequelize db:seed:all",
     "unseed": "node ./node_modules/sequelize-cli/lib/sequelize db:seed:undo:all",
     "start:dev": "nodemon --watch server --exec babel-node ./server/bin/www",
-    "start": "node ./build/bin/www.js",
     "build-server": " node ./node_modules/babel-cli/bin/babel.js -d ./build ./server",
     "tests": "SET NODE_ENV=test && mocha --compilers js:babel-core/register server/test/**.test/*.test.js",
-    "coverage": "npm run test && nyc report --reporter=text-lcov",
+    "babel-node": "babel-node --presets env",
+    "start": "nodemon --exec npm run babel-node server/http/server",
+    "build": "babel server -d dist",
+    "startDev": "node server/dist/index.js",
+    "coverage": "npm test && nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js"
   },
   "repository": {

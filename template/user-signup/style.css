@@ -1,110 +1,75 @@
-body{
-    background-color: goldenrod;
-}
+body {
+  background-color: goldenrod; }
 
-#highlight{
-    color: goldenrod
-}
+#highlight {
+  color: goldenrod; }
 
 #navbar-override {
-    background-color: black;
-}
+  background-color: black; }
 
 #navbar-override .no-highlight {
-    color: white;
-}
+  color: white; }
 
 .navbar-collapse {
-    width: 100%;
-    float right;
-}
+  width: 100%;
+  float: right; }
 
 #float {
-    text-align: right;
-    width: 100%;
-    float: right;
-}
+  text-align: right;
+  width: 100%;
+  float: right; }
 
 #float a {
-    list-style: none;
-    text-decoration: none;
-}
+  list-style: none;
+  text-decoration: none; }
 
-.row{
-    margin-top: 8%;
-    margin-left: 32.5%;
-}
+.row {
+  margin-top: 8%;
+  margin-left: 32.5%; }
 
 .btn {
-    background-color: goldenrod;
-    color: #ffffff;
-    cursor: pointer;  
-}
+  background-color: goldenrod;
+  color: #ffffff;
+  cursor: pointer; }
 
-#signin-form form{
-    border: 1px solid goldenrod;
-    padding: 5%;
-    background-color: #ffffff
-}
-
+#signin-form form {
+  border: 1px solid goldenrod;
+  padding: 5%;
+  background-color: #ffffff; }
 
 @media only screen and (max-width: 1440px) {
   #signin-form {
-    margin: auto;
-  }
-}
-
+    margin: auto; } }
 @media only screen and (max-width: 1024px) {
   #signin-form {
-    margin-right: 8%
-  }
-}
-
-
+    margin-right: 8%; } }
 @media only screen and (max-width: 768px) {
   #signin-form {
     margin-right: 25%;
-    margin-top: 7.5%;
-  }
-}
-
+    margin-top: 7.5%; } }
 @media only screen and (max-width: 672px) {
-  
-  .row{
-    margin: 0; 
-  }
-  
-   #signin-form {
-    font-size: 100%;
-    margin: auto;
-  }
-  
-  #signin-form h3{
-    font-size: 140%;
-  }
-  
-  #signin-form form {
-    font-size: 100%;
-    padding: 10%;
-    margin-top: 10%;
-    margin-left: 3%;
-  }
-}
+  .row {
+    margin: 0; }
 
+  #signin-form {
+    font-size: 100%;
+    margin: auto; }
+    #signin-form h3 {
+      font-size: 140%; }
+    #signin-form form {
+      font-size: 100%;
+      padding: 10%;
+      margin-top: 10%;
+      margin-left: 3%; } }
 @media only screen and (max-width: 375px) {
-   #signin-form {
-    margin-right: 1%;
-  }
-  .
-  ::-webkit-input-placeholder { font-size: 11px; }
-}
-  
+  #signin-form {
+    margin-right: 1%; }
 
-
+  ::-webkit-input-placeholder {
+    font-size: 11px; } }
 @media only screen and (max-width: 320px) {
-   #signin-form {
+  #signin-form {
     margin-top: 8%;
-    font-size: 80%;
-  }
-}
-  
+    font-size: 80%; } }
+
+/*# sourceMappingURL=style.css.map */

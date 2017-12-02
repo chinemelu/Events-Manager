@@ -37,6 +37,70 @@ describe('Users', () => {
         });
     });
 
+    it('it should not create a user if the username input is not alphanumeric', (done) => {
+      const user = {
+        username: '@username',
+        email: 'testemail@test.com',
+        password: '@testPassword1',
+        reEnterPassword: '@testPassword1'
+      };
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.be.a('array');
+          res.body.errors[0].should.eql('Username should consist of only alphanumeric \n' +
+  'characters and must contain no spaces between characters');
+          done();
+        });
+    });
+
+    it('it should not create a user if the username is fewer than 4 characters', (done) => {
+      const user = {
+        username: 'ta',
+        email: 'testemail@yahoo.com',
+        password: '@testPassword1',
+        reEnterPassword: '@testPassword1'
+      };
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.be.a('array');
+          res.body.errors[0].should.eql('Username must have a minimum length of 4 characters and a maximum \n' +
+    'length of 15 characters');
+          done();
+        });
+    });
+
+    it('it should not create a user if the username is more than 15 characters', (done) => {
+      const user = {
+        username: 'reallyreallylongusername',
+        email: 'test@email.com',
+        password: '@testPassword1',
+        reEnterPassword: '@testPassword1'
+      };
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.be.a('array');
+          res.body.errors[0].should.eql('Username must have a minimum length of 4 characters and a maximum \n' +
+    'length of 15 characters');
+          done();
+        });
+    });
+
+
     it('it should not create a user if the email field is empty', (done) => {
       const user = {
         username: 'test',
@@ -78,12 +142,12 @@ describe('Users', () => {
         });
     });
 
-    it('it should not create a user if the password field is empty', (done) => {
+    it('it should not create a user if the password is fewer than 8 characters', (done) => {
       const user = {
         username: 'test',
         email: 'testemail@test.com',
-        password: null,
-        reEnterPassword: null,
+        password: '@pass',
+        reEnterPassword: '@pass'
       };
       chai.request(server)
         .post('/api/v1/users')
@@ -93,7 +157,32 @@ describe('Users', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('errors');
           res.body.errors.should.be.a('array');
-          res.body.errors[0].should.eql('Password field must not be empty');
+          res.body.errors[0].should.eql('Password must have a minimum length of 8 characters and \n' +
+    'a maximum length of 100 characters');
+          done();
+        });
+    });
+
+
+    it('it should not create a user if the password is more than 100 characters', (done) => {
+      const user = {
+        username: 'test',
+        email: 'testemail@test.com',
+        password: '@Idontreallylikepasswordsthataretoolonglikedifferent\n' +
+        'Password1inanutshellitisreallyreallyreallyreallyboringwhatamessitistoproducethis',
+        reEnterPassword: '@Idontreallylikepasswordsthataretoolonglikedifferent\n' +
+        'Password1inanutshellitisreallyreallyreallyreallyboringwhatamessitistoproducethis'
+      };
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.be.a('array');
+          res.body.errors[0].should.eql('Password must have a minimum length of 8 characters and \n' +
+    'a maximum length of 100 characters');
           done();
         });
     });
@@ -114,25 +203,6 @@ describe('Users', () => {
           res.body.should.have.property('errors');
           res.body.errors.should.be.a('array');
           res.body.errors[0].should.eql('Passwords do not match, please try again.');
-          done();
-        });
-    });
-
-    it('it should create a user when all fields are completed correctly', (done) => {
-      const user = {
-        username: 'test',
-        email: 'testemail@test.com',
-        password: '@testPassword1',
-        reEnterPassword: '@testPassword1'
-      };
-      chai.request(server)
-        .post('/api/v1/users')
-        .send(user)
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message');
-          res.body.message.should.eql(`${user.username}, you have successfully created an account`);
           done();
         });
     });
@@ -169,7 +239,7 @@ describe('Users', () => {
         });
     });
 
-    it('it should not POST a user if the email already exists', (done) => {
+    it('it should not create a user if the email already exists', (done) => {
       const user = {
         username: 'test100',
         email: 'testemail1@test.com',
@@ -302,7 +372,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: 'www.google.com',
         startdatetime: '2018-10-27',
@@ -330,7 +400,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 12:00',
@@ -349,6 +419,33 @@ describe('Users', () => {
         });
     });
 
+    it('it should not create an event if the title consists of non alphanumeric inputs', (done) => {
+      const event = {
+        title: '@title',
+        description: 'Event description',
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
+        isPrivate: false,
+        imageurl: '',
+        startdatetime: '2018-10-27 12:00',
+        enddatetime: '2018-10-27 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set('token', 'process.env.TEST_TOKEN')
+        .send(event)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('errors');
+          expect(res.body.errors[0]).eql('Title should consist of only alphanumeric characters');
+          done();
+        });
+    });
+
     it('it should not create an event without a description field', (done) => {
       const event = {
         title: 'Turnt birthday',
@@ -357,7 +454,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -376,6 +473,35 @@ describe('Users', () => {
         });
     });
 
+    it('it should not create an event if the description input contains invalid values', (done) => {
+      const event = {
+        title: 'Turnt birthday',
+        description: '@specialcharactersdescription',
+        numberofattendees: 150,
+        eventtype: 'theatre',
+        eventsetup: 'setup',
+        additionalcomments: 'Additional comments',
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
+        isPrivate: false,
+        imageurl: '',
+        startdatetime: '2018-10-27 13:00',
+        enddatetime: '2018-10-27 13:00'
+      };
+      chai.request(server)
+        .post('/api/v1/events')
+        .set({ token: process.env.TEST_TOKEN })
+        .send(event)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors[0].should.eql('Description must consist of alphanumeric \n' +
+    'characters and special characters (? - , .), and it must include at \n' +
+      'least one alphabet');
+          done();
+        });
+    });
+
     it('it should not create an event without a number of attendees field', (done) => {
       const event = {
         title: 'Turnt birthday',
@@ -384,7 +510,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -411,7 +537,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '27/10/2018 12:00',
@@ -465,7 +591,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018/10/27',
@@ -492,7 +618,7 @@ describe('Users', () => {
         eventtype: 'theatre',
         eventsetup: 'setup',
         additionalcomments: 'Additional comments',
-        centerId: 2,
+        centerId: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         isPrivate: false,
         imageurl: '',
         startdatetime: '2018-10-27 13:00',
@@ -619,43 +745,6 @@ describe('Users', () => {
           expect(res.body).to.be.a('object');
           expect(res.body).to.have.property('errors');
           expect(res.body.errors[0]).eql('Facilities field must not be empty');
-          done();
-        });
-    });
-
-
-    it('it should not create a center without an availability field', (done) => {
-      const center = {
-        name: 'obiwandu center',
-        location: 'Ketu',
-        description: 'Center description',
-        suitablefor: 'banquet',
-        facilities: 'chair, table',
-        availability: null
-      };
-      chai.request(server)
-        .post('/api/v1/centers')
-        .set({ token: process.env.TEST_TOKEN })
-        .send(center)
-        .end((err, res) => {
-          expect(res).to.have.status(400);
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.have.property('errors');
-          expect(res.body.errors[0]).eql('Availability field must not be empty');
-          done();
-        });
-    });
-  });
-
-  describe('DELETE: /api/v1/events/:id', () => {
-    it('it should provide a status 204 message if the requested DELETE id \n' +
-    'does not exist in the database', (done) => {
-      chai.request(server)
-        .delete('/api/v1/events/1')
-        .set({ token: process.env.TEST_TOKEN })
-        .end((err, res) => {
-          res.should.have.status(204);
-          res.body.should.be.a('object');
           done();
         });
     });

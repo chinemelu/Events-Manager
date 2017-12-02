@@ -2,10 +2,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Events', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       title: {
         type: Sequelize.STRING,
@@ -32,8 +31,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       centerId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
+        defaultValue: Sequelize.UUIDV4,
         references: {
           key: 'id',
           model: 'Centers'
@@ -52,8 +52,9 @@ module.exports = {
         allowNull: false
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
+        defaultValue: Sequelize.UUIDV4,
         references: {
           key: 'id',
           model: 'Users'

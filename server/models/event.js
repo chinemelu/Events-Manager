@@ -1,6 +1,11 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
+    id: {
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.UUID
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,11 +31,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
     centerId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      validate: {
-        isInt: true
-      }
     },
     isPrivate: {
       type: DataTypes.BOOLEAN,
@@ -51,10 +54,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     userId: {
-      type: DataTypes.INTEGER,
-      validate: {
-        isInt: true
-      }
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDv4,
+      allowNull: false
     }
   });
 
