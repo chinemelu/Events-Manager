@@ -39,7 +39,7 @@ body {
 }
 
 .dropdown-menu a{
-    color: $black-colour !important;
+    color: $black-colour;
 }
 
 .navbar{
@@ -62,69 +62,4 @@ nav li {
 
 button {
     cursor: $cursor-type;
-}
-
-img{
-  width: 100%;
-  vertical-align: middle;
-}
-
-.ANZ-viaduct{
-  height: 16em;
-}
-
-.centres{
-  margin:{
-    left: 7%;
-  }
-  padding: {
-    top: 2%;
-    bottom: 2%;
-  }
-  text-align: center;
-  border: {
-    bottom: 1px solid #ccc;
-  }
-}
-
-.viaduct{
-  border: {
-    top: 1px solid #ccc
-  }
-}
-
-.page-heading{
-  margin: {
-    left: 7%;
-  }
-}
-
-.main-heading{
-  font: {
-    size: 130%;
-  }
-}
-
-.row{
-  overflow: hidden;
-}
-
-@media only screen and (max-width: 768px) {
-  body{
-    background-color: pink;
-  }
-  .page-heading h3{
-    margin: auto;
-    font-size: 10%;
-  }
-  
-  img{
-    width: 40%;
-  }
-
-  navbar-toggleable-md{
-    background: {
-      color: $gold-colour;
-    }
-  }
 }

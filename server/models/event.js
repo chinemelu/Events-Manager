@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
     id: {
       primaryKey: true,
-      defaultValue: DataTypes.UUIDv4,
+      defaultValue: DataTypes.UUIDV4,
       type: DataTypes.UUID
     },
     title: {

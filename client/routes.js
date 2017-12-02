@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import App from './components/app.jsx';
-import Landingpagebody from './components/landingpagebody.jsx';
-import Signupbody from './components/signupbody.jsx';
-import Signinbody from './components/signinbody.jsx';
+import Landingpagebody from './components/LandingPageBody.jsx';
+import Signupbody from './components/SignUpBody.jsx';
+import Signinbody from './components/SignInBody.jsx';
 
 const Routes = () => (
   <BrowserRouter>

@@ -22,13 +22,22 @@ An application that helps admin to manage its events centres, and users to manag
   ----------------------------------------------------------------------
     27 passing
   ```
-  
+## Deployment
+You can deploy this application by doing the following
+* Go to your browser and paste this link `https://events-manager-v1.herokuapp.com/`
+* Press the enter key
+
 ## Built With
 
 ### Front End Dependencies
 * [Bootstrap](https://v4-alpha.getbootstrap.com/) - most popular HTML, CSS, and JS framework in the world for building responsive, mobile-first projects on the web.
 * [jquery](https://jquery.com/) - jQuery is a fast, small, and feature-rich JavaScript library.
 * [Font Awesome](http://fontawesome.io/) -font and CSS toolkit
+* [Reactjs](https://reactjs.org/) - A JavaScript library for building user interfaces.
+* [React-redux](https://redux.js.org/docs/basics/UsageWithReact.html) - Official React bindings for Redux.
+* [proptypes](https://www.npmjs.com/package/prop-types) - Runtime type checking for React props
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom) - DOM bindings for React Router.
+* [redux-thunk](https://www.npmjs.com/package/redux-thunk) - Thunk middleware for Redux.
 
 ### Back End Dependencies
 * [pg](https://www.npmjs.com/package/pg) - Non-blocking PostgreSQL client for node.js. Pure JavaScript and optional native libpq bindings.

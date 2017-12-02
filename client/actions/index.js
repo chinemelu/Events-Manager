@@ -1,9 +1,10 @@
-const createUser = (user) => {
-    console.log(`You have created user, ${user.username}`);
-    return {
-        type: 'USER_CREATED',
-        payload: user
-    }
-}
+import '../actionTypes/index';
 
-export default createUser
+const createUser = (user) => {
+  return {
+    type: USER_CREATED,
+    payload: user
+  };
+};
+
+export default createUser;
