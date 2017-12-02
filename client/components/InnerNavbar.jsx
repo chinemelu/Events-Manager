@@ -1,6 +1,9 @@
 import React from 'react';
 
 class Innernavbar extends React.Component {
+  /**
+ *  Input navigation bar component that is not that of the landing page, sign in page, or sign out page
+ */
   render() {
     return(
       <div>

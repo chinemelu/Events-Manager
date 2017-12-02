@@ -4,6 +4,10 @@ import center2 from '../../public/events-centre-2.jpg'
 import center3 from '../../public/events-centre-3.jpg'
 import center4 from '../../public/events-centre-4.jpg'
 
+/**
+ *  Input react body component for viewing all events centres in the application
+ */
+
 class SeeAllEventsCenters extends React.Component {
   render() {
 		return (

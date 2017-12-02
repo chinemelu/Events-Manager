@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 const parentDir = path.join(__dirname, '../');
@@ -6,6 +7,12 @@ const parentDir = path.join(__dirname, '../');
 module.exports = {
   entry: [
     path.join(parentDir, 'client/App.js')
+  ],
+  devtool: 'source-map',
+  plugins: [
+    new UglifyJsPlugin({
+      sourceMap: true
+    })
   ],
   module: {
     loaders: [{
@@ -28,11 +35,11 @@ module.exports = {
   },
   output: {
     path: `${parentDir}/client`,
-    filename: 'bundle.js',
+    filename: 'bundle.min.js',
     publicPath: '/'
   },
   devServer: {
     contentBase: path.resolve(parentDir, 'client'),
     historyApiFallback: true
-  }
+  },
 };

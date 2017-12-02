@@ -5,27 +5,57 @@ import userSignupRequest  from '../actions/SignUpActions';
 import '../scss/SignUpBody.scss';
 import Navbar from './Navbar.jsx';
 
+/**
+ *  Input sign up body form component
+ */
+
 class SignUpBody extends React.Component {
+/**
+ * constructor
+ * @param {object} props
+ */
+
 	constructor(props) {
 		super(props);
+
+ /**
+ * @type {object}
+ * @property {string} signup details
+ */
 		this.state = {
 			username: '',
 			email: '',
 			password: '',
 			reEnterPassword: ''
 		}
+		/**
+		 * change onChange and onSubmit context to component
+		 */
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
-
+/**
+ * onChange input event
+ * @param {SytheticEvent} e
+ */
   onChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
 	}
+
+/**
+ * onSubmit event at input form
+ * @param {SytheticEvent} e
+ */
 	onSubmit(e) {
-		// this.setState({ errors: {} });
+	
 		e.preventDefault();
 		this.props.userSignupRequest(this.state)
 	}
+
+/**
+ * render
+ * @return {ReactElement} markup
+ */
   render() {
     return(
 			<div>
@@ -62,9 +92,15 @@ class SignUpBody extends React.Component {
   }
 }
 
+/**
+ * propTypes
+ * @property {string} userSignUpRequest isrequired
+ */
+
 SignUpBody.propTypes = {
   userSignupRequest: PropTypes.func.isRequired
 }
+
 
 let mapDispatchToProps = {
 	userSignupRequest

@@ -15,17 +15,6 @@ const createEventValidator = (req, res, next) => {
   req.checkBody('startdatetime', 'the date must be in the yyyy-mm-dd format').isValidDate();
   req.checkBody('enddatetime', 'End date and time must not be empty').notEmpty();
   req.checkBody('enddatetime', 'the date must be in the yyyy-mm-dd format').isValidDate();
-
-  req.getValidationResult()
-    .then((result) => {
-      if (!result.isEmpty()) {
-        const errors = result.array().map(elem => elem.msg);
-        res.status(400).json({
-          errors
-        });
-      } else {
-        next();
-      }
-    });
+  next();
 };
 export default createEventValidator;

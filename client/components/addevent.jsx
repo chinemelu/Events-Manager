@@ -1,6 +1,9 @@
 import React from 'react';
 import '../scss/AddEvent.scss';
 
+/**
+ *  Input form component for Adding an Event
+ */
 class AddEvent extends React.Component {
 	render() {
 		return ( 

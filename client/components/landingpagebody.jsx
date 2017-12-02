@@ -5,6 +5,10 @@ import abc from '../../public/abc.jpeg';
 import clock from '../../public/clock.jpeg';
 import privacy from '../../public/privacy.jpg';
 
+  /**
+ *  Input landing page body component with the navigation bar component of the landing/sign in/sign up pages
+ */
+
 class LandingPage extends React.Component {
 	render() {
 		return ( 

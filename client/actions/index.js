@@ -1,11 +1,10 @@
-import actionTypes from './actionTypes';
+import '../actionTypes/index';
 
 const createUser = (user) => {
-    console.log(`You have created user, ${user.username}`);
-    return {
-        type: actionTypes.USER_CREATED,
-        payload: user
-    }
-}
+  return {
+    type: USER_CREATED,
+    payload: user
+  };
+};
 
-export default createUser
+export default createUser;

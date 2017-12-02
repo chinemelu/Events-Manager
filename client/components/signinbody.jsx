@@ -2,6 +2,10 @@ import React from 'react';
 import '../scss/SignInBody.scss';
 import Navbar from './Navbar.jsx';
 
+/**
+ *  Input sign in body form component
+ */
+
 class SignInBody extends React.Component {
 	render() {
 		return (

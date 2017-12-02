@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../scss/Navbar.scss'
 
+/**
+ *  Input navigation bar component of the landing/sign in/sign up pages
+ */
+
 class Navbar extends React.Component {
   render() {
     return(

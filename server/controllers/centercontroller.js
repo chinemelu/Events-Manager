@@ -61,38 +61,32 @@ class centercontroller {
     db.Center.findById(id)
       .then((result) => {
         if (result) {
-          if (isAdmin !== true || isAdmin === false) {
-            res.status(403).json({
-              message: 'You are not authorised to modify this center'
-            });
-          } else {
-            db.Center.update(
-              {
-                name,
-                location,
-                description,
-                suitablefor,
-                facilities,
-                availability
-              },
-              {
-                where: { id },
-                returning: true,
-                plain: true
-              }
-            )
-              .then((update) => {
-                res.status(200).json({
-                  data: update[1].dataValues,
-                  message: 'You have modified the center successfully',
-                });
-              })
-              .catch((err) => {
-                res.status(500).json({
-                  error: err.message
-                });
+          db.Center.update(
+            {
+              name,
+              location,
+              description,
+              suitablefor,
+              facilities,
+              availability
+            },
+            {
+              where: { id },
+              returning: true,
+              plain: true
+            }
+          )
+            .then((update) => {
+              res.status(200).json({
+                data: update[1].dataValues,
+                message: 'You have modified the center successfully',
               });
-          }
+            })
+            .catch((err) => {
+              res.status(500).json({
+                error: err.message
+              });
+            });
         } else {
           res.status(204).end();
         }
@@ -143,7 +137,7 @@ class centercontroller {
             data: center
           });
         } else {
-          res.status(200).json({
+          res.status(404).json({
             success: 'false',
             message: 'center cannot be found'
           });

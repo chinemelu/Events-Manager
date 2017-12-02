@@ -5,6 +5,10 @@ import image2 from '../../public/events-image-2.jpg'
 import image3 from '../../public/events-image-3.jpg'
 import image4 from '../../public/events-image-4.jpg'
 
+/**
+ *  Input component for viewing center details
+ */
+
 class Centerdetails extends React.Component {
   render() {
     return(
