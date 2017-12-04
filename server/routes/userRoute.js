@@ -1,8 +1,8 @@
 import express from 'express';
 import getValidationResult from '../validation/getValidationResult';
 import usercontroller from '../controllers/usercontroller';
-import userSignUpValidator from '../validation/userSignUp';
-import userSignInValidator from '../validation/userSignIn';
+import userSignUpValidator from '../validation/usersignup';
+import userSignInValidator from '../validation/usersignin';
 
 const router = express.Router();
 
