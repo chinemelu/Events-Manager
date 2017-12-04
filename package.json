@@ -16,7 +16,7 @@
     "build-server": " node ./node_modules/babel-cli/bin/babel.js -d ./build ./server",
     "tests": "SET NODE_ENV=test && mocha --compilers js:babel-core/register server/test/**.test/*.test.js",
     "babel-node": "babel-node --presets env",
-    "start": "nodemon --exec npm run babel-node server/http/server",
+    "start": "node ./build/server/http/server",
     "build": "babel server -d dist",
     "startDev": "node server/dist/index.js",
     "coverage": "npm test && nyc report --reporter=text-lcov | coveralls",
