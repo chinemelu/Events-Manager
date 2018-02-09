@@ -1,6 +1,6 @@
 import React from 'react';
 import '../scss/LandingPageBody.scss';
-import Navbar from './Navbar.jsx';
+import PreLoginNavbar from './PreLoginNavbar.jsx';
 import abc from '../../public/abc.jpeg';
 import clock from '../../public/clock.jpeg';
 import privacy from '../../public/privacy.jpg';
@@ -12,8 +12,8 @@ import privacy from '../../public/privacy.jpg';
 class LandingPage extends React.Component {
 	render() {
 		return ( 
-			<div class='LandingPage'>
-				<Navbar />
+			<div className='LandingPage'>
+				<PreLoginNavbar />
 					<div className='wrapper'>	
 						<section id='showcase'>			
 						</section>

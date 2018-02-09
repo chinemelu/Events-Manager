@@ -32,7 +32,9 @@ class centercontroller {
       .then((center) => {
         res.status(201).json({
           message: 'You have successfully added a center',
-          data: center
+          name,
+          centerId: center.id,
+          location
         });
       })
       .catch((error) => {

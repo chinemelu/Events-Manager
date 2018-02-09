@@ -6,14 +6,13 @@ import authenticatetoken from '../auth/authenticatetoken';
 import checkForInvalidUser from '../validation/checkForInvalidUser';
 import isDateValid from '../validation/isdatevalid';
 import isInvalidIdValidator from '../validation/isInvalidId';
-import isValidCenterIdValidator from '../validation/isValidCenterId';
 import doesCenterExist from '../validation/doesCenterExist';
 
 const router = express.Router();
 
 router.post(
   '/', createEventValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isValidCenterIdValidator, doesCenterExist, isDateValid, eventController.addEvent
+  isInvalidIdValidator, doesCenterExist, isDateValid, eventController.addEvent
 );
 router.delete(
   '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
@@ -21,7 +20,7 @@ router.delete(
 );
 router.put(
   '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isValidCenterIdValidator, doesCenterExist, isDateValid, eventController.modifyEvent
+  isInvalidIdValidator, doesCenterExist, isDateValid, eventController.modifyEvent
 );
 
 export default router;

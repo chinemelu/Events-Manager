@@ -6,9 +6,4 @@ node_modules
 20171120201717-create-user
 npm-debug.log.397727216
 npm-debug.log.2529650102
-<<<<<<< HEAD
-build/
-=======
-build/
 .nyc_output/
->>>>>>> 607ccf94a4520b8d781fed37fb34071b5bb00da6

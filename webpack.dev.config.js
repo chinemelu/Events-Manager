@@ -2,11 +2,11 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
-const parentDir = path.join(__dirname, '../');
+const parentDir = path.join(__dirname, './');
 
 module.exports = {
   entry: [
-    path.join(parentDir, 'client/App.js')
+    path.join(parentDir, 'client/index.js')
   ],
   devtool: 'source-map',
   plugins: [

@@ -1,14 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
-import store from './store';
+import { Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage.jsx';
+import LoginPage from './components/LoginPage.jsx';
+import SignUpPage from './components/SignUpPage.jsx';
 
-ReactDOM.render((<Provider store={store}>
-    <Routes />
- </Provider>
-), document.getElementById('app'))
 
+const App = () => (
+  <div>
+    <Route exact path='/' component={ LandingPage }/>
+    <Route path='/login' component={ LoginPage }/>
+    <Route path='/users' component={ SignUpPage }/>
+  </div>
+)
+
+export default App
 
 
