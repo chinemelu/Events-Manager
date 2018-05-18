@@ -6,24 +6,10 @@ $black-colour: black;
 $cursor-type: pointer;
 $gold-colour: goldenrod;
 
-body {
-    margin: $zero-margin;
-    padding: $zero-padding;
-    background: {
-      color: $white-colour;
-    }
-    color: $black-colour;
-}
-
 #search{
   background: {
     color: $gold-colour;
   }
-}
-
-.container{
-  width: $full-width;
-  padding: $zero-padding;
 }
 
 #override-navbar{
@@ -62,4 +48,26 @@ nav li {
 
 button {
     cursor: $cursor-type;
+}
+
+@media (min-width: 992px) {
+  #adminLinks-nav > li {
+    margin: {
+      left: 4em;
+      right: 1em;
+    }
+  }
+
+#guestLinks-nav > li {
+  margin: {
+    left: 6em;
+  }
+}
+
+#userLinks-nav > li {
+  margin: {
+    left: 6em;
+  }
+}
+
 }

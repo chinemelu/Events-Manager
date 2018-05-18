@@ -1,12 +1,11 @@
 $gold-colour: goldenrod;
 $black-colour: black;
 $white-colour: white;
-body{
-    background: {
-      color: $gold-colour
-    }
+
+body {
     color: $white-colour;
 }
+
 #navbar-override {
    background: {
       color: $black-colour;

@@ -3,12 +3,24 @@ import app from '../app';
 import userRoutes from '../routes/userRoute';
 import centerRoutes from '../routes/centerRoute';
 import eventRoutes from '../routes/eventRoute';
+import facilityRoutes from '../routes/facilityRoute';
+import eventsetupRoutes from '../routes/eventSetUpRoute';
+import eventTypeRoutes from '../routes/eventTypeRoute'
 
-app.use(cors());
+app.all('*', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();	
+});
 
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/centers', centerRoutes);
 app.use('/api/v1/events', eventRoutes);
+app.use('/api/v1/facilities', facilityRoutes);
+app.use('/api/v1/setups', eventsetupRoutes);
+app.use('/api/v1/eventTypes', eventTypeRoutes);
+
 
 app.use((req, res) => {
   res.status(404).json({

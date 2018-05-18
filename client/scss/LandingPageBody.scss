@@ -6,6 +6,8 @@ $white-colour: white;
       color: $gold-colour
     }
     color: $white-colour;
+    height:100%;
+    width: 100%;
 }
 
 /*Showcase*/
@@ -14,7 +16,7 @@ $white-colour: white;
    font: {
      family: sans-serif;
    }
-   background: url('../../public/ANZ-Viaduct-Events-Centre.jpg') no-repeat 0 -150px; 
+   background: url('../../public/ANZ-Viaduct-Events-Centre.jpeg') no-repeat 0 -150px; 
    background: {
       size: cover;
    } 
@@ -157,7 +159,7 @@ $white-colour: white;
      font: {
        family: sans-serif;
      }
-     background: url('../../public/ANZ-Viaduct-Events-Centre.jpg') no-repeat 0 -95px; 
+     background: url('../../public/ANZ-Viaduct-Events-Centre.jpeg') no-repeat 0 -95px; 
      background: {
         size: cover;
      } 
@@ -200,7 +202,7 @@ $white-colour: white;
      font: {
        family: sans-serif;
      }
-     background: url('../../public/ANZ-Viaduct-Events-Centre.jpg') no-repeat -80px -55px; 
+     background: url('../../public/ANZ-Viaduct-Events-Centre.jpeg') no-repeat -80px -55px; 
      background: {
         size: cover;
      } 
@@ -235,7 +237,7 @@ $white-colour: white;
      font: {
        family: sans-serif;
      }
-     background: url('../../public/ANZ-Viaduct-Events-Centre.jpg') no-repeat -80px -55px; 
+     background: url('../../public/ANZ-Viaduct-Events-Centre.jpeg') no-repeat -80px -55px; 
      background: {
         size: cover;
      } 

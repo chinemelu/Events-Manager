@@ -16,13 +16,15 @@ class eventcontroller {
       title,
       description,
       numberofattendees,
-      eventtype,
-      eventsetup,
+      eventTypeId,
+      eventSetUpId,
       additionalcomments,
       centerId,
       isPrivate,
-      startdatetime,
-      enddatetime,
+      startdate,
+      enddate,
+      starttime,
+      endtime,
       imageurl,
     } = req.body;
 
@@ -37,13 +39,15 @@ class eventcontroller {
             title,
             description,
             numberofattendees,
-            eventtype,
-            eventsetup,
+            eventTypeId,
+            eventSetUpId,
             additionalcomments,
             centerId,
             isPrivate,
-            startdatetime,
-            enddatetime,
+            startdate,
+            enddate,
+            starttime,
+            endtime,
             imageurl,
             userId
           })
@@ -76,14 +80,16 @@ class eventcontroller {
       title,
       description,
       numberofattendees,
-      eventtype,
-      eventsetup,
+      eventTypeId,
+      eventSetUpId,
       additionalcomments,
       centerId,
       isPrivate,
       imageurl,
-      startdatetime,
-      enddatetime
+      startdate,
+      enddate,
+      starttime,
+      endtime,
     } = req.body;
     const { id } = req.params;
     db.Event.findById(id)
@@ -98,14 +104,16 @@ class eventcontroller {
               title,
               description,
               numberofattendees,
-              eventtype,
-              eventsetup,
+              eventTypeId,
+              eventSetUpId,
               additionalcomments,
               centerId,
               isPrivate,
               imageurl,
-              startdatetime,
-              enddatetime
+              startdate,
+              enddate,
+              starttime,
+              endtime
             })
               .then(() => {
                 res.status(200).json({
@@ -160,6 +168,44 @@ class eventcontroller {
         } else {
           res.status(204).end();
         }
+      });
+  }
+
+  /**
+   * @description get one Event
+   * @param {*} req Http request
+   * @param {*} res http response
+   * @returns {JSON} returns a JSON object
+   */
+  static getOneEvent(req, res) {
+    const { id } = req.params;
+    return db.sequelize.transaction(t =>
+      db.Event.findOne({
+        where: {
+          id
+        },
+        include: [{
+          model: db.Center,
+          attributes: ['id', 'name']
+        }]
+      }, { transaction: t })
+        .then((event) => {
+          if (event) {
+            res.status(200).json({
+              success: 'ok',
+              data: event
+            });
+          } else {
+            res.status(404).json({
+              success: 'false',
+              message: 'Event cannot be found'
+            });
+          }
+        }))
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
       });
   }
 }

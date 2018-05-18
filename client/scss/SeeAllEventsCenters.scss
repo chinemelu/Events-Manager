@@ -6,52 +6,63 @@ $black-colour: black;
 $cursor-type: pointer;
 $gold-colour: goldenrod;
 
-.seeAllCenters {
-    margin: $zero-margin;
-    padding: $zero-padding;
-    background: {
-      color: $white-colour;
-    }
-    color: $black-colour;
-}
-
-button {
-    cursor: $cursor-type;
-}
-
 img{
   width: 100%;
   vertical-align: middle;
 }
 
-.ANZ-viaduct{
-  height: 16em;
+.spacing {
+  margin: {
+    top: 4%;
+    bottom: 6%;
+  }
+  
+  border: {
+    bottom: 1px solid #ccc
+  }
+  color: black;
+}
+
+.border-control {
+  margin: {
+    bottom: 5%;
+    left: 5%
+  }
+  position: relative;
+  width: 100%;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-centers{
+  color: black;
+  text: {
+    align: left
+  }
+  margin: {
+    left: 2%;
+    top: 2%
+  }
+  border: none;
 }
 
 .centres{
   margin: {
-    left: 7%;
-  }
-  padding: {
-    top: 2%;
-    bottom: 2%;
+    left: 40%;
   }
   text-align: center;
-  border: {
-    bottom: 1px solid #ccc;
-  }
 }
 
-.viaduct{
-  border: {
-    top: 1px solid #ccc
-  }
-}
-
-.page-heading{
+#page-heading{
   margin: {
-    left: 7%;
+    left: 1%;
   }
+  border: {
+    bottom: 1px solid #ccc
+  }
+  color: black;
+  width: 100%;
 }
 
 .main-heading{
@@ -69,7 +80,7 @@ img{
     font-size: 10%;
   }
   
-  img{
+  img {
     width: 40%;
   }
 

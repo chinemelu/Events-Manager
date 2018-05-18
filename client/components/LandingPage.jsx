@@ -3,17 +3,15 @@ import '../scss/LandingPageBody.scss';
 import PreLoginNavbar from './PreLoginNavbar.jsx';
 import abc from '../../public/abc.jpeg';
 import clock from '../../public/clock.jpeg';
-import privacy from '../../public/privacy.jpg';
+import privacy from '../../public/privacy.jpeg';
 
   /**
  *  Input landing page body component with the navigation bar component of the landing/sign in/sign up pages
  */
 
-class LandingPage extends React.Component {
-	render() {
+const LandingPage = (props) => {
 		return ( 
 			<div className='LandingPage'>
-				<PreLoginNavbar />
 					<div className='wrapper'>	
 						<section id='showcase'>			
 						</section>
@@ -45,6 +43,5 @@ class LandingPage extends React.Component {
 			</div>
 		)
 	}
-}
 
 export default LandingPage;

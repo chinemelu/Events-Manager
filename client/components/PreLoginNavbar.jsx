@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FlashMessageList from './flashMessageList';
 import '../scss/Navbar.scss'
 
 /**
@@ -9,24 +10,26 @@ import '../scss/Navbar.scss'
 class PreLoginNavbar extends React.Component {
   render() {
     return(
-      <header>
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" id='navbar-override'>
-          <Link to="/" className="no-highlight navbar-brand">Events-Manager</Link>
-          <div className="collapse navbar-collapse" id="navbarText">
-            <div id='float'>
-              <span className="navbar-text">
-                <Link id='highlight' to='/login'>SIGN IN</Link>
-              </span>
-              <span className="navbar-text">
-                <Link className="no-highlight" to='#'>|</Link>
-              </span>
-              <span className="navbar-text">
-                <Link to='/users'>SIGN UP</Link>
-              </span>
+      <div id='PreLoginBody'>
+        <header>
+          <nav className="navbar navbar-toggleable-md navbar-light bg-faded" id='navbar-override'>
+            <Link to="/" className="no-highlight navbar-brand">Events-Manager</Link>
+            <div className="collapse navbar-collapse" id="navbarText">
+              <div id='float'>
+                <span className="navbar-text">
+                  <Link id='highlight' to='/login'>SIGN IN</Link>
+                </span>
+                <span className="navbar-text">
+                  <Link className="no-highlight" to='#'>|</Link>
+                </span>
+                <span className="navbar-text">
+                  <Link to='/users'>SIGN UP</Link>
+                </span>
+              </div>
             </div>
-          </div>
-        </nav>
-      </header>
+          </nav>
+        </header>
+      </div>
     )
   }
 }

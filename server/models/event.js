@@ -21,11 +21,23 @@ module.exports = (sequelize, DataTypes) => {
         isInt: true
       }
     },
-    eventtype: {
-      type: DataTypes.STRING,
+    eventTypeId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+      references: {
+        key: 'id',
+        model: 'EventSetUps'
+      }
     },
-    eventsetup: {
-      type: DataTypes.STRING,
+    eventSetUpId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+      references: {
+        key: 'id',
+        model: 'EventSetUps'
+      }
     },
     additionalcomments: {
       type: DataTypes.TEXT,
@@ -39,19 +51,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    startdatetime: {
+    startdate: {
       type: DataTypes.DATE,
       allowNull: false,
-      validate: {
-        isAfter: DataTypes.NOW
-      }
     },
-    enddatetime: {
+    enddate: {
       type: DataTypes.DATE,
       allowNull: false,
-      validate: {
-        isAfter: DataTypes.NOW
-      }
+    },
+    starttime: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    endtime: {
+      type: DataTypes.TIME,
+      allowNull: false,
     },
     userId: {
       type: DataTypes.UUID,
@@ -63,10 +77,15 @@ module.exports = (sequelize, DataTypes) => {
   Event.associate = (models) => {
     Event.belongsTo(models.User, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE'
     });
     Event.belongsTo(models.Center, {
       foreignKey: 'centerId'
+    });
+    Event.belongsTo(models.EventSetUp, {
+      foreignKey: 'eventSetUpId',
+    });
+    Event.belongsTo(models.EventType, {
+      foreignKey: 'eventTypeId'
     });
   };
   return Event;

@@ -19,21 +19,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      suitablefor: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      facilities: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       imageurl: {
         type: Sequelize.STRING
-      },
-      availability: {
-        type: Sequelize.ENUM,
-        values: ['available', 'not available'],
-        allowNull: false
       },
       userId: {
         allowNull: false,

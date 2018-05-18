@@ -5,15 +5,11 @@ import http from 'http';
 import expressValidator from 'express-validator';
 import bodyparser from 'body-parser';
 import logger from 'morgan';
-// import webpack from 'webpack';
-// import webpackMiddleware from 'webpack-dev-middleware';
-// import webpackConfig from '../webpack.dev.config';
 
 const dotenv = require('dotenv').config();
 
 const app = express();
-
-// app.use(webpackMiddleware(webpack(webpackConfig)));
+app.use(cors({ credentials: true, origin: true }));
 
 const isValidDate = (value) => {
   if ((!value)) {

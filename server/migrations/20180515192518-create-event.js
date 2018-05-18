@@ -19,10 +19,22 @@ module.exports = {
         allowNull: false
       },
       eventtype: {
-        type: Sequelize.STRING
+        type: Sequelize.UUID,
+        allowNull: false,
+        defaultValue: Sequelize.UUIDV4,
+        references: {
+          key: 'id',
+          model: 'EventTypes'
+        }
       },
-      eventsetup: {
-        type: Sequelize.STRING
+      eventSetupId: {
+        type: Sequelize.UUID,        
+        allowNull: false,
+        defaultValue: Sequelize.UUIDV4,
+        references: {
+          key: 'id',
+          model: 'EventSetUps'
+        }
       },
       additionalcomments: {
         type: Sequelize.TEXT
@@ -44,11 +56,11 @@ module.exports = {
         defaultValue: false
       },
       startdatetime: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       enddatetime: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       userId: {

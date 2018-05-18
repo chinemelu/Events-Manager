@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
 import db from '../models/index';
-
+import validation from '../validation/frontEndValidation';
+import loginValidator from '../validation/loginValidation';
+import checkForExistingData from '../validation/existingData';
 /**
  * @class userController
  */
@@ -12,29 +14,14 @@ class userController {
    * @returns  {JSON} Returns a JSON object
    */
   static signup(req, res) {
-    const {
-      username,
-      email,
-      password
-    } = req.body;
-
-    db.User.findOne({
-      where: {
-        [db.Sequelize.Op.or]: [{ username }, { email }]
-      }
-    })
-      .then((result) => {
-        if (result) {
-          if (result.username === username) {
-            res.status(409).json({
-              message: 'username already exists'
-            });
-          } else if (result.email === email) {
-            res.status(409).json({
-              message: 'email already exists'
-            });
-          }
-        } else {
+    checkForExistingData(req.body, validation)
+      .then(({ errors, isValid }) => {
+        if (isValid) {
+          const {
+            username,
+            email,
+            password
+          } = req.body;
           db.User.create({
             username,
             email,
@@ -61,9 +48,14 @@ class userController {
                 message: err.message || 'Internal Server Error'
               });
             });
+        } else if (errors.usernameExists || errors.emailExists) {
+          res.status(409).json(errors);
+        } else {
+          res.status(400).json(errors);
         }
       });
   }
+
   /**
  * @description user sign in
  * @param {*} req http request
@@ -71,38 +63,63 @@ class userController {
  * @returns {JSON} Returns a JSON object
 */
   static login(req, res) {
-    const {
-      username,
-      password
-    } = req.body;
+    const { errors, isValid } = loginValidator(req.body);
+    if (isValid) {
+      const {
+        username,
+        password
+      } = req.body;
 
-    db.User.getUsername(username, (user) => {
-      if (!user) {
-        res.status(401).json({ message: 'username or password is incorrect' });
-      } else {
-        db.User.prototype.verifyPassword(password, user.password, (isMatch) => {
-          if (isMatch) {
-            const payload = {
-              userId: user.id,
-              role: user.role
-            };
+      db.User.getUsername(username, (user) => {
+        if (!user) {
+          res.status(401).json({ errors: { form: 'username or password is incorrect' } });
+        } else {
+          db.User.prototype.verifyPassword(password, user.password, (isMatch) => {
+            if (isMatch) {
+              const payload = {
+                userId: user.id,
+                role: user.role
+              };
 
-            const token = jwt.sign(payload, process.env.SECRET_KEY, {
-              expiresIn: '200h'
-            });
+              const token = jwt.sign(payload, process.env.SECRET_KEY, {
+                expiresIn: '200h'
+              });
 
-            res.status(200).json({
-              message: 'Token generated. Sign in successful',
-              role: user.role,
-              success: true,
-              token
-            });
-          } else {
-            res.status(401).json({ message: 'username or password is incorrect' });
-          }
-        });
+              res.status(200).json({
+                message: 'Token generated. Sign in successful',
+                role: user.role,
+                success: true,
+                token
+              });
+            } else {
+              res.status(401).json({ errors: { form: 'username or password is incorrect' } });
+            }
+          });
+        }
+      });
+    } else {
+      res.status(400).json({ errors });
+    }
+  }
+
+  /**
+ * @description user existence validation
+ * @param {*} req http request
+ * @param {*} res http response
+ * @returns {JSON} Returns a JSON object
+*/
+  static checkUserExists(req, res) {
+    return db.User.findOne({
+      attributes: ['username', 'email'],
+      where: {
+        [db.Sequelize.Op.or]: [{ username: req.params.parameter }, { email: req.params.parameter }]
       }
-    });
+    })
+      .then((user) => {
+        if (user) {
+          res.json({ user });
+        } else res.json({ user: null });
+      });
   }
 }
 

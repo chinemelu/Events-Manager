@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate: (user) => {
-        return bcrypt.hash(user.password, 10)
+        return bcrypt.hash(user.password.trim(), 10)
           .then((hash) => {
             user.password = hash;
           })
@@ -45,9 +45,11 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = (models) => {
     User.hasMany(models.Event, {
       foreignKey: 'userId',
+      onDelete: 'CASCADE'
     });
     User.hasMany(models.Center, {
       foreignKey: 'userId',
+      onDelete: 'CASCADE'
     });
   };
 
@@ -66,7 +68,7 @@ module.exports = (sequelize, DataTypes) => {
         throw err;
       });
   };
-
+  
   User.prototype.verifyPassword = (password, hash, callback) => {
     bcrypt.compare(password, hash)
       .then((isMatch) => {

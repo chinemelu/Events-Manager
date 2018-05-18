@@ -1,22 +1,42 @@
-.signInBody{
-    background:  {
-      color: goldenrod;
-    }
-}
-
-.signin{
-    margin: {
-      top: 14%;
-      left: 32.5%;
-    }
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .container{
-  background-color: goldenrod;
-  width: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
-.btn {
+#signin{
+  display: table-cell; 
+  vertical-align: middle;
+  background: {
+    color: goldenrod;
+  }
+}
+
+#container-signInBody{
+  display: table;
+   margin: 0 auto;
+   background: {
+    color: goldenrod;
+  }
+  width: 100%;
+  height: 100%;
+}
+
+.signInBody{
+  background: {
+    color: goldenrod;
+  }
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+}
+
+.gold-btn {
     background: {
       color: goldenrod;
     }
@@ -24,9 +44,15 @@
     cursor: pointer;  
 }
 
-.signInBody form {
+#container-signInBody form {
     border: 1px solid goldenrod;
+    margin: {
+      top: 7.5%;
+      left: 30%;
+      bottom: 7.5%;
+    }
     padding: 5%;
+    width: 400px;
     background: {
       color: #ffffff
     }

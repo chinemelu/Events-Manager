@@ -3,9 +3,22 @@ body{
     padding: 0;
 }
 
-.container{
-  width: 100%;
-  padding: 0
+span{
+  font: {
+    size: 80%
+  }
+}
+
+.selectbox {
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.addeventpage {
+  background: {
+    color: #ffffff;
+  }
+  color: black
 }
 
 #override-navbar{
@@ -79,26 +92,20 @@ button {
   }
 }
 
-.camera-icon {
+.camera-icon-addevent {
     width: 110%;
     border: 1px solid black;
-    padding: 6% 12% 6% 12%;
+    padding: 5%;
     text: {
       align: center;
     }
     vertical-align: middle;
 }
 
-.camera-icon:hover{
+.camera-icon-addevent:hover{
   border: {
      color: goldenrod;
    }
-}
-
-#search{
-  background: {
-    color: goldenrod
-  }
 }
 
 #event-type{
@@ -115,6 +122,16 @@ button {
   margin: {
     bottom: 3%
   }
+}
+
+#name{
+  margin: {
+    bottom: 3%;
+  }
+}
+
+select{
+  border: 1px solid #ccc;
 }
 
 #number-of-attendees{
@@ -154,12 +171,6 @@ button {
   }
 }
 
-#description{
-  clear: both;
-  margin: {
-    bottom: 3%;
-  }
-}
 
 #select-centre{
   margin: {
@@ -180,10 +191,7 @@ button {
   }
 }
 
-#submit{
-  background: {
-    color: goldenrod;
-  }
+#submit-addevent{
   color: #ffffff;
   margin: {
     bottom: 8%;
@@ -196,14 +204,14 @@ button {
   }
 }
 
-.camera-section{
+.camera-section-addevent{
   margin: {
     right: 5%;
   }
 }
 
-.adjust{
+#adjust-addevent{
   margin: {
-    left: 8%;
+    left: 8.5%;
   }
 }

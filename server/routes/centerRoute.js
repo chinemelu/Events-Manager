@@ -10,12 +10,16 @@ import isInvalidIdValidator from '../validation/isInvalidId';
 const router = express.Router();
 
 router.post(
-  '/', createCenterValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isAdmin, centerController.addCenter
+  '/', authenticatetoken, centerController.addCenter
 );
+
+router.delete(
+  '/:id', authenticatetoken, 
+  centerController.deleteCenter
+);
+
 router.put(
-  '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isAdmin, createCenterValidator, getValidationResult, centerController.modifyCenterDetails
+  '/:id', authenticatetoken, centerController.modifyCenterDetails
 );
 router.get('/', centerController.getAllCenters);
 router.get('/:id', isInvalidIdValidator, getValidationResult, centerController.getOneCenter);
