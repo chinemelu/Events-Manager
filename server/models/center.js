@@ -18,21 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    suitablefor: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    facilities: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     imageurl: {
       type: DataTypes.STRING
-    },
-    availability: {
-      type: DataTypes.ENUM,
-      values: ['available', 'not available'],
-      allowNull: false,
     },
     userId: {
       type: DataTypes.UUID,
@@ -46,7 +33,27 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
     });
     Center.hasMany(models.Event, {
-      foreignKey: 'centerId'
+      foreignKey: 'centerId',
+    });
+    Center.belongsToMany(models.EventType, {
+      through: 'CenterEventType',
+      foreignKey: 'centerId',
+    });
+    Center.belongsToMany(models.Facility, {
+      through: {
+        model: 'FacilityCenter',
+        unique: false
+      },
+      foreignKey: 'centerId',
+      onDelete: 'cascade'
+    });
+    Center.belongsToMany(models.EventSetUp, {
+      through: {
+        model: 'EventSetUpCenter',
+        unique: false
+      },
+      foreignKey: 'centerId',
+      onDelete: 'cascade'
     });
   };
   return Center;

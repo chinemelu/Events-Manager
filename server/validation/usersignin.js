@@ -1,3 +1,4 @@
+
 const userSignInValidator = (req, res, next) => {
   req.checkBody('username', 'username and password required').notEmpty();
   req.checkBody('password', 'username and password required').notEmpty();

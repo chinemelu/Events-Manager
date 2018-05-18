@@ -20,7 +20,7 @@ An application that helps admin to manage its events centres, and users to manag
   ```
   .........
   ----------------------------------------------------------------------
-    27 passing
+    30 passing
   ```
 ## Deployment
 You can deploy this application by doing the following

@@ -4,63 +4,22 @@ $full-width: 100%;
 $white-colour: #ffffff;
 $black-colour: black;
 $cursor-type: pointer;
-$gold-colour: goldenrod;
 
-body{
-    margin: $zero-margin;
-    padding: $zero-padding;
-}
-
-#search{
+.centerdetails {
   background: {
-    color: $gold-colour;
+    color: #ffffff;
   }
+  color: black
 }
 
-.col-md-12{
-  padding: $zero-padding;
-}
 
-.container{
+.container-events-center-details{
   width: 80%;
   margin: {
     left: 10%
   }
 }
 
-#override-navbar{
-    margin: {
-      bottom: 2%;
-    }
-    background: {
-      color: $black-colour;
-    }
-  a {
-    color: $white-colour;
-  }
-}
-
-.dropdown-menu a{
-    color: $black-colour !important;
-}
-
-.navbar{
-    background: {
-      color: #dcdcdc;
-    }
-}
-
-nav ul {
-    width: 76%;
-}
-
-
-nav li {
-    margin: {
-      left: 3%;
-    }
-    width: 15%
-}
 
 button {
     cursor: $cursor-type;
@@ -69,6 +28,29 @@ button {
 .btn {
     cursor: $cursor-type;
 }
+
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #A9A9A9;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 #picture-carousel{
   img {
@@ -120,7 +102,7 @@ button {
       bottom: 1px solid #ccc;
     }
     font: {
-      size: 150%;
+      size: 80%;
     }
   }
 }
@@ -138,7 +120,7 @@ button {
     }
     margin: 0%;
     font: {
-      size: 150%;
+      size: 80%;
     }
   }
 }
@@ -149,19 +131,13 @@ button {
   }
 } 
 
-.main-heading{
-  font: {
-    size: 120%;
-  }
-}
-
 #signin-form{
   width: 30%;
   float: right;
 }
 
 .separator{
-  width: 70%;
+  width: 80%;
   float: left;
 }
 
@@ -177,25 +153,18 @@ button {
   }
 }
 
-#inspection-button{
-  color: $white-colour;
-    background: {
-      color: $gold-colour
-      }
-}
-
 .separator p{
   font: {
-    size: 120%;
+    size: 90%;
   }
 }
 
 .suitable-for{
   float: left;
   width: 40%;
-  h5{
+  h4{
     font: {
-      size: 150%;
+      size: 120%;
     }
     border: {
       bottom: 1px solid #ccc;
@@ -206,9 +175,9 @@ button {
 .facilities{
   float: right;
   width: 40%;
-  h5{
+  h4{
     font: {
-      size: 150%;
+      size: 120%;
     }
     border: {
       bottom: 1px solid #ccc;
@@ -280,18 +249,24 @@ button {
       }
       width: 19%
   }
+
+  #delete-center{
+    background:{
+      color: red;
+    }
+  }
   
   nav ul {
     width: 60%;
   }
-  h4, p{
+  h4 {
     font: {
       size: 100%;
     }
   }
   
   #description{
-    p, h5{
+     h5{
       font: {
         size: 100%;
       }
@@ -389,26 +364,42 @@ button {
   nav ul {
     width: 60%;
   }
-  h4, p{
+  h4 {
     font: {
       size: 90%;
     }
   }
   
+  .secondary-heading {
+    font: {
+      weight: 100;
+    }
+  }
+
   #description{
-    p, h5{
+     p{
       font: {
-        size: 90%;
+        size: 200%;
       }
     }
     h5{
        border: {
-      bottom: 1px solid #ccc;
-    }
+        bottom: 1px solid #ccc;
+      }
+      font: {
+        size: 90%;
+      }
     }
     margin: {
       bottom: 8%;
     }
+  }
+
+  .description-paragraph {
+    font: {
+      size: 500%;
+    }
+    color: pink;
   }
   
   .suitable-for,.facilities{
@@ -561,7 +552,7 @@ button {
     }
   }
   
-  .container{
+  .container-events-center-details{
     width: 100%;
 }
 
@@ -586,7 +577,7 @@ button {
       }
     }
   }
-  .container{
+  .container-events-center-details{
     width: 100%;
     padding: 0
    }

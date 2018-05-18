@@ -1,7 +1,7 @@
 import express from 'express';
 import getValidationResult from '../validation/getValidationResult';
 import centerController from '../controllers/centercontroller';
-import createCenterValidator from '../validation/createCenter';
+import createCenterValidator from '../validation/createcenter';
 import authenticatetoken from '../auth/authenticatetoken';
 import checkForInvalidUser from '../validation/checkForInvalidUser';
 import isAdmin from '../auth/isAdmin';
@@ -10,12 +10,16 @@ import isInvalidIdValidator from '../validation/isInvalidId';
 const router = express.Router();
 
 router.post(
-  '/', createCenterValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isAdmin, centerController.addCenter
+  '/', authenticatetoken, centerController.addCenter
 );
+
+router.delete(
+  '/:id', authenticatetoken, 
+  centerController.deleteCenter
+);
+
 router.put(
-  '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isAdmin, createCenterValidator, getValidationResult, centerController.modifyCenterDetails
+  '/:id', authenticatetoken, centerController.modifyCenterDetails
 );
 router.get('/', centerController.getAllCenters);
 router.get('/:id', isInvalidIdValidator, getValidationResult, centerController.getOneCenter);

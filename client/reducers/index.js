@@ -1,10 +1,20 @@
 import { combineReducers } from 'redux';
+import auth from './auth';
+import flashMessages from './flashMessages';
+import center from './centerReducer';
+import facility from './facilityReducer';
+import setup from './eventSetUpReducer';
+import eventTypes from './eventTypeReducer';
+import event from './eventReducer';
 
-import UserSignUpSuccess from './signUpSuccess';
-
-// Combines all reducers to a single reducer function
 const rootReducers = combineReducers({
-  UserSignUpSuccess
+  flashMessages,
+  auth,
+  center,
+  facility,
+  setup,
+  eventTypes,
+  event
 });
 
 export default rootReducers;
