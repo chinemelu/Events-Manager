@@ -150,7 +150,7 @@ class AddEventForm extends React.Component {
 								label="Event type *"
 								error = {errors.eventtype}
 								selectBoxOption={this.props.eventTypes}
-								selectedFieldOnEdit={this.state.eventTypeId}
+								selectedFieldIdOnEdit={this.state.eventTypeId}
               />
 
 							<SelectFieldGroup
