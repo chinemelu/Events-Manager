@@ -22,7 +22,7 @@ class AddEventsCenterPage extends React.Component {
   render() {
     const { postCenterRequest, editCenterRequest, history, isEditing, facilities, setups, center, isLoading } = this.props
 
-   if (!Array.isArray(this.props.facilities) || !Array.isArray(this.props.setups)) {
+   if (!Array.isArray(this.props.facilities) || !Array.isArray(this.props.setups) || this.props.isEditing && Object.keys(center).length === 0) {
       return <div className="loader"></div>
     } 
 

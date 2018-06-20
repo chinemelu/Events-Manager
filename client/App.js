@@ -19,6 +19,7 @@ import AfterLoginLayout from './components/AfterLoginLayout.jsx';
 import AppRoute from './components/AppRoute.jsx';
 import AddPropsToRoute from './components/AddPropsToRoute.jsx';
 import EventDetailsPage from './components/EventDetailsPage.js';
+import EventsListPage from './components/EventsListPage';
 
 const App = (props) => (
   <div>
@@ -34,20 +35,28 @@ const App = (props) => (
       <AppRoute path = '/404' layout={AfterLoginLayout} component = {PageNotFound}/>
       <AppRoute layout = {AfterLoginLayout} path='/:id/edit-center' component = {Authenticate(AddPropsToRoute(AddEventsCenterPage, editFormProps))}/>
       <AppRoute layout = {AfterLoginLayout} path='/:id/edit-event' component = {Authenticate(AddPropsToRoute(AddEventPage, editFormProps))} />
-
+      <AppRoute path='/upcoming-events' layout={AfterLoginLayout} component ={AddPropsToRoute(EventsListPage, notMyEvent)} />
+      <AppRoute path='/my-events' layout={AfterLoginLayout} component={Authenticate(AddPropsToRoute(EventsListPage, isMyEvent))}/>
       <AppRoute layout = {AfterLoginLayout} component = {PageNotFound}/>
     </Switch>
   </div>
 )
 
  const editFormProps = {
-  isEditing: true,
+  isEditing: true
 }
 
 const addFormProps = {
   isEditing: false
 }
 
+const isMyEvent = {
+  isMyEvent: true
+}
+
+const notMyEvent = {
+  isMyEvent: false
+}
 
 App.propTypes = {
   isEditing: propTypes.bool

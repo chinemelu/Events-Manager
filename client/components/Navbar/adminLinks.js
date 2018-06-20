@@ -17,7 +17,7 @@ const AdminLinks = (props) => (
         </Link>
       <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <Link className="dropdown-item" to='/add-events'>Add An Event</Link>
-        <Link className="dropdown-item" to='/events'>My events</Link>                    
+        <Link className="dropdown-item" to='/my-events'>My events</Link>                    
       </div>
       </li>
       <li className="nav-item dropdown">
@@ -29,7 +29,7 @@ const AdminLinks = (props) => (
         </div>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="../all-events/index.html">Upcoming Events</Link>
+        <Link className="nav-link" to='/upcoming-events'>Upcoming Events</Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link" to="#" onClick = { props.onClick }>Sign Out</Link>

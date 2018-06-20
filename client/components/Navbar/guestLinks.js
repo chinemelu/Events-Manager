@@ -13,7 +13,7 @@ const GuestLinks = (props) => (
         <Link className="nav-link" to="/centers">All Centres</Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/events">Upcoming Events</Link>
+        <Link className="nav-link" to="/upcoming-events">Upcoming Events</Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link" to='/login'>Sign In</Link>

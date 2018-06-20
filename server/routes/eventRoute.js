@@ -14,14 +14,16 @@ router.post(
   '/', authenticatetoken, doesCenterExist, eventController.addEvent
 );
 router.delete(
-  '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
+  '/:id', isInvalidIdValidator, authenticatetoken,
   eventController.deleteEvent
 );
 router.put(
-  '/:id', isInvalidIdValidator, getValidationResult, authenticatetoken, checkForInvalidUser,
-  isInvalidIdValidator, doesCenterExist, isDateValid, eventController.modifyEvent
+  '/:id', isInvalidIdValidator, authenticatetoken, eventController.modifyEvent
 );
 router.get('/:id', eventController.getOneEvent);
+
+router.get('/', eventController.getAllEvents);
+
 
 export default router;
 

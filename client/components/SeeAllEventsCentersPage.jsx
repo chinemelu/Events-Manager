@@ -33,8 +33,8 @@ class SeeAllEventsCenterPage extends React.Component {
 
     return (
       <div>
-      <div className="row" id="page-heading">
-        <h3>Our Events Centres</h3>
+      <div className="row">
+        <h3 id="page-heading">Our Events Centres</h3>
       </div>
       <div className="row centres">
         <div className="col-xs-12 col-lg-6">
