@@ -52,11 +52,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     startdate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     enddate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     starttime: {

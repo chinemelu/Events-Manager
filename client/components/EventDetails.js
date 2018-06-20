@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LinkButton from './LinkButton.jsx';
+import isMyEvent from '../utils/checkIsMyEvent';
 import '../scss/EventDetails.scss';
 
 class EventDetails extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
     this.onDelete = this.onDelete.bind(this);
   }
 
   onDelete() {
-    this.deleteEventRequest(this.props.event.id)
+    this.props.deleteEventRequest(this.props.event.id, () => this.props.history.replace('/upcoming-events'))
   }
 
   render() {      
@@ -107,11 +106,11 @@ class EventDetails extends React.Component {
           </div>
         </div> 
 
-        { this.props.isMyEvent && <LinkButton to ={`/${this.props.event.id}/edit-event`} className="btn btn-primary">
+        { isMyEvent(this.props.event.userId) && <LinkButton to ={`/${this.props.event.id}/edit-event`} className="btn btn-primary">
         Edit 
         </LinkButton> 
       }
-      { this.props.isMyEvent && <button className='btn btn-danger button-separation' id= 'delete-center' onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) this.onDelete() } } >
+      { isMyEvent(this.props.event.userId) && <button className='btn btn-danger button-separation' id= 'delete-center' onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) this.onDelete() } } >
         Delete
         </button>   
       }

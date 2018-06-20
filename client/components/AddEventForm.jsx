@@ -5,18 +5,19 @@ import SelectFieldGroup from './SelectFieldGroup.js';
 import TextFieldGroup from './TextFieldGroup.jsx';
 import TextAreaGroup from './TextAreaGroup.js';
 import InlineRadio from './InlineRadio.js';
+
 /**
  *  Input form component for Adding an Event
  */
+
 class AddEventForm extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			title: this.props.isEditing ? this.props.event.title : '',
-			centerId: this.props.isEditing ? this.props.event.centerId : 'Please select',
-			eventTypeId: this.props.isEditing ? this.props.event.eventTypeId : 'Please select',
-			eventSetUpId: this.props.isEditing ? this.props.event.eventSetUpId : 'Please select',
-			description: '',
+			title:  '',
+			centerId: '',
+			eventTypeId: '',
+			eventSetUpId: '',
 			numberofattendees: '',
 			additionalcomments: '',
 			startdate: '',
@@ -25,12 +26,12 @@ class AddEventForm extends React.Component {
 			endtime: '',
 			errors: {},
 			isLoading: false,
-			isPrivate: false
+			isPrivate: false,
 		}
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit= this.onSubmit.bind(this);
 		this.onDropdownSelected = this.onDropdownSelected.bind(this);
-		this.handleRadioButtonChange = this.handleRadioButtonChange.bind(this);
+		this.handleRadioButtonChange = this.handleRadioButtonChange.bind(this);		
 		this.formatDate = this.formatDate.bind(this);
 	}
 
@@ -50,23 +51,25 @@ class AddEventForm extends React.Component {
     return [year, month, day].join('-');
 }
 
-	componentWillReceiveProps(nextProps) {
-		 if (nextProps !== this.props && Object.keys(nextProps.event).length > 0) {
+	componentDidMount() {
+		 if (this.props.isEditing && Object.keys(this.props.event).length > 0) {			
       this.setState({
-				title: nextProps.event.title,
-				centerId: nextProps.event.centerId,
-				eventTypeId: nextProps.event.eventTypeId,
-				eventSetUpId: nextProps.event.eventSetUpId,
-				description: nextProps.event.description,
-				numberofattendees: nextProps.event.numberofattendees,
-				additionalcomments: nextProps.event.additionalcomments,
-				startdate: this.formatDate(nextProps.event.startdate),
-				enddate: this.formatDate(nextProps.event.enddate),
-				starttime: nextProps.event.starttime.slice(0, 5),
-				endtime: nextProps.event.endtime.slice(0, 5),
-				isPrivate: nextProps.event.isPrivate
-      })
-		}
+				title: this.props.event.title,
+				centerId: this.props.event.centerId,
+				eventTypeId: this.props.event.eventTypeId,
+				eventSetUpId: this.props.event.eventSetUpId,
+				description: this.props.event.description,
+				numberofattendees: this.props.event.numberofattendees,
+				additionalcomments: this.props.event.additionalcomments,
+				startdate: this.formatDate(this.props.event.startdate),
+				enddate: this.formatDate(this.props.event.enddate),
+				starttime: this.props.event.starttime.slice(0, 5),
+				endtime: this.props.event.endtime.slice(0, 5),
+				isPrivate: this.props.event.isPrivate,
+			})
+		} else {
+				return <div className="loader"></div>
+			}
   }
 
 
@@ -84,14 +87,18 @@ class AddEventForm extends React.Component {
 	onSubmit(e) {
 		e.preventDefault();
 		// if (this.isValid()) {
-			this.props.postEventRequest(this.state, () => this.props.history.push(`/events/${this.props.event.id}`))
+			if (!this.props.isEditing) {
+				this.props.postEventRequest(this.state, () => this.props.history.push(`/events/${this.props.event.id}`))
+			} else {
+				this.props.editEventRequest(this.state, this.props.event.id,  () => this.props.history.push(`/events/${this.props.event.id}`))
+			}
 		// } else{
 			// console.log("Invalid")
 		// }
 	}
 
 	onDropdownSelected(e){
-		this.setState({ [e.target.name]: e.target.value })
+			this.setState({ [e.target.name]: e.target.value })
 	}
 
 	createSelectItems() {
@@ -102,12 +109,19 @@ class AddEventForm extends React.Component {
 	}
 
 	handleRadioButtonChange(e) {
-		this.setState({ isPrivate: e.target.value })
-		console.log(this.state.isPrivate)
+		this.setState({ isPrivate: e.target.value === "private" })
+	
 	}
 
-	render() {
+
+	render() {		
 		const { errors } = this.state
+		const { isEditing } = this.props
+
+		if (!Array.isArray(this.props.centers.allCenters)) {
+      return <div className='loader'></div>
+		}
+		
 		return ( 
 			<div className="container-addevent">
 				<section id="heading">
@@ -122,6 +136,7 @@ class AddEventForm extends React.Component {
 					</div>
 					<section className="col-xs-12 col-lg-9.6">
 						<form onSubmit={this.onSubmit}>
+						
 						  <TextFieldGroup
 							id="name"
 							label="Event name *"
@@ -144,22 +159,23 @@ class AddEventForm extends React.Component {
 							/>
 
 							<SelectFieldGroup
-								id="event-type"
-								field="eventTypeId"
-								onChange = {this.onDropdownSelected}	
-								label="Event type *"
-								error = {errors.eventtype}
-								selectBoxOption={this.props.eventTypes}
-								selectedFieldIdOnEdit={this.state.eventTypeId}
+							id="event-type"
+							field="eventTypeId"
+							onChange = {this.onDropdownSelected}	
+							label="Event type *"
+							error = {errors.eventtype}
+							selectBoxOption={this.props.eventTypes}
+							selected={this.state.eventTypeId}
               />
 
 							<SelectFieldGroup
-								id="event-setup"
-								field="eventSetUpId"
-								label="Event set-up"
-								// error={errors.eventsetup}
-								onChange={this.onDropdownSelected}
-								selectBoxOption={this.props.eventSetups}
+							id="event-setup"
+							field="eventSetUpId"
+							label="Event set-up"
+							// error={errors.eventsetup}
+							onChange={this.onDropdownSelected}
+							selectBoxOption={this.props.eventSetups}
+							selected={this.state.eventSetUpId}
               />
 							
 							<TextFieldGroup
@@ -192,7 +208,7 @@ class AddEventForm extends React.Component {
 							value={this.state.enddate}
 							onChange={this.onChange}
 							// onBlur={this.onBlur}
-							placeholder="DD/MM/YYYY"							
+							// placeholder="DD/MM/YYYY"							
 							error={errors.enddate}
 							/>
 						
@@ -233,26 +249,35 @@ class AddEventForm extends React.Component {
 							/>
 
               <SelectFieldGroup
-								id="select-centre"
-								selectedStateValue={this.state.selectcenter}
-								label="Select a centre *"
-								field="centerId"
-								error = {errors.selectcenter}
-								onChange = {this.onDropdownSelected}
-								selectBoxOption={this.props.centers.allCenters}								
+							id="select-centre"
+							selectedStateValue={this.state.selectcenter}
+							label="Select a centre *"
+							field="centerId"
+							error = {errors.selectcenter}
+							onChange = {this.onDropdownSelected}
+							selectBoxOption={this.props.centers.allCenters}	
+							selected={this.state.centerId}	
               />
 
 							<InlineRadio
 							label="Private Event"
-							value={true}
-							onClick={this.handleRadioButtonChange}
-							/>
-
-              <InlineRadio
+							type="radio" 
+							name="inlineRadioOptions1" 
+							id="inlineRadio1" 
+							value="private"
+							isChecked={this.state.isPrivate}
+							onChange={this.handleRadioButtonChange}									
+							/> 
+					
+							<InlineRadio
 							label="Public Event"
-							value={false} 
-							onClick={this.handleRadioButtonChange}
-							/>
+							type="radio" 
+							field="inlineRadioOptions2" 
+							id="inlineRadio2" 
+							value="public"
+							isChecked={!this.state.isPrivate}
+							onChange={this.handleRadioButtonChange}									
+							/> 
 
 							<br/><br/>
 							<small>(* This field is required)</small> <br/><br/>

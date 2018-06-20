@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getEventRequest } from '../actions/eventAction';
+import propTypes from 'prop-types';
+import { getEventRequest, deleteEventRequest } from '../actions/eventAction';
 import EventDetails from './EventDetails'
 
 class EventDetailsPage extends React.Component{
@@ -8,7 +9,7 @@ class EventDetailsPage extends React.Component{
     this.props.getEventRequest(this.props.match.params.id)
   }
   render(){
-    const { getEventRequest, history, event, eventCenter, isLoading, isAdminAuthenticated, isMyEvent } = this.props;
+    const { getEventRequest, history, event, eventCenter, isLoading, isAdminAuthenticated, isMyEvent, deleteEventRequest, isEditing } = this.props;
     return(
       <EventDetails
       getEventRequest= { getEventRequest }
@@ -17,7 +18,8 @@ class EventDetailsPage extends React.Component{
       eventCenter = { eventCenter }
       isLoading = { isLoading }
       isAdminAuthenticated = { isAdminAuthenticated }
-      isMyEvent = { isMyEvent }
+      deleteEventRequest = {deleteEventRequest}
+      isEditing = { isEditing }
       />
     )
   }
@@ -29,9 +31,17 @@ const mapStateToProps = (state) => {
     eventCenter: state.event.currentEvent.Center,
     isLoading: state.event.isLoading,
     isAdminAuthenticated: state.auth.isAdminAuthenticated,
-    isMyEvent: state.event.isMyEvent
   }
 }
 
-export default connect(mapStateToProps, { getEventRequest })(EventDetailsPage)
+EventDetailsPage.propTypes = {
+  deleteEventRequest: propTypes.func.isRequired,
+  getEventRequest: propTypes.func.isRequired,
+  events: propTypes.object,
+  eventCenter: propTypes.object,
+  isLoading: propTypes.bool.isRequired,
+  isAdminAuthenticated: propTypes.bool.isRequired
+}
+
+export default connect(mapStateToProps, { getEventRequest, deleteEventRequest })(EventDetailsPage)
 

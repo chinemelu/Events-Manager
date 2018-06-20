@@ -13,9 +13,9 @@ class AddEventsCenterForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: this.props.isEditing ? this.props.center.name : '',
-      location: this.props.isEditing ? this.props.center.location : '',
-      description: this.props.isEditing ? this.props.center.description : '',
+      name: '',
+      location: '',
+      description: '',
       facilityIds:  [],
       eventSetupIds:  [],
       onUpdateFacilityIds: new Set(),
@@ -55,32 +55,34 @@ class AddEventsCenterForm extends React.Component {
     this.setState({ [e.target.name] : e.target.value })
   }
 
-  componentWillReceiveProps(nextProps){
-    console.log("nextprops", nextProps)
-      if (nextProps.center !== this.props.center && 
-        Array.isArray(nextProps.center.Facilities) && Array.isArray(nextProps.center.EventSetUps) && nextProps.center.Facilities.length && nextProps.center.EventSetUps.length) {
+  componentDidMount() {
+       if (Array.isArray(this.props.center.Facilities) && Array.isArray(this.props.center.EventSetUps) && this.props.center.Facilities.length 
+        && this.props.center.EventSetUps.length && Object.keys(this.props.center).length > 0) {
       this.setState({  
-        name: nextProps.center.name,
-        location: nextProps.center.location,
-        description: nextProps.center.description,
-        facilityIds: nextProps.center.Facilities.map(facility => facility.id),
-        eventSetupIds: nextProps.center.EventSetUps.map(eventSetUp => eventSetUp.id),
-        onUpdateFacilityIds: new Set(nextProps.center.Facilities.map(facility => facility.id)),
-        onUpdateEventSetupIds: new Set(nextProps.center.EventSetUps.map(eventSetupId => eventSetupId.id)),  
+        name: this.props.center.name,
+        location: this.props.center.location,
+        description: this.props.center.description,
+        facilityIds: this.props.center.Facilities.map(facility => facility.id),
+        eventSetupIds: this.props.center.EventSetUps.map(eventSetUp => eventSetUp.id),
+        onUpdateFacilityIds: new Set(this.props.center.Facilities.map(facility => facility.id)),
+        onUpdateEventSetupIds: new Set(this.props.center.EventSetUps.map(eventSetupId => eventSetupId.id)),  
       })
     } else {
       return <div className="loader"></div>
-    }
-    
+    }  
   }
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.isEditing ? 
-    this.props.editCenterRequest(this.state, this.props.center.id,  
-      () => this.props.history.replace(`/centers/${this.props.center.id}`)) :
-    this.props.postCenterRequest(this.state, 
-      () => this.props.history.replace(`/centers/${this.props.center.centerId}`))
+    
+    if (this.props.isEditing) {
+      return this.props.editCenterRequest(this.state, this.props.center.id,  
+        () => this.props.history.replace(`/centers/${this.props.center.id}`)) 
+    }
+    else {
+      return this.props.postCenterRequest(this.state, 
+        () => this.props.history.replace(`/centers/${this.props.center.centerId}`))
+    }
   }
 
   updateFacility(e) {    

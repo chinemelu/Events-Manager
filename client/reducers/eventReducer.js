@@ -1,47 +1,54 @@
-import jwt from 'jsonwebtoken';
-import { CREATE_EVENT, GET_EVENT, DELETE_EVENT } from '../actionTypes';
+import { CREATE_EVENT, GET_EVENT, DELETE_EVENT, LOAD_ALL_EVENTS, LOAD_ALL_USER_GUEST_EVENTS, EDIT_EVENT, GET_MY_EVENTS } from '../actionTypes';
 
-// if (isempty(token)) {
-//    return {
-
-//    }
-// }
 const initialState = {
   currentEvent: {},
   allEvents: [],
-  isPrivate: false,
-  eventHasPassed: false,
-  isMyEvent: false,
-  isLoading: true
+  isLoading: false
 };
 
 export default (state = initialState, action = {}) => {
-  const isMyEvent = () => {
-    const token = JSON.stringify(localStorage.getItem('jwtToken'))
-    const decodedToken = jwt.decode(JSON.parse(token));
-    if (decodedToken === null) {
-      return false;
-    }
-    return action.event.userId === decodedToken.userId;
-  };
-
   switch (action.type) {
     case CREATE_EVENT:
       return {
         ...state,
         currentEvent: action.event,
+        isLoading: action.isLoading,
       };
     case GET_EVENT:
       return {
         ...state,
         currentEvent: action.event,
-        isMyEvent: isMyEvent(),
         isLoading: action.isLoading
+      };
+    case EDIT_EVENT:
+      return {
+        ...state,
+        currentEvent: action.event,
+        isLoading: action.isLoading
+      };
+    case LOAD_ALL_EVENTS:
+      return {
+        ...state,
+        currentEvent: [],
+        allEvents: action.events,
+        isLoading: action.isLoading,
+      };
+    case GET_MY_EVENTS:
+      return {
+        ...state,
+        allEvents: action.events,
+      };
+    case LOAD_ALL_USER_GUEST_EVENTS:
+      return {
+        ...state,
+        currentEvent: [],
+        allEvents: action.events,
+        isLoading: action.isLoading,
       };
     case DELETE_EVENT:
       return {
         ...state,
-        allCenters: state.allEvents.filter(event => event.id !== action.eventId),
+        allEvents: state.allEvents.filter(event => event.id !== action.eventId),
         isLoading: action.isLoading,
       };
     default: return state;

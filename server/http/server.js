@@ -5,7 +5,9 @@ import centerRoutes from '../routes/centerRoute';
 import eventRoutes from '../routes/eventRoute';
 import facilityRoutes from '../routes/facilityRoute';
 import eventsetupRoutes from '../routes/eventSetUpRoute';
-import eventTypeRoutes from '../routes/eventTypeRoute'
+import eventTypeRoutes from '../routes/eventTypeRoute';
+import userGuestEventRoutes from '../routes/userGuestEventRoute';
+import myEventRoutes from '../routes/myEventRoute';
 
 app.all('*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,7 +22,8 @@ app.use('/api/v1/events', eventRoutes);
 app.use('/api/v1/facilities', facilityRoutes);
 app.use('/api/v1/setups', eventsetupRoutes);
 app.use('/api/v1/eventTypes', eventTypeRoutes);
-
+app.use('/api/v1/userguestevents', userGuestEventRoutes);
+app.use('/api/v1/myevents', myEventRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

@@ -1,3 +1,5 @@
+import moment from 'moment';
+import Promise from 'bluebird';
 import db from '../models/index';
 
 /**
@@ -202,6 +204,138 @@ class eventcontroller {
             });
           }
         }))
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
+      });
+  }
+
+  /**
+  * @description get all events
+  * @param {*} req Http request
+  * @param {*} res http response
+  * @returns {JSON} returns a JSON object
+  */
+  static getAllEvents(req, res) {
+    // const now = new Date();
+    // const dateOfToday = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    // const dateOfToday = new Date();
+    const dateOfToday = new Date();
+    const timeOfToday = moment().format('HH:mm:ss');
+
+    // console.log(timeOfToday);
+
+    const daysEqualToToday = db.Event.findAll({
+      where: {
+        startdate: { $eq: dateOfToday },
+      },
+      include: [{
+        model: db.Center,
+        attributes: ['id', 'name', 'location']
+      }],
+      order: [
+        ['startdate', 'ASC'],
+        ['starttime', 'ASC']
+      ]
+    })
+      .then(events =>
+        events.filter(event => event.starttime > timeOfToday));
+
+
+    const daysGreaterThanToday = db.Event.findAll({
+      where: {
+        startdate: { $gt: dateOfToday },
+      },
+      include: [{
+        model: db.Center,
+        attributes: ['id', 'name', 'location']
+      }],
+      order: [
+        ['startdate', 'ASC'],
+        ['starttime', 'ASC']
+      ]
+    });
+
+
+    Promise
+      .all([daysEqualToToday, daysGreaterThanToday])
+      .then((results) => {
+        const combinedResult = [].concat(...results);
+        res.status(200).json({
+          success: 'ok',
+          data: combinedResult
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
+      });
+  }
+
+  /**
+  * @description get all user and guest upcoming events
+  * @param {*} req Http request
+  * @param {*} res http response
+  * @returns {JSON} returns a JSON object
+  */
+  static getAllUserGuestEvents(req, res) {
+    db.Event.findAll({
+      where: {
+        [db.Sequelize.Op.and]: [{ isPrivate: false },
+          { enddate: { $gte: new Date().toLocaleDateString('en-GB') } },
+          { starttime: { $gt: new Date().toLocaleTimeString('en-GB') } }
+        ]
+      },
+      include: [{
+        model: db.Center,
+        attributes: ['id', 'name', 'location']
+      }],
+      order: [
+        ['startdate', 'ASC'],
+        ['starttime', 'ASC']
+      ]
+    })
+      .then((events) => {
+        res.status(200).json({
+          success: 'ok',
+          data: events
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: err.message || 'Internal server error',
+        });
+      });
+  }
+
+  /**
+  * @description get a user's specific events
+  * @param {*} req Http request
+  * @param {*} res http response
+  * @returns {JSON} returns a JSON object
+  */
+  static getMyEvents(req, res) {
+    db.Event.findAll({
+      where: {
+        userId: req.decoded.userId
+      },
+      include: [{
+        model: db.Center,
+        attributes: ['id', 'name', 'location']
+      }],
+      order: [
+        ['startdate', 'ASC'],
+        ['starttime', 'ASC']
+      ]
+    })
+      .then((events) => {
+        res.status(200).json({
+          success: 'ok',
+          data: events
+        });
+      })
       .catch((err) => {
         res.status(500).json({
           message: err.message || 'Internal server error',
